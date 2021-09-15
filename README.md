@@ -1,2 +1,4 @@
 # HUS
-The repo for Schneider Electric app
+The repository for Schneider Electric app
+
+Made by 5 students of Hogeschool Utrecht
