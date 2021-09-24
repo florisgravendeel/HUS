@@ -9,7 +9,10 @@ RUN pip install -r requirements.txt
 
 COPY ./backend ./backend
 
+EXPOSE 8000
+
 CMD ["python", "./backend/main.py"]
+
 
 #ADD backend/main.py .
 
