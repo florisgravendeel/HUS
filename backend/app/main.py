@@ -20,9 +20,9 @@ def read_item(item_id: int, q: Optional[str] = None):
     return {"item_id": item_id, "q": q}
 
 
-#if __name__ == "__main__":
+if __name__ == "__main__":
 #    asyncio.run(test())
-    #uvicorn.run(app, port=8000, host="0.0.0.0")
+    uvicorn.run(app, port=8000, host="0.0.0.0")
 
 async def spookymode():
     print("hi!")
@@ -39,7 +39,6 @@ async def spookymode():
     else:
         await light.set_on()
     await xknx.stop()
-
     await spookymode()
 
-asyncio.run(spookymode())
+#asyncio.run(spookymode())
