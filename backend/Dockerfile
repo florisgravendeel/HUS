@@ -1,20 +1,20 @@
 # Dockerfile, Image, Container
 FROM python:3.9
 
-WORKDIR /hus-backend
+WORKDIR /hus
 
-COPY /backend/requirements.txt .
+COPY /app/requirements.txt .
 
 RUN pip install -r requirements.txt
 
-COPY ./backend ./backend
+COPY app ./app
 
 EXPOSE 8000
 
-CMD ["python", "./backend/main.py"]
+CMD ["python", "./app/main.py"]
 
 
-#ADD backend/main.py .
+#ADD app/main.py .
 
 #RUN pip install fastapi uvicorn
 
