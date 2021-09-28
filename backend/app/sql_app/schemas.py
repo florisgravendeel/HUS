@@ -44,7 +44,7 @@ class ReportCreate(ReportBase):
     company_id: int
 
 class Report(ReportBase):
-    notes = List[Note] = [] # [Note]
+    notes: List[Note] = [] # [Note]
 
     class Config:
         orm_mode = True
