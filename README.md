@@ -1,6 +1,6 @@
-<img src="./images/logo.sample.png" alt="Logo of the project" align="right">
+<img src="./frontend/app/images/se-logo.png" alt="Logo of the project" align="right">
 
-# HUS &middot; [![Build Status](https://img.shields.io/travis/npm/npm/latest.svg?style=flat-square)](https://travis-ci.org/npm/npm) [![npm](https://img.shields.io/npm/v/npm.svg?style=flat-square)](https://www.npmjs.com/package/npm) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/your/your-project/blob/master/LICENSE)
+# HUS &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/your/your-project/blob/master/LICENSE)
 > HUS is abbreviation which stands for the collaboration between Hogeschool Utrecht and Schneider Electric
 
 This application is mainly used for monitoring sensordata which is used by the [Logic Controller (Wiser for KNX).](https://www.se.com/nl/nl/product/LSS100100/wiser-for-knx---homelynk-logic-controller/)
@@ -13,7 +13,7 @@ A quick introduction of what you need to do in order to get the server up &
 running.
 
 ```shell
-clone this project
+clone https://github.com/florisgravendeel/HUS
 cd backend / frontend
 docker build -t [name] .
 ```
