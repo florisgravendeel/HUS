@@ -13,7 +13,7 @@ A quick introduction of what you need to do in order to get the server up &
 running.
 
 ```shell
-clone https://github.com/florisgravendeel/HUS
+clone https://github.com/florisgravendeel/HUS.git
 cd backend / frontend
 docker build -t [name] .
 ```
