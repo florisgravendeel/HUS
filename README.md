@@ -40,26 +40,26 @@ What is needed to set up the dev environment. For instance, global dependencies 
 
 ### Directory Layout
 ```
-C:
+.
 │ 
-├───backend # everything that has to do with the backend is in this folder
+├───backend                  # Everything that has to do with the backend is in this folder
 │   ├───app
-│   └───Dockerfile # use this Dockerfile to build the backend-image for Docker
-│       ├───libary  # Python subpackage containing all the required libraries
-│       ├───routers # Python subpackage for routing internet traffic
-│       ├───sql_app # Python subpackage for everything that belongs to the database 
-│       ├───main.py # The main function is executed in this class
-│       └───requirements.txt # contains a list all the packages needed by the backend 
+│   └───Dockerfile           # Use this Dockerfile to build the backend-image for Docker
+│       ├───libary           # Python subpackage containing all the required libraries
+│       ├───routers          # Python subpackage for routing internet traffic
+│       ├───sql_app          # Python subpackage for everything that belongs to the database 
+│       ├───main.py          # The main function is executed in this class
+│       └───requirements.txt # Contains a list all the packages needed by the backend 
 │ 
-├───frontend # everything that has to do with the frontend is in this folder
+├───frontend                 # everything that has to do with the frontend is in this folder
 │   ├───app
-│   ├───Dockerfile # use this Dockerfile to build the frontend-image for Docker
-│   ├───__init__.py # The main function is executed in this file
-│   └───requirements.txt # contains a list all the packages needed by the backend 
-│       ├───libary  # Python subpackage containing all the required libraries
-│       ├───routers # Python subpackage for routing internet traffic
-│       └───sql_app # Python subpackage for everything that belongs to the database 
-└───venv # This folder is invisible and it's used by the Python Interpreter. 
+│   ├───Dockerfile           # Use this Dockerfile to build the frontend-image for Docker
+│   ├───__init__.py          # The main function is executed in this file
+│   └───requirements.txt     # contains a list all the packages needed by the backend 
+│       ├───libary           # Python subpackage containing all the required libraries
+│       ├───routers          # Python subpackage for routing internet traffic
+│       └───sql_app          # Python subpackage for everything that belongs to the database 
+└───venv                     # This folder is invisible and it's used by the Python Interpreter. 
 ```
 ### Setting up Dev
 
