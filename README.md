@@ -12,23 +12,33 @@ It's made by 5 students of Hogeschool Utrecht.
 A quick introduction of what you need to do in order to get the server up &
 running.
 
+Step 1. Copy the project.
 ```shell
 clone https://github.com/florisgravendeel/HUS.git
-cd backend / frontend
+```
+Step 2. Change directory into backend or frontend
+```shell
+cd backend OR cd frontend
+```
+Step 3. Create an image with Docker  [(click here if you don't have Docker installed)](https://docs.docker.com/get-docker/)
+```shell
 docker build -t [name] .
 ```
-
-The code above creates a copy of the application and builds an image.
-Here you should say what actually happens when you execute the code above.
+Step 4. Open Docker Desktop and run the application.
 
 ## Developing
 
 ### Built With
-List main libraries, frameworks used including versions (React, Angular etc...)
+* FastAPI
+* Uvicorn
+* SQLAlchemy
+* Vue
+* Docker
 
 ### Prerequisites
 What is needed to set up the dev environment. For instance, global dependencies or any other tools. include download links.
 
+### Directory Layout
 ```
 C:
 │ 
