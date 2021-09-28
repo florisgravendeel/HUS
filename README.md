@@ -7,6 +7,13 @@ This application is mainly used for monitoring sensordata which is used by the [
 
 It's made by 5 students of Hogeschool Utrecht.
 
+#### Built with:
+* FastAPI
+* Uvicorn
+* SQLAlchemy
+* Vue
+* Docker
+
 ## Installing / Getting started
 
 A quick introduction of what you need to do in order to get the server up &
@@ -26,17 +33,13 @@ docker build -t [name] .
 ```
 Step 4. Open Docker Desktop and run the application.
 
-## Developing
+## API Reference
 
-### Built With
-* FastAPI
-* Uvicorn
-* SQLAlchemy
-* Vue
-* Docker
+To check out [live examples](https://www.youtube.com/watch?v=wpV-gGA4PSk) and docs, visit [our website](https://www.youtube.com/watch?v=wpV-gGA4PSk).
 
-### Prerequisites
-What is needed to set up the dev environment. For instance, global dependencies or any other tools. include download links.
+## Database
+
+We currently use PostgreSQL. 
 
 ### Directory Layout
 ```
@@ -61,76 +64,20 @@ What is needed to set up the dev environment. For instance, global dependencies 
 │       └───sql_app          # Python subpackage for everything that belongs to the database 
 └───venv                     # This folder is invisible and it's used by the Python Interpreter. 
 ```
-### Setting up Dev
 
-Here's a brief intro about what a developer must do in order to start developing
-the project further:
-
-```shell
-git clone https://github.com/your/your-project.git
-cd your-project/
-packagemanager install
-```
-
-And state what happens step-by-step. If there is any virtual environment, local server or database feeder needed, explain here.
-
-### Building
-
-If your project needs some additional steps for the developer to build the
-project after some code changes, state them here. for example:
-
-```shell
-./configure
-make
-make install
-```
-
-Here again you should state what actually happens when the code above gets
-executed.
-
-### Deploying / Publishing
-give instructions on how to build and release a new version
-In case there's some step you have to take that publishes this project to a
-server, this is the right time to state it.
-
-```shell
-packagemanager deploy your-project -s server.com -u username -p password
-```
-
-And again you'd need to tell what the previous code actually does.
-
-## Versioning
-
-We can maybe use [SemVer](http://semver.org/) for versioning. For the versions available, see the [link to tags on this repository](/tags).
-
-
-## Configuration
-
-Here you should write what are all of the configurations a user can enter when using the project.
-
-## Tests
-
-Describe and show how to run the tests with code examples.
-Explain what these tests test and why.
-
-```shell
-Give an example
-```
+This is our directory layout, nothing special about. Make sure, you add the right files to the right folder.
+- [ ] Diego navragen om de nieuwe mappen opnieuw op te noemen
 
 ## Style guide
 
-Explain your code style and show how to check it.
+- [x] uitzoeken welke style wij willen gaan gebruiken? 
+- [ ] dat verdomde document terugvinden
+- [ ] naming conventions toevoegen
+- [ ] expain the code style
+- [ ] how to check it
 
-## Api Reference
+## License
 
-If the api is external, link to api documentation. If not describe your api including authentication methods as well as explaining all the endpoints with their required parameters.
+[MIT](https://opensource.org/licenses/MIT)
 
-
-## Database
-
-Explaining what database (and version) has been used. Provide download links.
-Documents your database design and schemas, relations etc... 
-
-## Licensing
-
-State what the license is and how to find the text version of the license.
+Copyright (c) 2021 by Floris, Tijmen, Seger, Sven and Diego
