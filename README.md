@@ -91,12 +91,20 @@ We currently use PostgreSQL.
 This is our directory layout, nothing special about. Make sure, you add the right files to the right folder.
 
 ## Style guide
+> Any fool can write code that a computer can understand. Good programmers write code that humans can understand. 
+>
+>  *-* Martin Fowler
 
-- [x] uitzoeken welke style wij willen gaan gebruiken? 
-- [ ] dat verdomde document terugvinden
-- [ ] naming conventions toevoegen
-- [ ] expain the code style
-- [ ] how to check it
+Readability is important, so for this project we follow the [PEP8 guidelines](https://www.python.org/dev/peps/pep-0008/).
+
+| Type  | Name | 
+| --------  | ------------------- | 
+| Packages | ``` lowercase ```      | 
+| Modules | ``` lowercase ``` |
+| Classes | ``` PascalCase ``` |
+| Variables | ``` camelCase ``` |
+| Functions | ``` camelCase ``` |
+| Method Names | ``` camelCase ``` |
 
 ## License
 
