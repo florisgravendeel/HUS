@@ -1,0 +1,11 @@
+# Copyright Hogeschool Utrecht | Schneider Electric
+#
+# To update this file run the command below:
+# pip3 freeze > requirements.txt
+#
+# To install the recommed packages run:
+# pip3 install -r requirements.txt
+#
+fastapi==0.68.1
+uvicorn==0.15.0
+xknx==0.18.9
