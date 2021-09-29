@@ -1,4 +1,4 @@
-<img src="./frontend/app/images/se-logo.png" alt="Logo of the project" align="right">
+<img src="./frontend/static/images/se-logo.png" alt="Logo of the project" align="right">
 
 # HUS &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/your/your-project/blob/master/LICENSE)
 > HUS is abbreviation which stands for the collaboration between Hogeschool Utrecht and Schneider Electric
@@ -44,29 +44,51 @@ We currently use PostgreSQL.
 ### Directory Layout
 ```
 .
+│
+├───.gitignore               # Tells Git which files to ignore in this GitHub repository
+├───docker-compose.yml       # A YAML file for running multi-container Docker applications
+├───README.md                # A text containing information about the other files in this project
 │ 
 ├───backend                  # Everything that has to do with the backend is in this folder
-│   ├───app
-│   └───Dockerfile           # Use this Dockerfile to build the backend-image for Docker
+│   ├───Dockerfile           # Use this Dockerfile to build the backend-image for Docker
+│   └───app
 │       ├───libary           # Python subpackage containing all the required libraries
+│       │   └───__init__.py  # Makes "library" a Python subpackage
 │       ├───routers          # Python subpackage for routing internet traffic
-│       ├───sql_app          # Python subpackage for everything that belongs to the database 
+│       │   └───__init__.py  # Makes "routers" a Python subpackage
+│       ├───sql_app          # Python subpackage for everything that belongs to the database
+│       │   └───__init__.py  # Makes "sql_app" a Python subpackage 
 │       ├───main.py          # The main function is executed in this class
 │       └───requirements.txt # Contains a list all the packages needed by the backend 
 │ 
-├───frontend                 # everything that has to do with the frontend is in this folder
-│   ├───app
+├───frontend                 # Everything that has to do with the frontend is in this folder
 │   ├───Dockerfile           # Use this Dockerfile to build the frontend-image for Docker
-│   ├───__init__.py          # The main function is executed in this file
-│   └───requirements.txt     # contains a list all the packages needed by the backend 
-│       ├───libary           # Python subpackage containing all the required libraries
-│       ├───routers          # Python subpackage for routing internet traffic
-│       └───sql_app          # Python subpackage for everything that belongs to the database 
+│   ├───requirements.txt     # Contains a list all the packages needed by the frontend 
+│   │
+│   ├───app
+│   │   ├───libary           # Python subpackage containing all the required libraries
+│   │   │   └───__init__.py  # Makes "library" a Python subpackage 
+│   │   ├───pages            # Folder containing all the HTML files 
+│   │   ├───routers          # Python subpackage for routing internet traffic
+│   │   │   └───__init__.py  # Makes "routers" a Python subpackage
+│   │   ├───sql_app          # Python subpackage for everything that belongs to the database
+│   │   │   └───__init__.py  # Makes "pages" a Python subpackage  
+│   │   ├───.env1            # VUE configuration file
+│   │   └───main.py          # The main function is executed in this class
+│   │
+│   ├───static
+│   │   ├───css              # Folder containing all .css files.
+│   │   ├───images           # Folder containing all images (.png, .jpg, .jpeg)
+│   │   └───js               # Folder containing all Javascript files
+│   │
+│   ├───templates            # Folder containing all Jinja templates
+│   │   └───include          # Has main elements used in building webpages (menu, header, footer, etc) 
+│   └───__init__.py          # The main function is executed in this file
+│
 └───venv                     # This folder is invisible and it's used by the Python Interpreter. 
 ```
 
 This is our directory layout, nothing special about. Make sure, you add the right files to the right folder.
-- [ ] Diego navragen om de nieuwe mappen opnieuw op te noemen
 
 ## Style guide
 
