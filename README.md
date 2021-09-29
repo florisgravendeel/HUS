@@ -11,7 +11,6 @@ It's made by 5 students of Hogeschool Utrecht.
 * FastAPI
 * Uvicorn
 * SQLAlchemy
-* Vue
 * Docker
 
 ## Installing / Getting started
@@ -73,7 +72,6 @@ We currently use PostgreSQL.
 │   │   │   └───__init__.py  # Makes "routers" a Python subpackage
 │   │   ├───sql_app          # Python subpackage for everything that belongs to the database
 │   │   │   └───__init__.py  # Makes "pages" a Python subpackage  
-│   │   ├───.env1            # VUE configuration file
 │   │   └───main.py          # The main function is executed in this class
 │   │
 │   ├───static
