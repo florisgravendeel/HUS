@@ -1,0 +1,5 @@
+Welcome, it seems you got this error.
+-- Microsoft Visual C++ Build Tools from this link: https://visualstudio.microsoft.com/downloads/
+-- the installer
+-- Workloads → Visual C++ build tools.
+-- options: select only the “Windows 10 SDK” (assuming the computer is Windows 10)
