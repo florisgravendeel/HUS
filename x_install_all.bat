@@ -1,4 +1,7 @@
 ECHO OFF
+TITLE Install all things.
+
+
 ECHO Welcome. This promt will try to install all needed packages.
 echo
 echo If you don't wish to continue, press 'CRTL + C'
@@ -19,10 +22,11 @@ goto:afterPython
 
 :errorNoPython
 echo Error: Python not installed.
-echo Please install python3.9.0
+echo Please install python.
+start https://www.python.org/downloads/
 echo.
 PAUSE
-goto:eof
+goto:terminate
 
 :afterPython
 
@@ -40,9 +44,10 @@ goto:afterPip
 echo.
 echo Error: Pip3 not installed.
 echo Please install pip3.
+start https://pypi.org/project/pip/
 echo.
 PAUSE
-goto:eof
+goto:terminate
 
 :afterPip
 
@@ -69,6 +74,7 @@ echo.
 echo INSTALLING ALL DEPENDENCIES
 echo.
 pip3 install -r .\backend\app\requirements.txt --user
+pip3 install -r .\frontend\requirements.txt --user
 echo.
 PAUSE
 
@@ -108,7 +114,7 @@ PAUSE
 
 
 :eof
-SET /P AREYOUSURE=Did you get a warning saying somthing about 'file is not on PATH...' ( Y / N )?
+SET /P AREYOUSURE=Did you get a warning saying something about 'file is not on PATH...' ( Y / N )?
 IF /I "%AREYOUSURE%" NEQ "Y" GOTO terminate
 
 echo. 2>PATH_help_file.txt
@@ -134,6 +140,7 @@ echo Add a new location.>> PATH_help_file.txt
 echo Paste the folder path you got in the warning earlier.>> PATH_help_file.txt
 echo You can now close everything and run the file again.>> PATH_help_file.txt
 echo.>> PATH_help_file.txt
+PAUSE
 
 
 

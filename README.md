@@ -18,6 +18,8 @@ It's made by 5 students of Hogeschool Utrecht.
 A quick introduction of what you need to do in order to get the server up &
 running.
 
+# Docker Option
+
 Step 1. Copy the project.
 ```shell
 clone https://github.com/florisgravendeel/HUS.git
@@ -31,6 +33,14 @@ Step 3. Create an image with Docker  [(click here if you don't have Docker insta
 docker build -t [name] .
 ```
 Step 4. Open Docker Desktop and run the application.
+
+# Local Option
+
+Step 1. Open 'x_install_all.bat'.
+This will install all of the packages for you and try to help you if something goes wrong.
+
+Step 2. Open 'x_activate_backend.bat' and open 'x_activate_frontend.bat'.
+Now it should be up and running.
 
 ## API Reference
 
