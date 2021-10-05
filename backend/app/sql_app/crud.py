@@ -13,3 +13,11 @@ def get_user_by_email(db: Session, email: str):
 
 def get_users(db: Session, skip: int = 0, limit: int = 100):
     return db.query(models.User).offset(skip).limit(limit).all()
+
+def create_user(db: Session, user: schemas.UserCreate):
+    fake_hashed_password = user.password + "notreallyhashed"
+    db_user = models.User(name=user.name, email=user.email, hsd_pwd=fake_hashed_password, company_id=user.company_id)
+    db.add(db_user)
+    db.commit()
+    db.refresh(db_user)
+    return db_user

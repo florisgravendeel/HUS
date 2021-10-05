@@ -9,6 +9,7 @@ from pydantic.types import Json
 class UserBase(BaseModel):
     name: str
     email: str
+    company_id: int
 
 class UserCreate(UserBase):
     password: str
