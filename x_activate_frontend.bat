@@ -1,5 +1,5 @@
 @ECHO OFF
-TITLE Backend Console
+TITLE Frontend Console
 COLOR 9
 echo.
 
