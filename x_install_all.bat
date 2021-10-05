@@ -65,7 +65,7 @@ PAUSE
 echo.
 echo INSTALLING ALL DEPENDENCIES
 echo.
-pip3 install -r backend\app\requirements.txt
+pip3 install -r .\backend\app\requirements.txt --user
 echo.
 PAUSE
 
@@ -80,7 +80,7 @@ IF /I "%AREYOUSURE%" NEQ "Y" GOTO END
 
 echo. 2>c++_error_help_file.txt
 echo Welcome, it seems you got this error.>> c++_error_help_file.txt
-echo --> Downloaded Microsoft Visual C++ Build Tools from this link: https://visualstudio.microsoft.com/downloads/>> c++_error_help_file.txt
+echo --> Downloaded Microsoft Visual C++ Build Tools from this link: https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019>> c++_error_help_file.txt
 echo --> Run the installer>> c++_error_help_file.txt
 echo --> Select: Workloads → Visual C++ build tools.>> c++_error_help_file.txt
 echo --> Install options: select only the “Windows 10 SDK” (assuming the computer is Windows 10)>> c++_error_help_file.txt
