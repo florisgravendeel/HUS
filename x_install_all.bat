@@ -3,6 +3,7 @@ ECHO Welcome. This promt will try to install all needed packages.
 echo
 echo If you don't wish to continue, press 'CRTL + C'
 echo.
+
 PAUSE
 :: Check for Python Installation
 echo.
@@ -83,9 +84,9 @@ IF /I "%AREYOUSURE%" NEQ "Y" GOTO END
 echo. 2>c++_error_help_file.txt
 echo Welcome, it seems you got this error.>> c++_error_help_file.txt
 echo -- Downloaded Microsoft Visual C++ Build Tools from this link: https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019>> c++_error_help_file.txt
-echo -- Run the installer>> c++_error_help_file.txt
-echo -- Select: Workloads → Visual C++ build tools.>> c++_error_help_file.txt
-echo -- Install options: select only the “Windows 10 SDK” (assuming the computer is Windows 10)>> c++_error_help_file.txt
+echo -- Run the installer.>> c++_error_help_file.txt
+echo -- Select: Desktop development with C++.>> c++_error_help_file.txt
+echo -- Press Install on the bottom right.>> c++_error_help_file.txt
 echo A file has been created for you called 'c++_error_help_file'.
 echo Maybe there you can find a solution.
 echo.
@@ -104,3 +105,38 @@ echo.
 echo Finished installing
 echo.
 PAUSE
+
+
+:eof
+SET /P AREYOUSURE=Did you get a warning saying somthing about 'file is not on PATH...' ( Y / N )?
+IF /I "%AREYOUSURE%" NEQ "Y" GOTO terminate
+
+echo. 2>PATH_help_file.txt
+echo A file has been generated to help with adding a folder to PATH.
+echo.
+
+echo If you get a warning that goes something like>> PATH_help_file.txt
+echo 'file is not on PATH'>> PATH_help_file.txt
+echo you should also get a folder path, which looks like>> PATH_help_file.txt
+echo 'C:\folder\names\leading\to\probably\a\scripts\folder'>> PATH_help_file.txt
+echo.>> PATH_help_file.txt
+echo If you see this warning, please add the given path to you PATH.>> PATH_help_file.txt
+echo Here is how to do this: https://stackoverflow.com/questions/44272416/how-to-add-a-folder-to-path-environment-variable-in-windows-10-with-screensho>> PATH_help_file.txt
+echo.>> PATH_help_file.txt
+echo Go to the Windows Start menu.>> PATH_help_file.txt
+echo Select Settings.>> PATH_help_file.txt
+echo Select System.>> PATH_help_file.txt
+echo Select About.>> PATH_help_file.txt
+echo Select Advanced System Settings.>> PATH_help_file.txt
+echo Select Environment Variables.>> PATH_help_file.txt
+echo Double click on the PATH entry.>> PATH_help_file.txt
+echo Add a new location.>> PATH_help_file.txt
+echo Paste the folder path you got in the warning earlier.>> PATH_help_file.txt
+echo You can now close everything and run the file again.>> PATH_help_file.txt
+echo.>> PATH_help_file.txt
+
+
+
+
+
+:terminate
