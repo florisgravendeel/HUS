@@ -29,7 +29,7 @@ goto:eof
 echo.
 pip3 --version
 if errorlevel 1 goto errorNoPip3
-
+pip install --upgrade pip
 echo Pip3 is installed!
 echo.
 PAUSE
@@ -45,7 +45,9 @@ goto:eof
 
 :afterPip
 
+echo.
 echo Now we are ready to begin the installation and setup an evironment for you. :D
+echo.
 PAUSE
 echo.
 echo INSTALLING VIRTUAL ENVIRONMENT
