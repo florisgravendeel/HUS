@@ -2,6 +2,9 @@
 PATH_help_file.txt
 c++_error_help_file.txt
 
+# config file
+.env
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

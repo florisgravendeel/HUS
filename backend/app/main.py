@@ -1,4 +1,5 @@
-from typing import List
+from typing import List 
+import os
 
 from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
@@ -11,6 +12,12 @@ models.Base.metadata.create_all(bind=user_engine)
 
 
 app = FastAPI()
+
+UDB = os.getenv('UDB', "No")
+
+@app.get("/settings_test/")
+def settings_test():
+    return UDB
 
 
 # Dependency
