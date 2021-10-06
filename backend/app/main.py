@@ -29,7 +29,7 @@ def read_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
 
 
 @app.get("/user_count/")
-def read_users(db: Session = Depends(get_db)):
+def count_user(db: Session = Depends(get_db)):
     return crud.get_user_count(db)
 
 
