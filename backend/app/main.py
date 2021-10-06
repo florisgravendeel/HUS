@@ -4,10 +4,10 @@ from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
 
 from sql_app import crud, models, schemas
-from sql_app.database import SessionLocal, engine
+from sql_app.database import SessionLocal, user_engine
 
 
-models.Base.metadata.create_all(bind=engine)
+models.Base.metadata.create_all(bind=user_engine)
 
 
 app = FastAPI()
@@ -20,12 +20,17 @@ def get_db():
         yield db
     finally:
         db.close()
-
+        
 
 @app.get("/users/", response_model=List[schemas.User])
 def read_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     users = crud.get_users(db, skip=skip, limit=limit)
     return users
+
+
+@app.get("/user_count/")
+def read_users(db: Session = Depends(get_db)):
+    return crud.get_user_count(db)
 
 
 @app.get("/users/{user_id}", response_model=schemas.User)
