@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta content='IE=edge' http-equiv='X-UA-Compatible'>
+  <title>Simple Example</title>
+  <meta content='width=device-width, initial-scale=1' name='viewport'>
+</head>
+<body>
+<form id="loginForm">
+  <h1>Login</h1>
+  <p id="loginStatus"></p>
+  <label for="loginEmailInput">
+    E-Mail | Username
+    <input id="loginEmailInput" name="username" placeholder="E-Mail or Username" type="text">
+  </label>
+  <label for="loginPasswordInput">
+    Password
+    <input id="loginPasswordInput" name="password" placeholder="Password" type="password">
+  </label>
+  <input id="loginSubmit" type="submit" value="Submit">
+
+</form>
+<div>
+  <h1>Accessing private routes</h1>
+  <p> Make request to a privte route:</p>
+  <button id="privateRequest">Request</button>
+  <p id="privateStatus"></p>
+</div>
+</body>
+<script>
+  let token = undefined;
+  const loginSubmit = document.getElementById("loginSubmit");
+  loginSubmit.onclick = (ev) => {
+    ev.preventDefault();
+    const loginForm = document.getElementById("loginForm")
+    const data = new FormData(loginForm)
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "http://127.0.0.1:8000/token", true);
+
+    xhr.onload = (ev) => {
+      const status = document.getElementById("loginStatus")
+      const responseData = JSON.parse(xhr.responseText)
+      if (xhr.status == 200) {
+        status.innerText = "Successfully logged in, token: " + responseData.access_token;
+        token = `${responseData.token_type} ${responseData.access_token}`;
+      } else {
+        status.innerText = "Error logging in: " + responseData.detail
+      }
+    }
+    xhr.send(data)
+  }
+  /*const privateRequest = document.getElementById("privateRequest");
+  privateRequest.onclick = (ev) => {
+      fetch("http://127.0.0.1:8000/users/me", requestOptions)
+          .then(response => response.text())
+          .then(result => console.log(result))
+          .catch(error => console.log('error', error));
+  }*/
+
+  const privateRequest = document.getElementById("privateRequest");
+  privateRequest.onclick = (ev) => {
+    fetch("http://127.0.0.1:8000/users/me", {
+      method: "GET",
+      headers: {
+        "Authorization": token
+      }
+    })
+      .then(response => response.text())
+      .then(result => {
+        const status = document.getElementById("privateStatus");
+        status.innerText = result
+      })
+      .catch(error => console.log('error', error))
+      /*.then(data => {
+        const status = document.getElementById("privateStatus");
+        if (status.ok) {
+          console.log(data)
+          status.innerText = data
+        } else {
+          status.innerText = data
+        }
+
+      })*/
+  }
+</script>
+</html>
