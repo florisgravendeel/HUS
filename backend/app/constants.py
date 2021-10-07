@@ -1,0 +1,3 @@
+""" Constants file.
+"""
+UDB = 'Constant'

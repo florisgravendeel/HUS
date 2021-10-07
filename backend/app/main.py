@@ -1,23 +1,51 @@
 from typing import List 
-import os
+from functools import lru_cache
+# print all object details
+from pprint import pprint
 
 from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
 
 from sql_app import crud, models, schemas
+from sql_app.config import Settings
 from sql_app.database import SessionLocal, user_engine
+
+import constants
+from os import environ as env
+from dotenv import load_dotenv, find_dotenv
 
 
 models.Base.metadata.create_all(bind=user_engine)
 
-
 app = FastAPI()
 
-UDB = os.getenv('UDB', "No")
+print('find_dotenv: ')
+print(find_dotenv)
 
+ENV_FILE = find_dotenv()
+if ENV_FILE:
+    load_dotenv(ENV_FILE)
+
+
+print('before')
+
+# @lru_cache()
 @app.get("/settings_test/")
-def settings_test():
-    return UDB
+async def settings_test():
+    return env.get(constants.UDB)
+
+print('after')
+
+
+
+@app.get("/settings_test/s")
+def settering():
+    return Settings.UDB
+
+@app.get("/oof/")
+def oof():
+    return pprint(vars(Settings))
+
 
 
 # Dependency
