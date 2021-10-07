@@ -1,3 +1,4 @@
-""" Constants file.
+""" Constants file for Auth0's seed project
 """
-UDB = 'Constant'
+AUTH0_CLIENT_ID = 'AUTH0_CLIENT_ID'
+

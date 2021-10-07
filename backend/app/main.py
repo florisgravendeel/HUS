@@ -1,8 +1,9 @@
-from typing import List 
+from typing import List
 from functools import lru_cache
 # print all object details
 from pprint import pprint
 
+import uvicorn
 from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
 
@@ -14,38 +15,25 @@ import constants
 from os import environ as env
 from dotenv import load_dotenv, find_dotenv
 
-
 models.Base.metadata.create_all(bind=user_engine)
 
 app = FastAPI()
 
-print('find_dotenv: ')
-print(find_dotenv)
-
-ENV_FILE = find_dotenv()
-if ENV_FILE:
-    load_dotenv(ENV_FILE)
-
-
-print('before')
 
 # @lru_cache()
 @app.get("/settings_test/")
 async def settings_test():
     return env.get(constants.UDB)
 
-print('after')
-
-
 
 @app.get("/settings_test/s")
 def settering():
     return Settings.UDB
 
+
 @app.get("/oof/")
 def oof():
     return pprint(vars(Settings))
-
 
 
 # Dependency
@@ -55,7 +43,7 @@ def get_db():
         yield db
     finally:
         db.close()
-        
+
 
 @app.get("/users/", response_model=List[schemas.User])
 def read_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
@@ -75,9 +63,21 @@ def read_user(user_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="User not found")
     return db_user
 
+
 @app.post("/users/", response_model=schemas.User)
 def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
     db_user = crud.get_user_by_email(db, email=user.email)
     if db_user:
         raise HTTPException(status_code=400, detail="Email already registered")
     return crud.create_user(db=db, user=user)
+
+
+if __name__ == '__main__':
+    #uvicorn.run(app, host="0.0.0.0", port=8000)
+
+    ENV_FILE = find_dotenv()
+    if ENV_FILE:
+        load_dotenv(ENV_FILE)
+    FRUIT = env.get(constants.AUTH0_CLIENT_ID)
+
+    print(FRUIT)
