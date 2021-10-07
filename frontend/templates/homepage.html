@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>Welkom</title>
+{% endblock title %}
+{% block page_content %}
+    <div class="test">
+        <h1>Welkom</h1>
+        <p>Dit is even een test</p>
+        <ul>
+            {% for item in data %}
+                <li><a href="{{data[item]['link']}}">{{data[item]['text']}}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock page_content %}
