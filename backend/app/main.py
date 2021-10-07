@@ -11,9 +11,7 @@ from sql_app import crud, models, schemas
 from sql_app.config import Settings
 from sql_app.database import SessionLocal, user_engine
 
-import constants
-from os import environ as env
-from dotenv import load_dotenv, find_dotenv
+from variables.init_vars import FRUIT
 
 models.Base.metadata.create_all(bind=user_engine)
 
@@ -23,8 +21,7 @@ app = FastAPI()
 # @lru_cache()
 @app.get("/settings_test/")
 async def settings_test():
-    return env.get(constants.UDB)
-
+    return FRUIT
 
 @app.get("/settings_test/s")
 def settering():
@@ -73,11 +70,6 @@ def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
 
 
 if __name__ == '__main__':
-    #uvicorn.run(app, host="0.0.0.0", port=8000)
-
-    ENV_FILE = find_dotenv()
-    if ENV_FILE:
-        load_dotenv(ENV_FILE)
-    FRUIT = env.get(constants.AUTH0_CLIENT_ID)
+    #uvicorn.run(app, host="127.0.0.0", port=8000)
 
     print(FRUIT)
