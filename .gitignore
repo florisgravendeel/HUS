@@ -5,6 +5,9 @@ c++_error_help_file.txt
 # config file
 .env
 
+# standard db
+sql_app.db
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

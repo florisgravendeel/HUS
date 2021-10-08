@@ -1,17 +1,17 @@
-from typing import List
+from typing import List, Optional
 from functools import lru_cache
 # print all object details
 from pprint import pprint
 
 import uvicorn
-from fastapi import Depends, FastAPI, HTTPException
+from fastapi import Depends, FastAPI, HTTPException, BackgroundTasks
 from sqlalchemy.orm import Session
 
 from sql_app import crud, models, schemas
 from sql_app.config import Settings
 from sql_app.database import SessionLocal, user_engine
 
-from variables.init_vars import FRUIT
+from variables.init_vars import DB_URL
 
 models.Base.metadata.create_all(bind=user_engine)
 
@@ -19,20 +19,6 @@ app = FastAPI()
 
 
 # @lru_cache()
-@app.get("/settings_test/")
-async def settings_test():
-    return FRUIT
-
-@app.get("/settings_test/s")
-def settering():
-    return Settings.UDB
-
-
-@app.get("/oof/")
-def oof():
-    return pprint(vars(Settings))
-
-
 # Dependency
 def get_db():
     db = SessionLocal()
@@ -40,6 +26,29 @@ def get_db():
         yield db
     finally:
         db.close()
+
+
+def write_log(message: str):
+    with open("log.txt", mode = w) as log:
+        log.write(message)
+
+
+def get_query(background_tasks: BackgroundTasks, q: Optional[str] = None):
+    if q:
+        message = f"found query{q}\n"
+        background_tasks.add_task(write_log, message)
+    return q
+
+
+@app.post("/send-notification/{email}")
+async def send_notification(
+    email: str, 
+    background_tasks: BackgroundTasks,
+    q: str = Depends(get_query)
+    ):
+    message = f"message to {email}\n"
+    background_tasks.add_task(write_log, message)
+    return { "message" : "Message sent." }
 
 
 @app.get("/users/", response_model=List[schemas.User])
@@ -71,5 +80,4 @@ def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
 
 if __name__ == '__main__':
     #uvicorn.run(app, host="127.0.0.0", port=8000)
-
-    print(FRUIT)
+    pass
