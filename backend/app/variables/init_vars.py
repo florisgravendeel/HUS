@@ -12,9 +12,8 @@ def check_env(var_name: str, standard_value):
 
 DB_URL = check_env('DB_URL', 'sqlite:///./sql_app.db')
 
-MAIL_USERNAME = check_env('MAIL_USERNAME', '')
-MAIL_PASSWORD = check_env('MAIL_PASSWORD', '')
-MAIL_FROM = check_env('MAIL_FROM', '')
-MAIL_PORT = check_env('MAIL_PORT', '')
-MAIL_SERVER = check_env('MAIL_SERVER', '')
-MAIL_FROM_NAME = check_env('MAIL_FROM_NAME', '')
+MAIL_USERNAME = check_env('MAIL_USERNAME', 'trojo.mailtesting')
+MAIL_PASSWORD = check_env('MAIL_PASSWORD', 'donthackme1')
+MAIL_FROM = check_env('MAIL_FROM', 'trojo.mailtesting@gmail.com')
+MAIL_PORT = check_env('MAIL_PORT', 587)
+MAIL_SERVER = check_env('MAIL_SERVER', 'smtp.gmail.com')
