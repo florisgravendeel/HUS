@@ -14,6 +14,7 @@ from pydantic import EmailStr, BaseModel, Field
 from typing import List, Dict, Any
 from fastapi_mail.email_utils import DefaultChecker
 from pathlib import Path
+from jinja2 import Environment, PackageLoader, select_autoescape
 
 from variables.init_vars import MAIL_USERNAME, MAIL_PASSWORD, MAIL_FROM, MAIL_PORT, MAIL_SERVER
 
@@ -41,12 +42,11 @@ app = FastAPI()
 
 
 async def simple_send(email: EmailSchema, subject, content) -> JSONResponse:
-
+    
     message = MessageSchema(
         subject=subject,
-        recipients=email.dict().get("email"),  # List of recipients, as many as you can pass 
-        body=content,
-        subtype="html"
+        recipients=email.dict().get("email"),  
+        body=content
         )
 
     fm = FastMail(conf)
@@ -77,17 +77,36 @@ async def send_in_background(
     return True
 
 
-async def send_with_template(email: EmailSchema) -> JSONResponse:
+async def send_with_template(email: EmailSchema, subject) -> JSONResponse:
 
     message = MessageSchema(
-        subject="Fastapi-Mail module",
-        recipients=email.dict().get("email"),  # List of recipients, as many as you can pass 
+        subject=subject,
+        recipients=email.dict().get("email"), 
         template_body=email.dict().get("body"),
         )
 
     fm = FastMail(conf)
     try:
         await fm.send_message(message, template_name="email_template.html") 
+    except Exception as e:
+        return {"message": str(e)}
+    return True
+
+
+async def send_email(email: EmailSchema, 
+    background_tasks: BackgroundTasks,
+    subject
+    ) -> JSONResponse:
+    
+    message = MessageSchema(
+        subject=subject,
+        recipients=email.dict().get("email"),  
+        template_body=email.dict().get("body"),
+        )
+
+    fm = FastMail(conf)
+    try:
+        background_tasks.add_task(fm.send_message,message,template_name="email_template.html") 
     except Exception as e:
         return {"message": str(e)}
     return True
