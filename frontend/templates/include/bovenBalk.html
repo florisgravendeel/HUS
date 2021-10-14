@@ -1,24 +1,16 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset='utf-8'>
-        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-        <title>bovenBalk</title>
-        <meta name='viewport' content='width=device-width, initial-scale=1'>
-        <link rel='stylesheet' type='text/css' media='screen' href='global.css'>
-        <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-        <script src='main.js'></script>
-    </head>
-    <body>
-        <div class="container">
-            <div class="bovenBalk">
-                <div class="paginaNaam">
-                    <a>hi</a>
-                </div>
-                <div class="logo">
-                    <a>hallo</a>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+{% block content %}
+    <h1>Index</h1>
+    <ul id="customer">
+    {% for item in customer %}
+        <li><a href="{{ item.href }}">{{ item.caption }}</a></li>
+    {% endfor %}
+    </ul>
+{% endblock %}
