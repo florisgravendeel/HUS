@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    {% block head %} 
+    {% block head %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +12,7 @@
     <link rel="icon" href="{{ url_for('static', path='/images/favicon.png') }}" sizes="32x32" />
 
     {# CSS links #}
-    <link href="{{ url_for('static', path='/css/style.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
 
     {% endblock %}
 </head>
@@ -27,12 +27,12 @@
         </div>
     </div>
     {# The overlay div can be used to close the sidemenu (doesn't work yet.) #}
-    <div class="overlay"></div> 
+    <div class="overlay"></div>
     {% include "include/footer.html" %}
 
-    
+
 </body>
-    {% block scripts %}  
+    {% block scripts %}
     {# Script links #}
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 

@@ -1,3 +1,6 @@
-requests==2.25.0
+flask
+python-dotenv
+requests
+authlib>=0.14.1
+six
 aiofiles==0.6.0
-jinja2==2.11.2
