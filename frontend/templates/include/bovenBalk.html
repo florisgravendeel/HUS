@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 {% block title %}Index{% endblock %}
 {% block head %}
+        <link href="{{ url_for('static', path='/css/global.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', path='/css/style.css') }}" rel="stylesheet">
     {{ super() }}
     <style type="text/css">
         .important { color: #336699; }
     </style>
 {% endblock %}
-{% block content %}
+{% block header %}
     <h1>Index</h1>
     <ul id="customer">
     {% for item in customer %}

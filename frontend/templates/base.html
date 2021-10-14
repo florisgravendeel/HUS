@@ -2,17 +2,34 @@
 <html lang="en">
 <head>
     {% block head %}
-    <link rel="stylesheet" href="style.css" />
+        <link href="{{ url_for('static', path='/css/global.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', path='/css/style.css') }}" rel="stylesheet">
     <title>{% block title %}{% endblock %} - My Webpage</title>
     {% endblock %}
 </head>
 <body>
-    <div id="header"></div> 
+    <div id="header">
+        {% block header %}
+        <div class="bovenBalk">
+            {% for item in bovenBalk %}
+                {% if "Inloggen" in item.caption %}
+                <div class="paginaNaam">
+                    <a href="{{ item.href }}">{{ item.caption }}</a>
+                </div>
+                {% elif "Logo" in item.caption %}
+                <div class="logo">
+                    <a href="{{ item.href }}">{{ item.caption }}</a>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% endblock %}
+    </div> 
     <div id="content">{% block content %}{% endblock %}</div> 
     <div id="footer"> 
         {% block footer %} 
-        &copy; Copyright 2008 by <a href="http://localhost:8080">you</a>. 
+            &copy; Copyright 2008 by <a href="http://localhost:8080">HUS</a>. 
         {% endblock %} 
     </div> 
-</body> 
+</body>
 </html> 
