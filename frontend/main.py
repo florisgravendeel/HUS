@@ -14,7 +14,7 @@ from flask import session
 from flask import url_for
 from authlib.integrations.flask_client import OAuth
 
-from app import constants
+from app import constants #also works: from frontend.app import constants
 
 ENV_FILE = find_dotenv(filename='app/.env')
 if ENV_FILE:
@@ -27,7 +27,7 @@ AUTH0_DOMAIN = env.get(constants.AUTH0_DOMAIN)
 AUTH0_BASE_URL = 'https://' + AUTH0_DOMAIN
 AUTH0_AUDIENCE = env.get(constants.AUTH0_AUDIENCE)
 
-app = Flask(__name__) #static_url_path='/app/templates', static_folder='./app/templates')
+app = Flask(__name__)
 app.secret_key = constants.SECRET_KEY
 app.debug = True
 
