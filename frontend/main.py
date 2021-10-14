@@ -14,7 +14,7 @@ from flask import session
 from flask import url_for
 from authlib.integrations.flask_client import OAuth
 
-from frontend.app import constants
+from app import constants
 
 ENV_FILE = find_dotenv(filename='app/.env')
 if ENV_FILE:
