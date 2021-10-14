@@ -19,6 +19,8 @@ from frontend.app import constants #from app import constants
 ENV_FILE = find_dotenv(filename='app/.env')
 if ENV_FILE:
     load_dotenv(ENV_FILE)
+else:
+    print("The .env file is missing!")
 
 AUTH0_CALLBACK_URL = env.get(constants.AUTH0_CALLBACK_URL)
 AUTH0_CLIENT_ID = env.get(constants.AUTH0_CLIENT_ID)
