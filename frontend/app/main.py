@@ -11,21 +11,21 @@ templates = Jinja2Templates(directory="../templates")
 app.mount("/static", StaticFiles(directory="../static"), name="static")
 #--------------------------------------------------------------------------------------------ROUTES
 
-class customer:
+class bovenBalk:
     def __init__(self, href, caption):
         self.href = href
         self.caption = caption
 
-boi = [customer('http://localhost:8080/item/', 'the best website'), customer('base.html', 'pagina')]
+bovenBalk = [bovenBalk('http://localhost:8080/item/', 'Inloggen'), bovenBalk('base.html', 'Logo')]
 
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
-    return templates.TemplateResponse("include/bovenBalk.html", {"request": request, "customer":boi})
+    return templates.TemplateResponse("include/inlogContent.html", {"request": request, "bovenBalk":bovenBalk})
 
 
 @app.get("/item/", response_class=HTMLResponse)
 async def home(request: Request):
-    return templates.TemplateResponse("base.tml", {"request": request})
+    return templates.TemplateResponse("base.html", {"request": request, "bovenBalk":bovenBalk})
 
 
 @app.get("/test/", response_class=HTMLResponse)

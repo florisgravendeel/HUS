@@ -23,6 +23,10 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
+footer {
+	bottom: 0;
+}
 body {
 	line-height: 1;
 	height: 100vh;
@@ -60,7 +64,7 @@ table {
     background-color: var(--secondary);
     width: 100%;
     border-radius: 0px 0px 20px 20px;
-    height: 50px;
+    height: 100%;
     margin: 0px;
     padding: 0px;
 	justify-content: space-around;
@@ -76,6 +80,7 @@ table {
 
 #header {
 	margin-bottom: 5px;
+	height: 6%;
 }
 
 a,
