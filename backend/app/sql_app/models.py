@@ -14,8 +14,18 @@ class User(Base):
     email = Column(String, unique=True, nullable=False)
     phone_number = Column(String, nullable=True)
     hsd_pwd = Column(String, nullable=False)
-    company_id = Column(Integer, nullable=False) ### cross db foreignkey?
+    company_id = Column(Integer, nullable=False) # cross db foreignkey?  --> manual ID checking
     is_admin = Column(Boolean, nullable=False, default=False)
+
+
+class Company(Base):
+
+    __tablename__ = 'company'
+
+    company_id = Column(Integer, primary_key=True, nullable=False, index=True)
+    name = Column(String, nullable=False)
+
+    buildings = relationship("Building", back_populates="company")
 
 
 class Building(Base):
@@ -25,9 +35,10 @@ class Building(Base):
     building_id = Column(Integer, primary_key=True, nullable=False, index=True)
     name = Column(String, nullable=False)
     ip_address = Column(String, nullable=True)
-    company_id = Column(Integer, nullable=False)        ### cross db foreignkey?
+    company_id = Column(Integer, ForeignKey('company.company_id'),nullable=False)
 
-    # floors = relationship("floor", back_populates="building")
+    company = relationship("Company", back_populates="buildings")
+    floors = relationship("Floor", back_populates="building")
 
 
 class Floor(Base):
@@ -38,8 +49,8 @@ class Floor(Base):
     name = Column(String, nullable=False)
     building_id = Column(Integer, ForeignKey('building.building_id'), nullable=False)
 
-    # building = relationship("building", back_populates="floors")
-    # rooms = relationship("room", back_populates="floor")
+    building = relationship("Building", back_populates="floors")
+    rooms = relationship("Room", back_populates="floor")
 
 
 class Room(Base):
@@ -50,8 +61,8 @@ class Room(Base):
     name = Column(String, nullable=False)
     floor_id = Column(Integer, ForeignKey('floor.floor_id'), nullable=False)
 
-    # floor = relationship("floor", back_populates="rooms")
-    # sensors = relationship("sensor", back_populates="room")
+    floor = relationship("Floor", back_populates="rooms")
+    sensors = relationship("Sensor", back_populates="room")
 
 
 class Sensor(Base):
@@ -65,5 +76,5 @@ class Sensor(Base):
     resource_type = Column(String, nullable=False)
     group_address = Column(String, nullable=True)
 
-    # room = relationship("room", back_populates="sensors")
+    room = relationship("Room", back_populates="sensors")
 

@@ -66,10 +66,6 @@ virtualenv venv
 if errorlevel 1 goto:END
 echo.
 PAUSE
-virtualenv venv/bin/activate
-if errorlevel 1 goto:END
-echo.
-PAUSE
 echo.
 echo INSTALLING ALL DEPENDENCIES
 echo.
@@ -110,6 +106,7 @@ goto:eof
 echo.
 echo Finished installing
 echo.
+alembic --version
 PAUSE
 
 

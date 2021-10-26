@@ -83,7 +83,7 @@ class SensorBase(BaseModel):
         orm_mode = True
 
 class Sensor_Resource(SensorBase):
-    resource_type: str = 'ignore this line in the JSON, use dropdown above' 
+    resource_type: str
 
 
 class Sensor(SensorBase):

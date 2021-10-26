@@ -123,5 +123,5 @@ if __name__ == '__main__':
     # for item in boi:
     #     print(item.href)
     #     print(item.caption)
-
+    print(crud.get_buildings(get_db()))
     pass

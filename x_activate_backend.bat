@@ -8,4 +8,6 @@ echo.
 
 virtualenv venv
 cd .\backend\app
+:run
 uvicorn main:app --reload --port 8000
+goto:run

@@ -13,3 +13,4 @@ sqlalchemy==1.4.25
 psycopg2==2.9.1
 fastapi-mail==1.0.1
 python-dotenv
+alembic==1.7.4

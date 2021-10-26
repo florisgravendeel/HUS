@@ -1,6 +1,8 @@
 from sqlalchemy.orm import Session
 from sqlalchemy.sql import func
 
+from starlette.responses import JSONResponse
+
 from . import models, schemas
 
 
@@ -34,29 +36,71 @@ def create_user(db: Session, user: schemas.UserCreate):
     return db_user
 
 
-def basicDBstuff(db, variable):
+def basicDBstuff(db: Session, variable):
     db.add(variable)
     db.commit()
     db.refresh(variable)
 
 
+
+def check_companies(db: Session, id):
+    for i in db.query(models.Company):
+        if i.company_id == id:
+            return True
+    return False
+
+def check_buildings(db: Session, id):
+    for i in db.query(models.Building):
+        if i.building_id == id:
+            return True
+    return False
+
+def check_floors(db: Session, id):
+    for i in db.query(models.Floor):
+        if i.floor_id == id:
+            return True
+    return False
+
+def check_rooms(db: Session, id):
+    for i in db.query(models.Room):
+        if i.room_id == id:
+            return True
+    return False
+
+
+
 def create_building(db: Session, building: schemas.BuildingBase, company_id: int):
-    db_building = models.Building(**building.dict(), company_id=company_id)
-    basicDBstuff(db, db_building)
-    return db_building
+    allow = check_companies(db, company_id)
+    if allow:
+        db_building = models.Building(**building.dict(), company_id=company_id)
+        basicDBstuff(db, db_building)
+        return db_building
+    return JSONResponse(status_code=404, content={"message": "Building not found"})
+
 
 def create_floor(db: Session, floor: schemas.FloorBase, building_id: int):
-    db_floor = models.Floor(**floor.dict(), building_id=building_id)
-    basicDBstuff(db, db_floor)
-    return db_floor
+    allow = check_buildings(db, building_id)
+    if allow:
+        db_floor = models.Floor(**floor.dict(), building_id=building_id)
+        basicDBstuff(db, db_floor)
+        return db_floor
+    return JSONResponse(status_code=404, content={"message": "Building not found"})
+
 
 def create_room(db: Session, room: schemas.RoomBase, floor_id: int):
-    db_room = models.Room(**room.dict(), floor_id=floor_id)
-    basicDBstuff(db, db_room)
-    return db_room
+    allow = check_floors(db, floor_id)
+    if allow:
+        db_room = models.Room(**room.dict(), floor_id=floor_id)
+        basicDBstuff(db, db_room)
+        return db_room
+    return JSONResponse(status_code=404, content={"message": "Floor not found"})
+
 
 def create_sensor(db: Session, name: str, room_id: int, resource_type=schemas.ResourceType):
-    sensor = schemas.Sensor_Resource(name=name, status='online', resource_type=resource_type)
-    db_sensor = models.Sensor(**sensor.dict(), room_id=room_id)
-    basicDBstuff(db, db_sensor)
-    return db_sensor
+    allow = check_floors(db, room_id)
+    if allow:
+        sensor = schemas.Sensor_Resource(name=name, status='online', resource_type=resource_type)
+        db_sensor = models.Sensor(**sensor.dict(), room_id=room_id)
+        basicDBstuff(db, db_sensor)
+        return db_sensor
+    return JSONResponse(status_code=404, content={"message": "Room not found"})
