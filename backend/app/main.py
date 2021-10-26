@@ -29,6 +29,10 @@ def get_db():
     finally:
         db.close()
 
+@app.get("/")
+def main():
+    return "Welcome"
+
 def create_output(output):
     if output == True:
         return JSONResponse(status_code=200, content={"message": "email has been sent"})
@@ -54,6 +58,23 @@ async def send_background_mail(background_tasks: BackgroundTasks, email: EmailSc
 @app.post("/simplemail", tags=["send_email"], deprecated=True)
 async def send_mail(email: EmailSchema, subject, content):
     return create_output(await simple_send(email, subject, content))
+
+
+@app.post("/create_building/", tags=["create_data"])
+def create_building(building: schemas.BuildingBase, company_id: int, db: Session = Depends(get_db)):
+    return crud.create_building(db=db, building=building, company_id=company_id)
+
+@app.post("/create_floor/", tags=["create_data"])
+def create_floor(floor: schemas.FloorBase, building_id: int, db: Session = Depends(get_db)):
+    return crud.create_floor(db=db, floor=floor, building_id=building_id)
+
+@app.post("/create_room/", tags=["create_data"])
+def create_room(room: schemas.RoomBase, floor_id: int, db: Session = Depends(get_db)):
+    return crud.create_room(db=db, room=room, floor_id=floor_id)
+
+@app.post("/create_sensor/", tags=["create_data"])
+def create_sensor(name: str, room_id: int, recource: schemas.ResourceType, db: Session = Depends(get_db)):
+    return crud.create_sensor(db=db, name=name, room_id=room_id, resource_type=recource)
 
 
 

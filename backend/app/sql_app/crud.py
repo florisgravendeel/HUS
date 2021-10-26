@@ -32,3 +32,31 @@ def create_user(db: Session, user: schemas.UserCreate):
     db.commit()
     db.refresh(db_user)
     return db_user
+
+
+def basicDBstuff(db, variable):
+    db.add(variable)
+    db.commit()
+    db.refresh(variable)
+
+
+def create_building(db: Session, building: schemas.BuildingBase, company_id: int):
+    db_building = models.Building(**building.dict(), company_id=company_id)
+    basicDBstuff(db, db_building)
+    return db_building
+
+def create_floor(db: Session, floor: schemas.FloorBase, building_id: int):
+    db_floor = models.Floor(**floor.dict(), building_id=building_id)
+    basicDBstuff(db, db_floor)
+    return db_floor
+
+def create_room(db: Session, room: schemas.RoomBase, floor_id: int):
+    db_room = models.Room(**room.dict(), floor_id=floor_id)
+    basicDBstuff(db, db_room)
+    return db_room
+
+def create_sensor(db: Session, name: str, room_id: int, resource_type=schemas.ResourceType):
+    sensor = schemas.Sensor_Resource(name=name, status='online', resource_type=resource_type)
+    db_sensor = models.Sensor(**sensor.dict(), room_id=room_id)
+    basicDBstuff(db, db_sensor)
+    return db_sensor

@@ -11,6 +11,7 @@ def check_env(var_name: str, standard_value):
     return standard_value
 
 DB_URL = check_env('DB_URL', 'sqlite:///./sql_app.db')
+DUMMY_DB_URL = check_env('DUMMY_DB_URL', 'sqlite:///./dummy.db')
 
 MAIL_USERNAME = check_env('MAIL_USERNAME', 'trojo.mailtesting')
 MAIL_PASSWORD = check_env('MAIL_PASSWORD', 'donthackme1')

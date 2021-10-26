@@ -8,6 +8,20 @@ from sqlalchemy.sql.type_api import NULLTYPE
 from pydantic import BaseModel, Field
 from pydantic.types import Json
 
+from enum import Enum
+
+
+class ResourceType(str, Enum):
+    kilowattuur = "kilowattuur"
+    co2 = "co2"
+    temperatuur = "temperatuur"
+
+
+class SensorStatus(str, Enum):
+    online = "online"
+    offline = "offline"
+
+
 # All names have to correspond with the model names.
 
 class UserBase(BaseModel):
@@ -26,3 +40,56 @@ class User(BaseModel):
 
     class Config:
         orm_mode = True
+
+
+class BuildingBase(BaseModel):
+    name: str
+
+    class Config:
+        orm_mode = True
+
+class Building(BuildingBase):
+    building_id: int
+    company_id: int
+
+
+class FloorBase(BaseModel):
+    name: str
+
+    class Config:
+        orm_mode = True
+
+class Floor(FloorBase):
+    floor_id: int
+    building_id: int
+
+
+class RoomBase(BaseModel):
+    name: str
+
+    class Config:
+        orm_mode = True
+
+class Room(RoomBase):
+    room_id: int
+    floor_id: int
+
+
+class SensorBase(BaseModel):
+    name: str
+    status: str = "online"
+
+    class Config:
+        orm_mode = True
+
+class Sensor_Resource(SensorBase):
+    resource_type: str = 'ignore this line in the JSON, use dropdown above' 
+
+
+class Sensor(SensorBase):
+    sensor_id: int
+    room_id: int
+    resource_type: str
+
+class Sensor_Group(SensorBase):
+    group_address: Optional[str] = None
