@@ -34,7 +34,7 @@ goto:terminate
 echo.
 pip3 --version
 if errorlevel 1 goto errorNoPip3
-pip install --upgrade pip
+pip install --upgrade pip --user
 echo Pip3 is installed!
 echo.
 PAUSE
@@ -58,7 +58,7 @@ PAUSE
 echo.
 echo INSTALLING VIRTUAL ENVIRONMENT
 echo.
-pip3 install virtualenv
+pip3 install virtualenv 
 if errorlevel 1 goto:END
 echo.
 PAUSE
