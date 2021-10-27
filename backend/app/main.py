@@ -34,7 +34,6 @@ def get_db():
 @app.get("/")
 def main():
     ban = {"message":"Welcome"}
-    ban["what"] = "frick"
     return ban
 
 def create_output(output):
@@ -65,6 +64,10 @@ async def send_background_mail(background_tasks: BackgroundTasks, email: EmailSc
 async def send_mail(email: EmailSchema, subject, content):
     return create_output(await simple_send(email, subject, content))
 
+
+@app.post("/create_company/", tags=["create_data"])
+def create_company(company: schemas.CompanyBase, db: Session = Depends(get_db)):
+    return crud.create_company(db=db, company=company)
 
 @app.post("/create_building/", tags=["create_data"])
 def create_building(building: schemas.BuildingBase, company_id: int, db: Session = Depends(get_db)):
@@ -112,7 +115,7 @@ def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
 
 
 if __name__ == '__main__':
-    #uvicorn.run(app, host="127.0.0.0", port=8000)
+    uvicorn.run(app, host="127.0.0.1", port=8000)
     
     # class customer:
     #     def __init__(self, href, caption):
@@ -129,5 +132,5 @@ if __name__ == '__main__':
     # for item in boi:
     #     print(item.href)
     #     print(item.caption)
-    print(crud.get_buildings(get_db()))
+    # print(crud.get_buildings(get_db()))
     pass

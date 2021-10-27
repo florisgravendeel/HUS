@@ -42,6 +42,16 @@ class User(BaseModel):
         orm_mode = True
 
 
+class CompanyBase(BaseModel):
+    name: str
+
+    class Config:
+        orm_mode = True
+
+class Company(CompanyBase):
+    company_id: int
+
+
 class BuildingBase(BaseModel):
     name: str
 

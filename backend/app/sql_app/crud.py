@@ -1,6 +1,5 @@
 from sqlalchemy.orm import Session
 from sqlalchemy.sql import func
-from variables.init_vars import DB_URL
 
 from starlette.responses import JSONResponse
 
@@ -68,6 +67,12 @@ def check_rooms(db: Session, id):
             return True
     return False
 
+
+
+def create_company(db: Session, company: schemas.CompanyBase):
+    db_company = models.Company(**company.dict())
+    basicDBstuff(db, db_company)
+    return db_company
 
 
 def create_building(db: Session, building: schemas.BuildingBase, company_id: int):

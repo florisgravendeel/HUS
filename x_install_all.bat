@@ -106,7 +106,6 @@ goto:eof
 echo.
 echo Finished installing
 echo.
-alembic --version
 PAUSE
 
 
