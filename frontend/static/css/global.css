@@ -1,0 +1,156 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+footer {
+	bottom: 0;
+}
+body {
+	line-height: 1;
+	height: 100vh;
+	width: 100vw;
+	font-size: 20px;
+	color: var(--tekst);
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+#content {
+    display: flex;
+    background-color: var(--primary);
+	width: 100%;
+	height: 90%;
+	justify-content: center;
+	align-items: center;
+}
+
+.bovenBalk {
+    display: flex;
+    background-color: var(--secondary);
+    width: 100%;
+    border-radius: 0px 0px 20px 20px;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+	align-items: center;
+}
+
+.paginaNaam {
+    justify-self: center;
+	margin-left: 48vw;
+	font-size: 20px;
+}
+
+.logo {
+	margin-left: 40vw;
+	margin-right: -2vw;
+	justify-content: flex-end;
+}
+
+#header {
+	margin-bottom: 5px;
+	height: 6%;
+}
+
+a,
+a:hover,
+a:focus,
+a:visited {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.inlogGegevens {
+	display: flex;
+	background-color: var(--primary);
+	width: 60%;
+	height: 70%;
+	align-items: center;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	border-radius: 20px;
+}
+
+.hoverBox {
+	display: flex;
+	background-color: var(--surface);
+	justify-content: center;
+	align-items: center;
+	height: 80%;
+	width: 80%;
+	border-radius: 20px;
+	box-shadow: 3px 5px 0px 0px var(--subtekst);
+}
+input {
+	width: 100%;
+	height: 40px;
+	border-radius: 20px;
+	margin-bottom: 5px;
+	box-shadow: none;
+	border-color: var(--tekst);
+}
+
+.logIn {
+	display: flex;
+	flex-direction: column;
+	width: 80%;
+	height: 60%;
+}
+
+.knop {
+	border-radius: 20px;
+	height: 32px;
+	width: 185px;
+	border: none;
+}
+
+.inlogKnop {
+	align-self: flex-end;
+	background-color: var(--secondary);
+	color: var(--primary);
+	font-size: 25px;
+}
+
+.wwVergeten {
+	color: var(--secondary);
+	align-self: flex-end;
+	margin-bottom: 5px;
+	font-size: 13px;
+}

@@ -58,3 +58,36 @@
     {# Block to be able to add scripts to an page. #}
     {% block moreScripts %}{% endblock moreScripts %}
 </html>
+<head>
+    {% block head %}
+        <link href="{{ url_for('static', path='/css/global.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', path='/css/style.css') }}" rel="stylesheet">
+    <title>{% block title %}{% endblock %} - My Webpage</title>
+    {% endblock %}
+</head>
+<body>
+    <div id="header">
+        {% block header %}
+        <div class="bovenBalk">
+            {% for item in bovenBalk %}
+                {% if "Inloggen" in item.caption %}
+                <div class="paginaNaam">
+                    <a href="{{ item.href }}">{{ item.caption }}</a>
+                </div>
+                {% elif "Logo" in item.caption %}
+                <div class="logo">
+                    <a href="{{ item.href }}">{{ item.caption }}</a>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% endblock %}
+    </div> 
+    <div id="content">{% block content %}{% endblock %}</div> 
+    <div id="footer"> 
+        {% block footer %} 
+            &copy; Copyright 2021 by <a href="http://localhost:8080">HUS</a>. 
+        {% endblock %} 
+    </div> 
+</body>
+</html> 

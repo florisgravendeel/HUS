@@ -109,3 +109,35 @@ a:focus {
     top: 0;
     right: 0;
 }
+:root {
+    --primary: white;
+    --surface: #F1F1F1 ;
+    --secondary: #00A1E1;
+    --highlight: #E6302B;
+    --tekst: #333333;
+    --subtekst: #726C6C;
+  }
+  
+  .primary-color {
+    color: var(--primary);
+  }
+  
+  .surface-color {
+    color: var(--surface);
+  }
+  
+  .secondary-color {
+    color: var(--secondary);
+  }
+  
+  .highlight-color{
+    color: var(--highlight);
+  }
+  
+  .tekst-color {
+      color: var(--tekst)
+  }
+
+  .subtekst-color {
+      color: var(--subtekst)
+  }

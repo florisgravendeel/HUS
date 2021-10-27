@@ -4,3 +4,5 @@ requests
 authlib>=0.14.1
 six
 aiofiles==0.6.0
+jinja2==2.11.2
+fastapi==0.68.1
