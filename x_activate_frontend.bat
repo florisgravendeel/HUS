@@ -8,4 +8,4 @@ echo.
 
 virtualenv venv
 cd .\frontend
-uvicorn main:app --reload --port 8080
+python main.py

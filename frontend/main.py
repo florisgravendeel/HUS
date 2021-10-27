@@ -14,7 +14,7 @@ from flask import session
 from flask import url_for
 from authlib.integrations.flask_client import OAuth
 
-from frontend.app import constants #from app import constants
+from app import constants #from app import constants
 
 ENV_FILE = find_dotenv(filename='app/.env')
 if ENV_FILE:
@@ -122,7 +122,7 @@ def dashboard2():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=env.get('PORT', 3000), debug=True)
+    app.run(host='0.0.0.0', port=env.get('PORT', 8080), debug=True)
 
 # #--------------------------------------------------------------------------------------------IMPORTS
 # from fastapi import FastAPI, Request
