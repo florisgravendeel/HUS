@@ -1,5 +1,6 @@
 from sqlalchemy.orm import Session
 from sqlalchemy.sql import func
+from variables.init_vars import DB_URL
 
 from starlette.responses import JSONResponse
 

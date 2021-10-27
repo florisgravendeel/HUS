@@ -13,6 +13,8 @@ from sql_app.database import SessionLocal, user_engine
 from mailing.send_mail import simple_send, send_in_background, send_with_template, EmailSchema
 from starlette.responses import JSONResponse
 
+from variables.init_vars import DB_URL
+
 from tags import tags_metadata
 
 models.Base.metadata.create_all(bind=user_engine)
@@ -31,14 +33,18 @@ def get_db():
 
 @app.get("/")
 def main():
-    return "Welcome"
+    ban = {"message":"Welcome"}
+    ban["what"] = "frick"
+    return ban
 
 def create_output(output):
     if output == True:
         return JSONResponse(status_code=200, content={"message": "email has been sent"})
     return JSONResponse(status_code=500, content=output)
 
-
+@app.post("/get_db_url/")
+def get_db_url():
+    return DB_URL
 
 @app.post("/email", tags=["send_email"])
 async def send_template_mail(subject ,email: EmailSchema):
