@@ -67,14 +67,18 @@ table {
     height: 100%;
     margin: 0px;
     padding: 0px;
-	justify-content: space-around;
+	align-items: center;
 }
 
 .paginaNaam {
-    justify-content: flex-start;
+    justify-self: center;
+	margin-left: 48vw;
+	font-size: 20px;
 }
 
 .logo {
+	margin-left: 40vw;
+	margin-right: -2vw;
 	justify-content: flex-end;
 }
 
