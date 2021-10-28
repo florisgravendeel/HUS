@@ -38,7 +38,6 @@ app.debug = True
 def handle_auth_error(ex):
     response = jsonify(message=str(ex))
     response.status_code = (ex.code if isinstance(ex, HTTPException) else 500)
-    print(response)
     return response
 
 
@@ -101,6 +100,10 @@ def logout():
 @app.route('/dashboard')
 @requires_auth
 def dashboard():
+    print("Printing shit")
+    print(session[constants.PROFILE_KEY])
+    print(session[constants.JWT_PAYLOAD])
+
     return render_template('dashboard.html',
                            userinfo=session[constants.PROFILE_KEY],
                            userinfo_pretty=json.dumps(session[constants.JWT_PAYLOAD], indent=4))
