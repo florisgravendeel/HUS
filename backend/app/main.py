@@ -41,9 +41,9 @@ def create_output(output):
         return JSONResponse(status_code=200, content={"message": "email has been sent"})
     return JSONResponse(status_code=500, content=output)
 
-@app.post("/get_db_url/")
-def get_db_url():
-    return DB_URL
+# @app.post("/get_db_url/")
+# def get_db_url():
+#     return DB_URL
 
 @app.post("/email", tags=["send_email"])
 async def send_template_mail(subject ,email: EmailSchema):

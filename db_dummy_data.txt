@@ -1,0 +1,727 @@
+Dummy Donker
+	De Donder
+		Verdieping -2
+			Kamer -2_1
+				CO2 Sensor 0001
+				Energie Sensor 0001
+				Temperatuur Sensor 0001
+				Luchtvochtigheid Sensor 0001
+			Kamer -2_2
+				Energie Sensor 0002
+			Kamer -2_3
+				Energie Sensor 0003
+				Temperatuur Sensor 0002
+				Luchtvochtigheid Sensor 0002
+			Kamer -2_4
+				Energie Sensor 0004
+			Kamer -2_5
+				Energie Sensor 0005
+		Verdieping -1
+			Kamer -1_1
+				CO2 Sensor 0002
+			Kamer -1_2
+				Energie Sensor 0006
+				Temperatuur Sensor 0003
+				Luchtvochtigheid Sensor 0003
+			Kamer -1_3
+				Energie Sensor 0007
+				Temperatuur Sensor 0004
+				Luchtvochtigheid Sensor 0004
+			Kamer -1_4
+				Energie Sensor 0008
+				Temperatuur Sensor 0005
+				Luchtvochtigheid Sensor 0005
+			Kamer -1_5
+				Energie Sensor 0009
+		Verdieping 0
+			Kamer 0_1
+				CO2 Sensor 0003
+				Energie Sensor 0010
+			Kamer 0_2
+				Energie Sensor 0011
+			Kamer 0_3
+				Energie Sensor 0012
+				Temperatuur Sensor 0006
+				Luchtvochtigheid Sensor 0006
+			Kamer 0_4
+				Energie Sensor 0013
+				Temperatuur Sensor 0007
+				Luchtvochtigheid Sensor 0007
+			Kamer 0_5
+				Energie Sensor 0014
+		Verdieping 1
+			Kamer 1_1
+				CO2 Sensor 0004
+				Energie Sensor 0015
+				Temperatuur Sensor 0008
+				Luchtvochtigheid Sensor 0008
+			Kamer 1_2
+				Energie Sensor 0016
+			Kamer 1_3
+				Energie Sensor 0017
+			Kamer 1_4
+				Energie Sensor 0018
+			Kamer 1_5
+				Energie Sensor 0019
+				Temperatuur Sensor 0009
+				Luchtvochtigheid Sensor 0009
+		Verdieping 2
+			Kamer 2_1
+				CO2 Sensor 0005
+				Energie Sensor 0020
+			Kamer 2_2
+				Energie Sensor 0021
+				Temperatuur Sensor 0010
+				Luchtvochtigheid Sensor 0010
+			Kamer 2_3
+				Energie Sensor 0022
+			Kamer 2_4
+				Energie Sensor 0023
+				Temperatuur Sensor 0011
+				Luchtvochtigheid Sensor 0011
+			Kamer 2_5
+				Energie Sensor 0024
+		Verdieping 3
+			Kamer 3_1
+				CO2 Sensor 0006
+				Energie Sensor 0025
+				Temperatuur Sensor 0012
+				Luchtvochtigheid Sensor 0012
+			Kamer 3_2
+				Energie Sensor 0026
+				Temperatuur Sensor 0013
+				Luchtvochtigheid Sensor 0013
+			Kamer 3_3
+				Energie Sensor 0027
+			Kamer 3_4
+				Energie Sensor 0028
+			Kamer 3_5
+				Energie Sensor 0029
+		Verdieping 4
+			Kamer 4_1
+				CO2 Sensor 0007
+				Energie Sensor 0030
+			Kamer 4_2
+				Energie Sensor 0031
+			Kamer 4_3
+				Energie Sensor 0032
+			Kamer 4_4
+				Energie Sensor 0033
+				Temperatuur Sensor 0014
+				Luchtvochtigheid Sensor 0014
+			Kamer 4_5
+				Energie Sensor 0034
+				Temperatuur Sensor 0015
+				Luchtvochtigheid Sensor 0015
+	Heivel 36
+		Verdieping 0
+			Kamer 001
+				CO2 Sensor 0001
+				Energie Sensor 0001
+				Temperatuur Sensor 0001
+				Luchtvochtigheid Sensor 0001
+			Kamer 002
+				Temperatuur Sensor 0002
+			Kamer 003
+				Temperatuur Sensor 0003
+				Luchtvochtigheid Sensor 0002
+			Kamer 004
+				Temperatuur Sensor 0004
+			Kamer 005
+				Temperatuur Sensor 0005
+				Luchtvochtigheid Sensor 0003
+			Kamer 006
+				CO2 Sensor 0002
+				Temperatuur Sensor 0006
+			Kamer 007
+				Temperatuur Sensor 0007
+				Luchtvochtigheid Sensor 0004
+			Kamer 008
+				Temperatuur Sensor 0008
+			Kamer 009
+				Temperatuur Sensor 0009
+				Luchtvochtigheid Sensor 0005
+			Kamer 010
+				Temperatuur Sensor 0010
+			Kamer 011
+				CO2 Sensor 0003
+				Temperatuur Sensor 0011
+				Luchtvochtigheid Sensor 0006
+			Kamer 012
+				Temperatuur Sensor 0012
+			Kamer 013
+				Temperatuur Sensor 0013
+				Luchtvochtigheid Sensor 0007
+			Kamer 014
+				Temperatuur Sensor 0014
+			Kamer 015
+				Temperatuur Sensor 0015
+				Luchtvochtigheid Sensor 0008
+		Verdieping 1
+			Kamer 101
+				CO2 Sensor 0004
+				Energie Sensor 0002
+				Temperatuur Sensor 0016
+			Kamer 102
+				Temperatuur Sensor 0017
+				Luchtvochtigheid Sensor 0009
+			Kamer 103
+				Temperatuur Sensor 0018
+			Kamer 104
+				Temperatuur Sensor 0019
+				Luchtvochtigheid Sensor 0010
+			Kamer 105
+				Temperatuur Sensor 0020
+			Kamer 106
+				CO2 Sensor 0005
+				Temperatuur Sensor 0021
+				Luchtvochtigheid Sensor 0011
+			Kamer 107
+				Temperatuur Sensor 0022
+			Kamer 108
+				Temperatuur Sensor 0023
+				Luchtvochtigheid Sensor 0012
+			Kamer 109
+				Temperatuur Sensor 0024
+			Kamer 110
+				Temperatuur Sensor 0025
+				Luchtvochtigheid Sensor 0013
+			Kamer 111
+				CO2 Sensor 0006
+				Temperatuur Sensor 0026
+			Kamer 112
+				Temperatuur Sensor 0027
+				Luchtvochtigheid Sensor 0014
+			Kamer 113
+				Temperatuur Sensor 0028
+			Kamer 114
+				Temperatuur Sensor 0029
+				Luchtvochtigheid Sensor 0015
+			Kamer 115
+				Temperatuur Sensor 0030
+		Verdieping 2
+			Kamer 201
+				CO2 Sensor 0007
+				Energie Sensor 0003
+				Temperatuur Sensor 0031
+				Luchtvochtigheid Sensor 0016
+			Kamer 202
+				Temperatuur Sensor 0032
+			Kamer 203
+				Temperatuur Sensor 0033
+				Luchtvochtigheid Sensor 0017
+			Kamer 204
+				Temperatuur Sensor 0034
+			Kamer 205
+				Temperatuur Sensor 0035
+				Luchtvochtigheid Sensor 0018
+			Kamer 206
+				CO2 Sensor 0008
+				Temperatuur Sensor 0036
+			Kamer 207
+				Temperatuur Sensor 0037
+				Luchtvochtigheid Sensor 0019
+			Kamer 208
+				Temperatuur Sensor 0038
+			Kamer 209
+				Temperatuur Sensor 0039
+				Luchtvochtigheid Sensor 0020
+			Kamer 210
+				Temperatuur Sensor 0040
+			Kamer 211
+				CO2 Sensor 0009
+				Temperatuur Sensor 0041
+				Luchtvochtigheid Sensor 0021
+			Kamer 212
+				Temperatuur Sensor 0042
+			Kamer 213
+				Temperatuur Sensor 0043
+				Luchtvochtigheid Sensor 0022
+			Kamer 214
+				Temperatuur Sensor 0044
+			Kamer 215
+				Temperatuur Sensor 0045
+				Luchtvochtigheid Sensor 0023
+		Verdieping 3
+			Kamer 301
+				CO2 Sensor 0010
+				Energie Sensor 0004
+				Temperatuur Sensor 0046
+			Kamer 302
+				Temperatuur Sensor 0047
+				Luchtvochtigheid Sensor 0024
+			Kamer 303
+				Temperatuur Sensor 0048
+			Kamer 304
+				Temperatuur Sensor 0049
+				Luchtvochtigheid Sensor 0025
+			Kamer 305
+				Temperatuur Sensor 0050
+			Kamer 306
+				CO2 Sensor 0011
+				Temperatuur Sensor 0051
+				Luchtvochtigheid Sensor 0026
+			Kamer 307
+				Temperatuur Sensor 0052
+			Kamer 308
+				Temperatuur Sensor 0053
+				Luchtvochtigheid Sensor 0027
+			Kamer 309
+				Temperatuur Sensor 0054
+			Kamer 310
+				Temperatuur Sensor 0055
+				Luchtvochtigheid Sensor 0028
+			Kamer 311
+				CO2 Sensor 0012
+				Temperatuur Sensor 0056
+			Kamer 312
+				Temperatuur Sensor 0057
+				Luchtvochtigheid Sensor 0029
+			Kamer 313
+				Temperatuur Sensor 0058
+			Kamer 314
+				Temperatuur Sensor 0059
+				Luchtvochtigheid Sensor 0030
+			Kamer 315
+				Temperatuur Sensor 0060
+		Verdieping 4
+			Kamer 401
+				CO2 Sensor 0013
+				Energie Sensor 0004
+				Temperatuur Sensor 0061
+				Luchtvochtigheid Sensor 0031
+			Kamer 402
+				Temperatuur Sensor 0062
+			Kamer 403
+				Temperatuur Sensor 0063
+				Luchtvochtigheid Sensor 0032
+			Kamer 404
+				Temperatuur Sensor 0064
+			Kamer 405
+				Temperatuur Sensor 0065
+				Luchtvochtigheid Sensor 0033
+			Kamer 406
+				CO2 Sensor 0014
+				Temperatuur Sensor 0066
+			Kamer 407
+				Temperatuur Sensor 0067
+				Luchtvochtigheid Sensor 0034
+			Kamer 408
+				Temperatuur Sensor 0068
+			Kamer 409
+				Temperatuur Sensor 0069
+				Luchtvochtigheid Sensor 0035
+			Kamer 410
+				Temperatuur Sensor 0070
+			Kamer 411
+				CO2 Sensor 0015
+				Temperatuur Sensor 0071
+				Luchtvochtigheid Sensor 0036
+			Kamer 412
+				Temperatuur Sensor 0072
+			Kamer 413
+				Temperatuur Sensor 0073
+				Luchtvochtigheid Sensor 0037
+			Kamer 414
+				Temperatuur Sensor 0074
+			Kamer 415
+				Temperatuur Sensor 0075
+				Luchtvochtigheid Sensor 0038
+		Verdieping 5
+			Kamer 501
+				CO2 Sensor 0016
+				Energie Sensor 0005
+				Temperatuur Sensor 0076
+			Kamer 502
+				Temperatuur Sensor 0077
+				Luchtvochtigheid Sensor 0039
+			Kamer 503
+				Temperatuur Sensor 0078
+			Kamer 504
+				Temperatuur Sensor 0079
+				Luchtvochtigheid Sensor 0040
+			Kamer 505
+				Temperatuur Sensor 0080
+			Kamer 506
+				CO2 Sensor 0017
+				Temperatuur Sensor 0081
+				Luchtvochtigheid Sensor 0041
+			Kamer 507
+				Temperatuur Sensor 0082
+			Kamer 508
+				Temperatuur Sensor 0083
+				Luchtvochtigheid Sensor 0042
+			Kamer 509
+				Temperatuur Sensor 0084
+			Kamer 510
+				Temperatuur Sensor 0085
+				Luchtvochtigheid Sensor 0043
+			Kamer 511
+				CO2 Sensor 0018
+				Temperatuur Sensor 0086
+			Kamer 512
+				Temperatuur Sensor 0087
+				Luchtvochtigheid Sensor 0044
+		Verdieping 6
+			Kamer 601
+				CO2 Sensor 0019
+				Energie Sensor 0006
+				Temperatuur Sensor 0088
+			Kamer 602
+				Temperatuur Sensor 0089
+				Luchtvochtigheid Sensor 0045
+			Kamer 603
+				Temperatuur Sensor 0090
+			Kamer 604
+				Temperatuur Sensor 0091
+				Luchtvochtigheid Sensor 0046
+			Kamer 605
+				Temperatuur Sensor 0092
+			Kamer 606
+				CO2 Sensor 0020
+				Temperatuur Sensor 0093
+				Luchtvochtigheid Sensor 0047
+	Boomhut 129
+		Verdieping -1
+			Kamer 0101
+				CO2 Sensor 0001
+				Energie Sensor 0001
+				Temperatuur Sensor 0001
+				Luchtvochtigheid Sensor 0001
+			Kamer 0102
+				CO2 Sensor 0002
+				Energie Sensor 0002
+				Temperatuur Sensor 0002
+				Luchtvochtigheid Sensor 0002
+			Kamer 0103
+				CO2 Sensor 0003
+				Energie Sensor 0003
+				Temperatuur Sensor 0003
+				Luchtvochtigheid Sensor 0003
+			Kamer 0104
+				CO2 Sensor 0004
+				Energie Sensor 0004
+				Temperatuur Sensor 0004
+				Luchtvochtigheid Sensor 0004
+			Kamer 0105
+				CO2 Sensor 0005
+				Energie Sensor 0005
+				Temperatuur Sensor 0005
+				Luchtvochtigheid Sensor 0005
+		Verdieping 0
+			Kamer 0001
+			Kamer 0002
+				CO2 Sensor 0006
+				Energie Sensor 0006
+				Temperatuur Sensor 0006
+				Luchtvochtigheid Sensor 0006
+			Kamer 0003
+				CO2 Sensor 0007
+				Energie Sensor 0007
+				Temperatuur Sensor 0007
+				Luchtvochtigheid Sensor 0007
+			Kamer 0004
+				CO2 Sensor 0008
+				Energie Sensor 0008
+				Temperatuur Sensor 0008
+				Luchtvochtigheid Sensor 0008
+			Kamer 0005
+				CO2 Sensor 0009
+				Energie Sensor 0009
+				Temperatuur Sensor 0009
+				Luchtvochtigheid Sensor 0009
+			Kamer 0006
+				CO2 Sensor 0010
+				Energie Sensor 0010
+				Temperatuur Sensor 0010
+				Luchtvochtigheid Sensor 0010
+			Kamer 0007
+				CO2 Sensor 0011
+				Energie Sensor 0011
+				Temperatuur Sensor 0011
+				Luchtvochtigheid Sensor 0011
+			Kamer 0008
+				CO2 Sensor 0012
+				Energie Sensor 0012
+				Temperatuur Sensor 0012
+				Luchtvochtigheid Sensor 0012
+			Kamer 0009
+				CO2 Sensor 0013
+				Energie Sensor 0013
+				Temperatuur Sensor 0013
+				Luchtvochtigheid Sensor 0013
+			Kamer 0010
+				CO2 Sensor 0014
+				Energie Sensor 0014
+				Temperatuur Sensor 0014
+				Luchtvochtigheid Sensor 0014
+			Kamer 0011
+				CO2 Sensor 0015
+				Energie Sensor 0015
+				Temperatuur Sensor 0015
+				Luchtvochtigheid Sensor 0015
+			Kamer 0012
+				CO2 Sensor 0016
+				Energie Sensor 0016
+				Temperatuur Sensor 0016
+				Luchtvochtigheid Sensor 0016
+			Kamer 0013
+				CO2 Sensor 0017
+				Energie Sensor 0017
+				Temperatuur Sensor 0017
+				Luchtvochtigheid Sensor 0017
+		Verdieping 1
+			Kamer 1001
+				CO2 Sensor 0018
+				Energie Sensor 0018
+				Temperatuur Sensor 0018
+				Luchtvochtigheid Sensor 0018
+			Kamer 1002
+				CO2 Sensor 0019
+				Energie Sensor 0019
+				Temperatuur Sensor 0019
+				Luchtvochtigheid Sensor 0019
+			Kamer 1003
+				CO2 Sensor 0020
+				Energie Sensor 0020
+				Temperatuur Sensor 0020
+				Luchtvochtigheid Sensor 0020
+			Kamer 1004
+				CO2 Sensor 0021
+				Energie Sensor 0021
+				Temperatuur Sensor 0021
+				Luchtvochtigheid Sensor 0021
+			Kamer 1005
+				CO2 Sensor 0022
+				Energie Sensor 0022
+				Temperatuur Sensor 0022
+				Luchtvochtigheid Sensor 0022
+			Kamer 1006
+				CO2 Sensor 0023
+				Energie Sensor 0023
+				Temperatuur Sensor 0023
+				Luchtvochtigheid Sensor 0023
+			Kamer 1007
+				CO2 Sensor 0024
+				Energie Sensor 0024
+				Temperatuur Sensor 0024
+				Luchtvochtigheid Sensor 0023
+			Kamer 1008
+				CO2 Sensor 0025
+				Energie Sensor 0025
+				Temperatuur Sensor 0025
+				Luchtvochtigheid Sensor 0025
+			Kamer 1009
+				CO2 Sensor 0026
+				Energie Sensor 0026
+				Temperatuur Sensor 0026
+				Luchtvochtigheid Sensor 0026
+			Kamer 1010
+				CO2 Sensor 0027
+				Energie Sensor 0027
+				Temperatuur Sensor 0027
+				Luchtvochtigheid Sensor 0027
+			Kamer 1011
+				CO2 Sensor 0028
+				Energie Sensor 0028
+				Temperatuur Sensor 0028
+				Luchtvochtigheid Sensor 0028
+			Kamer 1012
+				CO2 Sensor 0029
+				Energie Sensor 0029
+				Temperatuur Sensor 0029
+				Luchtvochtigheid Sensor 0029
+			Kamer 1013
+				CO2 Sensor 0030
+				Energie Sensor 0030
+				Temperatuur Sensor 0030
+				Luchtvochtigheid Sensor 0030
+		Verdieping 2
+			Kamer 2001
+				CO2 Sensor 0031
+				Energie Sensor 0031
+				Temperatuur Sensor 0031
+				Luchtvochtigheid Sensor 0031
+			Kamer 2002
+				CO2 Sensor 0032
+				Energie Sensor 0032
+				Temperatuur Sensor 0032
+				Luchtvochtigheid Sensor 0032
+			Kamer 2003
+				CO2 Sensor 0033
+				Energie Sensor 0033
+				Temperatuur Sensor 0033
+				Luchtvochtigheid Sensor 0033
+			Kamer 2004
+				CO2 Sensor 0034
+				Energie Sensor 0034
+				Temperatuur Sensor 0034
+				Luchtvochtigheid Sensor 0034
+			Kamer 2005
+				CO2 Sensor 0035
+				Energie Sensor 0035
+				Temperatuur Sensor 0035
+				Luchtvochtigheid Sensor 0035
+			Kamer 2006
+				CO2 Sensor 0036
+				Energie Sensor 0036
+				Temperatuur Sensor 0036
+				Luchtvochtigheid Sensor 0036
+			Kamer 2007
+				CO2 Sensor 0037
+				Energie Sensor 0037
+				Temperatuur Sensor 0037
+				Luchtvochtigheid Sensor 0037
+			Kamer 2008
+				CO2 Sensor 0038
+				Energie Sensor 0038
+				Temperatuur Sensor 0038
+				Luchtvochtigheid Sensor 0038
+			Kamer 2009
+				CO2 Sensor 0039
+				Energie Sensor 0039
+				Temperatuur Sensor 0039
+				Luchtvochtigheid Sensor 0039
+			Kamer 2010
+				CO2 Sensor 0040
+				Energie Sensor 0040
+				Temperatuur Sensor 0040
+				Luchtvochtigheid Sensor 0040
+			Kamer 2011
+				CO2 Sensor 0041
+				Energie Sensor 0041
+				Temperatuur Sensor 0041
+				Luchtvochtigheid Sensor 0041
+			Kamer 2012
+				CO2 Sensor 0042
+				Energie Sensor 0042
+				Temperatuur Sensor 0042
+				Luchtvochtigheid Sensor 0042
+			Kamer 2013
+				CO2 Sensor 0043
+				Energie Sensor 0043
+				Temperatuur Sensor 0043
+				Luchtvochtigheid Sensor 0043
+		Verdieping 3
+			Kamer 3001
+				CO2 Sensor 0044
+				Energie Sensor 0044
+				Temperatuur Sensor 0044
+				Luchtvochtigheid Sensor 0044
+			Kamer 3002
+				CO2 Sensor 0045
+				Energie Sensor 0045
+				Temperatuur Sensor 0045
+				Luchtvochtigheid Sensor 0045
+			Kamer 3003
+				CO2 Sensor 0046
+				Energie Sensor 0046
+				Temperatuur Sensor 0046
+				Luchtvochtigheid Sensor 0046
+			Kamer 3004
+				CO2 Sensor 0047
+				Energie Sensor 0047
+				Temperatuur Sensor 0047
+				Luchtvochtigheid Sensor 0047
+			Kamer 3005
+				CO2 Sensor 0048
+				Energie Sensor 0048
+				Temperatuur Sensor 0048
+				Luchtvochtigheid Sensor 0048
+			Kamer 3006
+				CO2 Sensor 0049
+				Energie Sensor 0049
+				Temperatuur Sensor 0049
+				Luchtvochtigheid Sensor 0049
+			Kamer 3007
+				CO2 Sensor 0050
+				Energie Sensor 0050
+				Temperatuur Sensor 0050
+				Luchtvochtigheid Sensor 0050
+			Kamer 3008
+			Kamer 3009
+				CO2 Sensor 0051
+				Energie Sensor 0051
+				Temperatuur Sensor 0051
+				Luchtvochtigheid Sensor 0051
+			Kamer 3010
+				CO2 Sensor 0052
+				Energie Sensor 0052
+				Temperatuur Sensor 0052
+				Luchtvochtigheid Sensor 0052
+			Kamer 3011
+				CO2 Sensor 0053
+				Energie Sensor 0053
+				Temperatuur Sensor 0053
+				Luchtvochtigheid Sensor 0053
+			Kamer 3012
+				CO2 Sensor 0054
+				Energie Sensor 0054
+				Temperatuur Sensor 0054
+				Luchtvochtigheid Sensor 0054
+			Kamer 3013
+				CO2 Sensor 0055
+				Energie Sensor 0055
+				Temperatuur Sensor 0055
+				Luchtvochtigheid Sensor 0055
+		Verdieping 4
+			Kamer 4001
+				CO2 Sensor 0056
+				Energie Sensor 0056
+				Temperatuur Sensor 0056
+				Luchtvochtigheid Sensor 0056
+			Kamer 4002
+				CO2 Sensor 0057
+				Energie Sensor 0057
+				Temperatuur Sensor 0057
+				Luchtvochtigheid Sensor 0057
+			Kamer 4003
+				CO2 Sensor 0058
+				Energie Sensor 0058
+				Temperatuur Sensor 0058
+				Luchtvochtigheid Sensor 0058
+			Kamer 4004
+				CO2 Sensor 0059
+				Energie Sensor 0059
+				Temperatuur Sensor 0059
+				Luchtvochtigheid Sensor 0059
+			Kamer 4005
+			Kamer 4006
+				CO2 Sensor 0060
+				Energie Sensor 0060
+				Temperatuur Sensor 0060
+				Luchtvochtigheid Sensor 0060
+			Kamer 4007
+				CO2 Sensor 0061
+				Energie Sensor 0061
+				Temperatuur Sensor 0061
+				Luchtvochtigheid Sensor 0061
+			Kamer 4008
+				CO2 Sensor 0062
+				Energie Sensor 0062
+				Temperatuur Sensor 0062
+				Luchtvochtigheid Sensor 0062
+
+
+
+
+
+CO2 Sensor 
+Energie Sensor 
+Temperatuur Sensor 
+Luchtvochtigheid Sensor 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

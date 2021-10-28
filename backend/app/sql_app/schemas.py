@@ -12,9 +12,10 @@ from enum import Enum
 
 
 class ResourceType(str, Enum):
-    kilowattuur = "kilowattuur"
     co2 = "co2"
+    kilowattuur = "kilowattuur"
     temperatuur = "temperatuur"
+    luchtvochtigheid = "luchtvochtigheid"
 
 
 class SensorStatus(str, Enum):

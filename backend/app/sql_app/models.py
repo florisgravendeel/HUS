@@ -34,7 +34,7 @@ class Building(Base):
 
     building_id = Column(Integer, primary_key=True, nullable=False, index=True)
     name = Column(String, nullable=False)
-    ip_address = Column(String, nullable=True)
+    # ip_address = Column(String, nullable=True)
     company_id = Column(Integer, ForeignKey('company.company_id'),nullable=False)
 
     company = relationship("Company", back_populates="buildings")

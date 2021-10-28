@@ -103,7 +103,7 @@ def create_room(db: Session, room: schemas.RoomBase, floor_id: int):
 
 
 def create_sensor(db: Session, name: str, room_id: int, resource_type=schemas.ResourceType):
-    allow = check_floors(db, room_id)
+    allow = check_rooms(db, room_id)
     if allow:
         sensor = schemas.Sensor_Resource(name=name, status='online', resource_type=resource_type)
         db_sensor = models.Sensor(**sensor.dict(), room_id=room_id)
