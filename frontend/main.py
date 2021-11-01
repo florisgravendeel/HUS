@@ -38,6 +38,7 @@ app.debug = True
 def handle_auth_error(ex):
     response = jsonify(message=str(ex))
     response.status_code = (ex.code if isinstance(ex, HTTPException) else 500)
+    print(response)
     return response
 
 
@@ -100,10 +101,7 @@ def logout():
 @app.route('/dashboard')
 @requires_auth
 def dashboard():
-    print("Printing shit")
-    print(session[constants.PROFILE_KEY])
     print(session[constants.JWT_PAYLOAD])
-
     return render_template('dashboard.html',
                            userinfo=session[constants.PROFILE_KEY],
                            userinfo_pretty=json.dumps(session[constants.JWT_PAYLOAD], indent=4))
@@ -125,7 +123,7 @@ def dashboard2():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=env.get('PORT', 3000), debug=True)
+    app.run(host='0.0.0.0', port=env.get('PORT', 8080), debug=True)
 
 # #--------------------------------------------------------------------------------------------IMPORTS
 # from fastapi import FastAPI, Request
