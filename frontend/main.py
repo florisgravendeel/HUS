@@ -122,7 +122,7 @@ def dashboard2():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=env.get('PORT', 3000), debug=True)
+    app.run(host='0.0.0.0', port=env.get('PORT', 8080), debug=True)
 
 # #--------------------------------------------------------------------------------------------IMPORTS
 # from fastapi import FastAPI, Request
