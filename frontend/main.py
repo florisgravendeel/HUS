@@ -9,12 +9,12 @@ from dotenv import load_dotenv, find_dotenv
 from flask import Flask
 from flask import jsonify
 from flask import redirect
-from flask import render_template
+from flask import Flask, render_template
 from flask import session
 from flask import url_for
 from authlib.integrations.flask_client import OAuth
 
-from frontend.app import constants #from app import constants
+from app import constants #from app import constants
 
 ENV_FILE = find_dotenv(filename='app/.env')
 if ENV_FILE:
@@ -65,11 +65,11 @@ def requires_auth(f):
         return f(*args, **kwargs)
     return decorated
 
-
-# Controllers API
-@app.route('/')
+app = Flask(__name__)
+  
+@app.route("/")
 def home():
-    return render_template('home.html')
+    return render_template("templates/inlogContent.html")
 
 @app.route('/callback')
 def callback_handling():
@@ -106,6 +106,9 @@ def dashboard():
                            userinfo=session[constants.PROFILE_KEY],
                            userinfo_pretty=json.dumps(session[constants.JWT_PAYLOAD], indent=4))
 
+@app.route('/sensorPagina')
+def sensorPagina():
+    return render_template("sensorPagina.html")
 
 @app.route('/dashboard2')
 def dashboard2():
