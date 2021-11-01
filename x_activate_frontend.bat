@@ -8,4 +8,7 @@ echo.
 
 virtualenv venv
 cd .\frontend
+:run
 python main.py
+pause
+goto:run
