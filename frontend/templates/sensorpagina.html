@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% block title %}Index{% endblock %}
 {% block head %}
-        <link href="{{ url_for('static', path='/css/global.css') }}" rel="stylesheet">
-        <link href="{{ url_for('static', path='/css/style.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/global.css') }}" rel="stylesheet"><!--- nu laad ie wel:
+         <link href="{{ url_for('static', path='/css/global.css') }}" rel="stylesheet">-->
+        <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"> <!--- nu laad ie wel:
+        <link href="{{ url_for('static', path='/css/style.css') }}" rel="stylesheet">-->
     {{ super() }}
     <style scoped>
         .important { color: #336699; }
@@ -10,7 +12,7 @@
 {% endblock %}
 {% block content %}
     <div class="hoverBox">
-        <form class= "inlogGegevens" action="action_page.php" method="post">
+        <form class= "inlogGegevens" method="post">
             <div class="logIn">
                 <label for="uname"><b>Email</b></label>
                 <input type="text" placeholder="Enter Email" name="uname" required>

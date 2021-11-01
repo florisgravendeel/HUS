@@ -9,11 +9,14 @@
     <meta name="description" content="Sensor Tracker">
 
     {% block title %}<title> Sensor Dashboard</title>{% endblock %}
-    <link rel="icon" href="{{ url_for('static', path='/images/favicon.png') }}" sizes="32x32" />
-
+    <!-- <link rel="icon" href="{{ url_for('static', path='/images/favicon.png') }}" sizes="32x32" /> deze image bestaat niet, maar geen zorgen Gerrit is er -->
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" sizes="128x128" />
     {# CSS links #}
+    <!--<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', path='/css/global.css') }}" rel="stylesheet">-->
+
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
-    <link href="{{ url_for('static', path='/css/global.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/global.css') }}" rel="stylesheet">
 
     {% endblock %}
 </head>

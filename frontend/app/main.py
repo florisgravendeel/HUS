@@ -20,7 +20,7 @@ bovenBalk = [bovenBalk('http://localhost:8080/item/', 'Inloggen'), bovenBalk('ba
 
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
-    return templates.TemplateResponse("include/inlogContent.html", {"request": request, "bovenBalk":bovenBalk})
+    return templates.TemplateResponse("include/inlogcontent.html", {"request": request, "bovenBalk":bovenBalk})
 
 
 @app.get("/item/", response_class=HTMLResponse)
@@ -30,4 +30,4 @@ async def home(request: Request):
 
 @app.get("/test/", response_class=HTMLResponse)
 async def home(request: Request):
-    return templates.TemplateResponse("bovenBalk.html", {"request": request})
+    return templates.TemplateResponse("bovenbalk.html", {"request": request})
