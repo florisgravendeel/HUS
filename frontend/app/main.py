@@ -3,6 +3,7 @@ from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+import uvicorn
 
 #--------------------------------------------------------------------------------------------DEPENDENCIES
 app = FastAPI()
@@ -31,3 +32,6 @@ async def home(request: Request):
 @app.get("/test/", response_class=HTMLResponse)
 async def home(request: Request):
     return templates.TemplateResponse("bovenBalk.html", {"request": request})
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="127.0.0.1", port=8080, reload=True)
