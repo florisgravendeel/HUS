@@ -1,6 +1,7 @@
 from sqlalchemy.orm import Session
 from sqlalchemy.sql import func
 
+import pprint
 from starlette.responses import JSONResponse
 
 from . import models, schemas
@@ -110,3 +111,60 @@ def create_sensor(db: Session, name: str, room_id: int, resource_type=schemas.Re
         basicDBstuff(db, db_sensor)
         return db_sensor
     return JSONResponse(status_code=404, content={"message": "Room not found"})
+
+
+def get_all_dummy(db: Session):
+    company = db.query(models.Company).all()
+    json_company = []
+    for i in company:
+        add_data = {}
+        add_data['company_id'] = getattr(i, 'company_id')
+        add_data['name'] = getattr(i, 'name')
+        json_company.append(add_data)
+    
+    building = db.query(models.Building).all()
+    json_building = []
+    for i in building:
+        add_data = {}
+        add_data['building_id'] = getattr(i, 'building_id')
+        add_data['name'] = getattr(i, 'name')
+        add_data['company_id'] = getattr(i, 'company_id')
+        json_building.append(add_data)
+    
+    floor = db.query(models.Floor).all()
+    json_floor = []
+    for i in floor:
+        add_data = {}
+        add_data['floor_id'] = getattr(i, 'floor_id')
+        add_data['name'] = getattr(i, 'name')
+        add_data['building_id'] = getattr(i, 'building_id')
+        json_floor.append(add_data)
+    
+    room = db.query(models.Room).all()
+    json_room = []
+    for i in room:
+        add_data = {}
+        add_data['room_id'] = getattr(i, 'room_id')
+        add_data['name'] = getattr(i, 'name')
+        add_data['floor_id'] = getattr(i, 'floor_id')
+        json_room.append(add_data)
+    
+    sensor = db.query(models.Sensor).all()
+    json_sensor = []
+    for i in sensor:
+        add_data = {}
+        add_data['sensor_id'] = getattr(i, 'sensor_id')
+        add_data['name'] = getattr(i, 'name')
+        add_data['room_id'] = getattr(i, 'room_id')
+        add_data['resource_type'] = getattr(i, 'resource_type')
+        add_data['status'] = getattr(i, 'status')
+        add_data['group_address'] = getattr(i, 'group_address')
+        json_sensor.append(add_data)
+    
+    return {
+        "company": json_company,
+        "building": json_building,
+        "floor": json_floor,
+        "room": json_room,
+        "sensor": json_sensor
+        }

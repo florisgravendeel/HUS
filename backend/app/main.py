@@ -3,6 +3,7 @@ from functools import lru_cache
 # print all object details
 from pprint import pprint
 
+import json
 import uvicorn
 from fastapi import Depends, FastAPI, HTTPException, BackgroundTasks, Query, Body
 from sqlalchemy.orm import Session
@@ -23,6 +24,7 @@ app = FastAPI(openapi_tags=tags_metadata)
 
 
 # @lru_cache()
+
 # Dependency
 def get_db():
     db = SessionLocal()
@@ -112,6 +114,25 @@ def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
     if db_user:
         raise HTTPException(status_code=400, detail="Email already registered")
     return crud.create_user(db=db, user=user)
+
+
+@app.post("/reset_and_repopulate_db", tags=["rar_db"])
+def reset_and_repopulate_db(
+        confirm_1: schemas.Confirm, confirm_2: schemas.Confirm,
+        db: Session = Depends(get_db),
+        confirm_3: str = Query(..., regex="^Confirm$", description="Type 'Confirm' to confirm."),
+        json_name: str = Query("JSON_DB", description="The database data will be saved in a JSON file, please name it.")
+        ):
+
+    if not confirm_1 == confirm_2 == 'yes' or not confirm_3 == 'Confirm':           # Check if everything was confirmed
+        return JSONResponse(status_code=401, content={"message":"Not confirmed"})
+
+    data = crud.get_all_dummy(db)
+
+    with open('dummy_data/old_JSONs/'+json_name+'.json', 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=4)
+
+    return data
 
 
 if __name__ == '__main__':

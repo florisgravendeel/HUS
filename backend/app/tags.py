@@ -4,7 +4,15 @@ tags_metadata = [
         "description": "Send a mail with or without a template and in the background or not.",
     },
     {
-        "name":"create_data",
+        "name": "create_data",
         "description": "Create data in the database."
+    },
+    {
+        "name": "get_data",
+        "description": "Get data in the database."
+    },
+    {
+        "name": "rar_db",
+        "description": "Reset all database entries and repopulate with standard dummy data."
     }
 ]
