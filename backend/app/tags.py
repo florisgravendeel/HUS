@@ -13,6 +13,6 @@ tags_metadata = [
     },
     {
         "name": "rar_db",
-        "description": "Reset all database entries and repopulate with standard dummy data."
+        "description": "Reset And Repopulate"
     }
 ]

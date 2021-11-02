@@ -1,70 +1,66 @@
 from typing import Any, List, Optional
-from functools import lru_cache
-# print all object details
-from pprint import pprint
 
-import json
-import uvicorn
 from fastapi import Depends, FastAPI, HTTPException, BackgroundTasks, Query, Body
 from sqlalchemy.orm import Session
 
 from sql_app import crud, models, schemas
-from sql_app.database import SessionLocal, user_engine
+from sql_app.database import SessionLocal, engine
+
+import json
+import uvicorn
 
 from mailing.send_mail import simple_send, send_in_background, send_with_template, EmailSchema
 from starlette.responses import JSONResponse
 
 from variables.init_vars import DB_URL
+from functools import lru_cache
 
 from tags import tags_metadata
 
-models.Base.metadata.create_all(bind=user_engine)
+models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI(openapi_tags=tags_metadata)
 
 
-# @lru_cache()
+@lru_cache()
 
 # Dependency
-def get_db():
+def get_db() -> Session:
     db = SessionLocal()
     try:
         yield db
     finally:
         db.close()
 
+
 @app.get("/")
 def main():
     ban = {"message":"Welcome"}
     return ban
 
-def create_output(output):
+
+def mail_output(output):
     if output == True:
         return JSONResponse(status_code=200, content={"message": "email has been sent"})
     return JSONResponse(status_code=500, content=output)
 
-# @app.post("/get_db_url/")
-# def get_db_url():
-#     return DB_URL
 
 @app.post("/email", tags=["send_email"])
-async def send_template_mail(subject ,email: EmailSchema):
-    return create_output(await send_with_template(email, subject))
-
+async def send_template_mail(subject, email: EmailSchema):
+    return mail_output(await send_with_template(email, subject))
 
 @app.post("/emailtemplate", tags=["send_email"], deprecated=True)
-async def send_template_mail(subject ,email: EmailSchema):
-    return create_output(await send_with_template(email, subject))
-    
+async def send_template_mail(subject, email: EmailSchema):
+    return mail_output(await send_with_template(email, subject))
 
 @app.post("/emailbackground", tags=["send_email"], deprecated=True)
 async def send_background_mail(background_tasks: BackgroundTasks, email: EmailSchema, subject, content):
-    return create_output(await send_in_background(background_tasks, email, subject, content))
-
+    return mail_output(await send_in_background(background_tasks, email, subject, content))
 
 @app.post("/simplemail", tags=["send_email"], deprecated=True)
 async def send_mail(email: EmailSchema, subject, content):
-    return create_output(await simple_send(email, subject, content))
+    return mail_output(await simple_send(email, subject, content))
+
 
 
 @app.post("/create_company/", tags=["create_data"])
@@ -109,22 +105,24 @@ def read_user(user_id: int, db: Session = Depends(get_db)):
 
 
 @app.post("/users/", response_model=schemas.User)
-def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
-    db_user = crud.get_user_by_email(db, email=user.email)
+async def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
+    db_user = await crud.get_user_by_email(db, email=user.email)
     if db_user:
         raise HTTPException(status_code=400, detail="Email already registered")
     return crud.create_user(db=db, user=user)
 
 
-@app.post("/reset_and_repopulate_db", tags=["rar_db"])
+
+
+@app.post("/reset_and_repopulate_db/", tags=["rar_db"])
 def reset_and_repopulate_db(
         confirm_1: schemas.Confirm, confirm_2: schemas.Confirm,
         db: Session = Depends(get_db),
         confirm_3: str = Query(..., regex="^Confirm$", description="Type 'Confirm' to confirm."),
         json_name: str = Query("JSON_DB", description="The database data will be saved in a JSON file, please name it.")
         ):
-
-    if not confirm_1 == confirm_2 == 'yes' or not confirm_3 == 'Confirm':           # Check if everything was confirmed
+    # Check if everything was confirmed
+    if not confirm_1 == confirm_2 == 'yes' or not confirm_3 == 'Confirm':           
         return JSONResponse(status_code=401, content={"message":"Not confirmed"})
 
     data = crud.get_all_dummy(db)
@@ -135,23 +133,16 @@ def reset_and_repopulate_db(
     return data
 
 
-if __name__ == '__main__':
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+@app.post("/populate_w_dummy/", tags=["rar_db"])
+def populate_w_dummy(db: Session = Depends(get_db)):
+
+    # relative path does not work, full path needed
+    json_file = open("C:/Schneider/HUS/backend/app/dummy_data/Dummy_data.json")
+    dummy_data = json.load(json_file)
+    json_file.close()
     
-    # class customer:
-    #     def __init__(self, href, caption):
-    #         self.href = href
-    #         self.caption = caption
+    return crud.populate_w_dummy(db, dummy_data)
 
-    # boi = [customer("https://trojo.net", "The best website")]
-    # gir = customer("https://w3schools.com", "The smart website")
 
-    # array = []
-    # array.append(boi)
-    # array.append(gir)
-
-    # for item in boi:
-    #     print(item.href)
-    #     print(item.caption)
-    # print(crud.get_buildings(get_db()))
-    pass
+if __name__ == '__main__':
+    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)

@@ -1,31 +1,44 @@
-from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, DateTime
+from sqlalchemy import Boolean, Column, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
 
 from .database import Base
 
 
 class User(Base):
-    __tablename__ = 'user'
+    __tablename__ = "users"
 
-    user_id = Column(Integer, primary_key=True, nullable=False, index=True)
-    name = Column(String, nullable=False)
-    email = Column(String, unique=True, nullable=False)
-    phone_number = Column(String, nullable=True)
-    hsd_pwd = Column(String, nullable=False)
-    company_id = Column(Integer, nullable=False) # cross db foreignkey?  --> manual ID checking
-    is_admin = Column(Boolean, nullable=False, default=False)
-# varchar/text!
+    id = Column(Integer, primary_key=True, index=True)
+    email = Column(String, unique=True, index=True)
+    hashed_password = Column(String)
+    is_active = Column(Boolean, default=True)
+
+    items = relationship("Item", back_populates="owner")
+
+
+class Item(Base):
+    __tablename__ = "items"
+
+    id = Column(Integer, primary_key=True, index=True)
+    title = Column(String, index=True)
+    description = Column(String, index=True)
+    owner_id = Column(Integer, ForeignKey("users.id"))
+
+    owner = relationship("User", back_populates="items")
+
+
 
 class Company(Base):
+
     __tablename__ = 'company'
 
     company_id = Column(Integer, primary_key=True, nullable=False, index=True)
     name = Column(String, nullable=False)
 
-    buildings = relationship("Building")
+    buildings = relationship("Building", back_populates="company")
 
 
 class Building(Base):
+
     __tablename__ = 'building'
 
     building_id = Column(Integer, primary_key=True, nullable=False, index=True)
@@ -34,10 +47,11 @@ class Building(Base):
     company_id = Column(Integer, ForeignKey('company.company_id'),nullable=False)
 
     company = relationship("Company", back_populates="buildings")
-    floors = relationship("Floor")
+    floors = relationship("Floor", back_populates="building")
 
 
 class Floor(Base):
+
     __tablename__ = 'floor'
 
     floor_id = Column(Integer, primary_key=True, nullable=False, index=True)
@@ -49,6 +63,7 @@ class Floor(Base):
 
 
 class Room(Base):
+
     __tablename__ = 'room'
 
     room_id = Column(Integer, primary_key=True, nullable=False, index=True)
@@ -60,6 +75,7 @@ class Room(Base):
 
 
 class Sensor(Base):
+
     __tablename__ = 'sensor'
 
     sensor_id = Column(Integer, primary_key=True, nullable=False, index=True)

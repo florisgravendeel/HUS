@@ -1,0 +1,4976 @@
+{
+    "company": [
+        {
+            "company_id": 1,
+            "name": "Panto Man"
+        }
+    ],
+    "building": [
+        {
+            "building_id": 1,
+            "name": "De Donder",
+            "company_id": 1
+        },
+        {
+            "building_id": 2,
+            "name": "Heivel",
+            "company_id": 1
+        },
+        {
+            "building_id": 3,
+            "name": "Boomhut",
+            "company_id": 1
+        }
+    ],
+    "floor": [
+        {
+            "floor_id": 1,
+            "name": "Verdieping -2",
+            "building_id": 1
+        },
+        {
+            "floor_id": 2,
+            "name": "Verdieping -1",
+            "building_id": 1
+        },
+        {
+            "floor_id": 3,
+            "name": "Verdieping 0",
+            "building_id": 1
+        },
+        {
+            "floor_id": 4,
+            "name": "Verdieping 1",
+            "building_id": 1
+        },
+        {
+            "floor_id": 5,
+            "name": "Verdieping 2",
+            "building_id": 1
+        },
+        {
+            "floor_id": 6,
+            "name": "Verdieping 3",
+            "building_id": 1
+        },
+        {
+            "floor_id": 7,
+            "name": "Verdieping 4",
+            "building_id": 1
+        },
+        {
+            "floor_id": 8,
+            "name": "Verdieping 0",
+            "building_id": 2
+        },
+        {
+            "floor_id": 9,
+            "name": "Verdieping 1",
+            "building_id": 2
+        },
+        {
+            "floor_id": 10,
+            "name": "Verdieping 2",
+            "building_id": 2
+        },
+        {
+            "floor_id": 11,
+            "name": "Verdieping 3",
+            "building_id": 2
+        },
+        {
+            "floor_id": 12,
+            "name": "Verdieping 4",
+            "building_id": 2
+        },
+        {
+            "floor_id": 13,
+            "name": "Verdieping 5",
+            "building_id": 2
+        },
+        {
+            "floor_id": 14,
+            "name": "Verdieping 6",
+            "building_id": 2
+        },
+        {
+            "floor_id": 15,
+            "name": "Verdieping -1",
+            "building_id": 3
+        },
+        {
+            "floor_id": 16,
+            "name": "Verdieping 0",
+            "building_id": 3
+        },
+        {
+            "floor_id": 17,
+            "name": "Verdieping 1",
+            "building_id": 3
+        },
+        {
+            "floor_id": 18,
+            "name": "Verdieping 2",
+            "building_id": 3
+        },
+        {
+            "floor_id": 19,
+            "name": "Verdieping 3",
+            "building_id": 3
+        },
+        {
+            "floor_id": 20,
+            "name": "Verdieping 4",
+            "building_id": 3
+        }
+    ],
+    "room": [
+        {
+            "room_id": 1,
+            "name": "Kamer -2_1",
+            "floor_id": 1
+        },
+        {
+            "room_id": 2,
+            "name": "Kamer -2_2",
+            "floor_id": 1
+        },
+        {
+            "room_id": 3,
+            "name": "Kamer -2_3",
+            "floor_id": 1
+        },
+        {
+            "room_id": 4,
+            "name": "Kamer -2_4",
+            "floor_id": 1
+        },
+        {
+            "room_id": 5,
+            "name": "Kamer -2_5",
+            "floor_id": 1
+        },
+        {
+            "room_id": 6,
+            "name": "Kamer -1_1",
+            "floor_id": 2
+        },
+        {
+            "room_id": 7,
+            "name": "Kamer -1_2",
+            "floor_id": 2
+        },
+        {
+            "room_id": 8,
+            "name": "Kamer -1_3",
+            "floor_id": 2
+        },
+        {
+            "room_id": 9,
+            "name": "Kamer -1_4",
+            "floor_id": 2
+        },
+        {
+            "room_id": 10,
+            "name": "Kamer -1_5",
+            "floor_id": 2
+        },
+        {
+            "room_id": 11,
+            "name": "Kamer 0_1",
+            "floor_id": 3
+        },
+        {
+            "room_id": 12,
+            "name": "Kamer 0_2",
+            "floor_id": 3
+        },
+        {
+            "room_id": 13,
+            "name": "Kamer 0_3",
+            "floor_id": 3
+        },
+        {
+            "room_id": 14,
+            "name": "Kamer 0_4",
+            "floor_id": 3
+        },
+        {
+            "room_id": 15,
+            "name": "Kamer 0_5",
+            "floor_id": 3
+        },
+        {
+            "room_id": 16,
+            "name": "Kamer 1_1",
+            "floor_id": 4
+        },
+        {
+            "room_id": 17,
+            "name": "Kamer 1_2",
+            "floor_id": 4
+        },
+        {
+            "room_id": 18,
+            "name": "Kamer 1_3",
+            "floor_id": 4
+        },
+        {
+            "room_id": 19,
+            "name": "Kamer 1_4",
+            "floor_id": 4
+        },
+        {
+            "room_id": 20,
+            "name": "Kamer 1_5",
+            "floor_id": 4
+        },
+        {
+            "room_id": 21,
+            "name": "Kamer 2_1",
+            "floor_id": 5
+        },
+        {
+            "room_id": 22,
+            "name": "Kamer 2_2",
+            "floor_id": 5
+        },
+        {
+            "room_id": 23,
+            "name": "Kamer 2_3",
+            "floor_id": 5
+        },
+        {
+            "room_id": 24,
+            "name": "Kamer 2_4",
+            "floor_id": 5
+        },
+        {
+            "room_id": 25,
+            "name": "Kamer 2_5",
+            "floor_id": 5
+        },
+        {
+            "room_id": 26,
+            "name": "Kamer 3_1",
+            "floor_id": 6
+        },
+        {
+            "room_id": 27,
+            "name": "Kamer 3_2",
+            "floor_id": 6
+        },
+        {
+            "room_id": 28,
+            "name": "Kamer 3_3",
+            "floor_id": 6
+        },
+        {
+            "room_id": 29,
+            "name": "Kamer 3_4",
+            "floor_id": 6
+        },
+        {
+            "room_id": 30,
+            "name": "Kamer 3_5",
+            "floor_id": 6
+        },
+        {
+            "room_id": 31,
+            "name": "Kamer 4_1",
+            "floor_id": 7
+        },
+        {
+            "room_id": 32,
+            "name": "Kamer 4_2",
+            "floor_id": 7
+        },
+        {
+            "room_id": 33,
+            "name": "Kamer 4_3",
+            "floor_id": 7
+        },
+        {
+            "room_id": 34,
+            "name": "Kamer 4_4",
+            "floor_id": 7
+        },
+        {
+            "room_id": 35,
+            "name": "Kamer 4_5",
+            "floor_id": 7
+        },
+        {
+            "room_id": 36,
+            "name": "Kamer 001",
+            "floor_id": 8
+        },
+        {
+            "room_id": 37,
+            "name": "Kamer 002",
+            "floor_id": 8
+        },
+        {
+            "room_id": 38,
+            "name": "Kamer 003",
+            "floor_id": 8
+        },
+        {
+            "room_id": 39,
+            "name": "Kamer 004",
+            "floor_id": 8
+        },
+        {
+            "room_id": 40,
+            "name": "Kamer 005",
+            "floor_id": 8
+        },
+        {
+            "room_id": 41,
+            "name": "Kamer 006",
+            "floor_id": 8
+        },
+        {
+            "room_id": 42,
+            "name": "Kamer 007",
+            "floor_id": 8
+        },
+        {
+            "room_id": 43,
+            "name": "Kamer 008",
+            "floor_id": 8
+        },
+        {
+            "room_id": 44,
+            "name": "Kamer 009",
+            "floor_id": 8
+        },
+        {
+            "room_id": 45,
+            "name": "Kamer 010",
+            "floor_id": 8
+        },
+        {
+            "room_id": 46,
+            "name": "Kamer 011",
+            "floor_id": 8
+        },
+        {
+            "room_id": 47,
+            "name": "Kamer 012",
+            "floor_id": 8
+        },
+        {
+            "room_id": 48,
+            "name": "Kamer 013",
+            "floor_id": 8
+        },
+        {
+            "room_id": 49,
+            "name": "Kamer 014",
+            "floor_id": 8
+        },
+        {
+            "room_id": 50,
+            "name": "Kamer 015",
+            "floor_id": 8
+        },
+        {
+            "room_id": 51,
+            "name": "Kamer 101",
+            "floor_id": 9
+        },
+        {
+            "room_id": 52,
+            "name": "Kamer 102",
+            "floor_id": 9
+        },
+        {
+            "room_id": 53,
+            "name": "Kamer 103",
+            "floor_id": 9
+        },
+        {
+            "room_id": 54,
+            "name": "Kamer 104",
+            "floor_id": 9
+        },
+        {
+            "room_id": 55,
+            "name": "Kamer 105",
+            "floor_id": 9
+        },
+        {
+            "room_id": 56,
+            "name": "Kamer 106",
+            "floor_id": 9
+        },
+        {
+            "room_id": 57,
+            "name": "Kamer 107",
+            "floor_id": 9
+        },
+        {
+            "room_id": 58,
+            "name": "Kamer 108",
+            "floor_id": 9
+        },
+        {
+            "room_id": 59,
+            "name": "Kamer 109",
+            "floor_id": 9
+        },
+        {
+            "room_id": 60,
+            "name": "Kamer 110",
+            "floor_id": 9
+        },
+        {
+            "room_id": 61,
+            "name": "Kamer 111",
+            "floor_id": 9
+        },
+        {
+            "room_id": 62,
+            "name": "Kamer 112",
+            "floor_id": 9
+        },
+        {
+            "room_id": 63,
+            "name": "Kamer 113",
+            "floor_id": 9
+        },
+        {
+            "room_id": 64,
+            "name": "Kamer 114",
+            "floor_id": 9
+        },
+        {
+            "room_id": 65,
+            "name": "Kamer 115",
+            "floor_id": 9
+        },
+        {
+            "room_id": 66,
+            "name": "Kamer 201",
+            "floor_id": 10
+        },
+        {
+            "room_id": 67,
+            "name": "Kamer 202",
+            "floor_id": 10
+        },
+        {
+            "room_id": 68,
+            "name": "Kamer 203",
+            "floor_id": 10
+        },
+        {
+            "room_id": 69,
+            "name": "Kamer 204",
+            "floor_id": 10
+        },
+        {
+            "room_id": 70,
+            "name": "Kamer 205",
+            "floor_id": 10
+        },
+        {
+            "room_id": 71,
+            "name": "Kamer 206",
+            "floor_id": 10
+        },
+        {
+            "room_id": 72,
+            "name": "Kamer 207",
+            "floor_id": 10
+        },
+        {
+            "room_id": 73,
+            "name": "Kamer 208",
+            "floor_id": 10
+        },
+        {
+            "room_id": 74,
+            "name": "Kamer 209",
+            "floor_id": 10
+        },
+        {
+            "room_id": 75,
+            "name": "Kamer 210",
+            "floor_id": 10
+        },
+        {
+            "room_id": 76,
+            "name": "Kamer 211",
+            "floor_id": 10
+        },
+        {
+            "room_id": 77,
+            "name": "Kamer 212",
+            "floor_id": 10
+        },
+        {
+            "room_id": 78,
+            "name": "Kamer 213",
+            "floor_id": 10
+        },
+        {
+            "room_id": 79,
+            "name": "Kamer 214",
+            "floor_id": 10
+        },
+        {
+            "room_id": 80,
+            "name": "Kamer 215",
+            "floor_id": 10
+        },
+        {
+            "room_id": 81,
+            "name": "Kamer 301",
+            "floor_id": 11
+        },
+        {
+            "room_id": 82,
+            "name": "Kamer 302",
+            "floor_id": 11
+        },
+        {
+            "room_id": 83,
+            "name": "Kamer 303",
+            "floor_id": 11
+        },
+        {
+            "room_id": 84,
+            "name": "Kamer 304",
+            "floor_id": 11
+        },
+        {
+            "room_id": 85,
+            "name": "Kamer 305",
+            "floor_id": 11
+        },
+        {
+            "room_id": 86,
+            "name": "Kamer 306",
+            "floor_id": 11
+        },
+        {
+            "room_id": 87,
+            "name": "Kamer 307",
+            "floor_id": 11
+        },
+        {
+            "room_id": 88,
+            "name": "Kamer 308",
+            "floor_id": 11
+        },
+        {
+            "room_id": 89,
+            "name": "Kamer 309",
+            "floor_id": 11
+        },
+        {
+            "room_id": 90,
+            "name": "Kamer 310",
+            "floor_id": 11
+        },
+        {
+            "room_id": 91,
+            "name": "Kamer 311",
+            "floor_id": 11
+        },
+        {
+            "room_id": 92,
+            "name": "Kamer 312",
+            "floor_id": 11
+        },
+        {
+            "room_id": 93,
+            "name": "Kamer 313",
+            "floor_id": 11
+        },
+        {
+            "room_id": 94,
+            "name": "Kamer 314",
+            "floor_id": 11
+        },
+        {
+            "room_id": 95,
+            "name": "Kamer 315",
+            "floor_id": 11
+        },
+        {
+            "room_id": 96,
+            "name": "Kamer 401",
+            "floor_id": 12
+        },
+        {
+            "room_id": 97,
+            "name": "Kamer 402",
+            "floor_id": 12
+        },
+        {
+            "room_id": 98,
+            "name": "Kamer 403",
+            "floor_id": 12
+        },
+        {
+            "room_id": 99,
+            "name": "Kamer 404",
+            "floor_id": 12
+        },
+        {
+            "room_id": 100,
+            "name": "Kamer 405",
+            "floor_id": 12
+        },
+        {
+            "room_id": 101,
+            "name": "Kamer 406",
+            "floor_id": 12
+        },
+        {
+            "room_id": 102,
+            "name": "Kamer 407",
+            "floor_id": 12
+        },
+        {
+            "room_id": 103,
+            "name": "Kamer 408",
+            "floor_id": 12
+        },
+        {
+            "room_id": 104,
+            "name": "Kamer 409",
+            "floor_id": 12
+        },
+        {
+            "room_id": 105,
+            "name": "Kamer 410",
+            "floor_id": 12
+        },
+        {
+            "room_id": 106,
+            "name": "Kamer 411",
+            "floor_id": 12
+        },
+        {
+            "room_id": 107,
+            "name": "Kamer 412",
+            "floor_id": 12
+        },
+        {
+            "room_id": 108,
+            "name": "Kamer 413",
+            "floor_id": 12
+        },
+        {
+            "room_id": 109,
+            "name": "Kamer 414",
+            "floor_id": 12
+        },
+        {
+            "room_id": 110,
+            "name": "Kamer 415",
+            "floor_id": 12
+        },
+        {
+            "room_id": 111,
+            "name": "Kamer 501",
+            "floor_id": 13
+        },
+        {
+            "room_id": 112,
+            "name": "Kamer 502",
+            "floor_id": 13
+        },
+        {
+            "room_id": 113,
+            "name": "Kamer 503",
+            "floor_id": 13
+        },
+        {
+            "room_id": 114,
+            "name": "Kamer 504",
+            "floor_id": 13
+        },
+        {
+            "room_id": 115,
+            "name": "Kamer 505",
+            "floor_id": 13
+        },
+        {
+            "room_id": 116,
+            "name": "Kamer 506",
+            "floor_id": 13
+        },
+        {
+            "room_id": 117,
+            "name": "Kamer 507",
+            "floor_id": 13
+        },
+        {
+            "room_id": 118,
+            "name": "Kamer 508",
+            "floor_id": 13
+        },
+        {
+            "room_id": 119,
+            "name": "Kamer 509",
+            "floor_id": 13
+        },
+        {
+            "room_id": 120,
+            "name": "Kamer 510",
+            "floor_id": 13
+        },
+        {
+            "room_id": 121,
+            "name": "Kamer 511",
+            "floor_id": 13
+        },
+        {
+            "room_id": 122,
+            "name": "Kamer 512",
+            "floor_id": 13
+        },
+        {
+            "room_id": 123,
+            "name": "Kamer 601",
+            "floor_id": 14
+        },
+        {
+            "room_id": 124,
+            "name": "Kamer 602",
+            "floor_id": 14
+        },
+        {
+            "room_id": 125,
+            "name": "Kamer 603",
+            "floor_id": 14
+        },
+        {
+            "room_id": 126,
+            "name": "Kamer 604",
+            "floor_id": 14
+        },
+        {
+            "room_id": 127,
+            "name": "Kamer 605",
+            "floor_id": 14
+        },
+        {
+            "room_id": 128,
+            "name": "Kamer 606",
+            "floor_id": 14
+        },
+        {
+            "room_id": 129,
+            "name": "Kamer 0101",
+            "floor_id": 15
+        },
+        {
+            "room_id": 130,
+            "name": "Kamer 0102",
+            "floor_id": 15
+        },
+        {
+            "room_id": 131,
+            "name": "Kamer 0103",
+            "floor_id": 15
+        },
+        {
+            "room_id": 132,
+            "name": "Kamer 0104",
+            "floor_id": 15
+        },
+        {
+            "room_id": 133,
+            "name": "Kamer 0105",
+            "floor_id": 15
+        },
+        {
+            "room_id": 134,
+            "name": "Kamer 0001",
+            "floor_id": 16
+        },
+        {
+            "room_id": 135,
+            "name": "Kamer 0002",
+            "floor_id": 16
+        },
+        {
+            "room_id": 136,
+            "name": "Kamer 0003",
+            "floor_id": 16
+        },
+        {
+            "room_id": 137,
+            "name": "Kamer 0004",
+            "floor_id": 16
+        },
+        {
+            "room_id": 138,
+            "name": "Kamer 0005",
+            "floor_id": 16
+        },
+        {
+            "room_id": 139,
+            "name": "Kamer 0006",
+            "floor_id": 16
+        },
+        {
+            "room_id": 140,
+            "name": "Kamer 0007",
+            "floor_id": 16
+        },
+        {
+            "room_id": 141,
+            "name": "Kamer 0008",
+            "floor_id": 16
+        },
+        {
+            "room_id": 142,
+            "name": "Kamer 0009",
+            "floor_id": 16
+        },
+        {
+            "room_id": 143,
+            "name": "Kamer 0010",
+            "floor_id": 16
+        },
+        {
+            "room_id": 144,
+            "name": "Kamer 0011",
+            "floor_id": 16
+        },
+        {
+            "room_id": 145,
+            "name": "Kamer 0012",
+            "floor_id": 16
+        },
+        {
+            "room_id": 146,
+            "name": "Kamer 0013",
+            "floor_id": 16
+        },
+        {
+            "room_id": 147,
+            "name": "Kamer 1001",
+            "floor_id": 17
+        },
+        {
+            "room_id": 148,
+            "name": "Kamer 1002",
+            "floor_id": 17
+        },
+        {
+            "room_id": 149,
+            "name": "Kamer 1003",
+            "floor_id": 17
+        },
+        {
+            "room_id": 150,
+            "name": "Kamer 1004",
+            "floor_id": 17
+        },
+        {
+            "room_id": 151,
+            "name": "Kamer 1005",
+            "floor_id": 17
+        },
+        {
+            "room_id": 152,
+            "name": "Kamer 1006",
+            "floor_id": 17
+        },
+        {
+            "room_id": 153,
+            "name": "Kamer 1007",
+            "floor_id": 17
+        },
+        {
+            "room_id": 154,
+            "name": "Kamer 1008",
+            "floor_id": 17
+        },
+        {
+            "room_id": 155,
+            "name": "Kamer 1009",
+            "floor_id": 17
+        },
+        {
+            "room_id": 156,
+            "name": "Kamer 1010",
+            "floor_id": 17
+        },
+        {
+            "room_id": 157,
+            "name": "Kamer 1011",
+            "floor_id": 17
+        },
+        {
+            "room_id": 158,
+            "name": "Kamer 1012",
+            "floor_id": 17
+        },
+        {
+            "room_id": 159,
+            "name": "Kamer 1013",
+            "floor_id": 17
+        },
+        {
+            "room_id": 160,
+            "name": "Kamer 2001",
+            "floor_id": 18
+        },
+        {
+            "room_id": 161,
+            "name": "Kamer 2002",
+            "floor_id": 18
+        },
+        {
+            "room_id": 162,
+            "name": "Kamer 2003",
+            "floor_id": 18
+        },
+        {
+            "room_id": 163,
+            "name": "Kamer 2004",
+            "floor_id": 18
+        },
+        {
+            "room_id": 164,
+            "name": "Kamer 2005",
+            "floor_id": 18
+        },
+        {
+            "room_id": 165,
+            "name": "Kamer 2006",
+            "floor_id": 18
+        },
+        {
+            "room_id": 166,
+            "name": "Kamer 2007",
+            "floor_id": 18
+        },
+        {
+            "room_id": 167,
+            "name": "Kamer 2008",
+            "floor_id": 18
+        },
+        {
+            "room_id": 168,
+            "name": "Kamer 2009",
+            "floor_id": 18
+        },
+        {
+            "room_id": 169,
+            "name": "Kamer 2010",
+            "floor_id": 18
+        },
+        {
+            "room_id": 170,
+            "name": "Kamer 2011",
+            "floor_id": 18
+        },
+        {
+            "room_id": 171,
+            "name": "Kamer 2012",
+            "floor_id": 18
+        },
+        {
+            "room_id": 172,
+            "name": "Kamer 2013",
+            "floor_id": 18
+        },
+        {
+            "room_id": 173,
+            "name": "Kamer 3001",
+            "floor_id": 19
+        },
+        {
+            "room_id": 174,
+            "name": "Kamer 3002",
+            "floor_id": 19
+        },
+        {
+            "room_id": 175,
+            "name": "Kamer 3003",
+            "floor_id": 19
+        },
+        {
+            "room_id": 176,
+            "name": "Kamer 3004",
+            "floor_id": 19
+        },
+        {
+            "room_id": 177,
+            "name": "Kamer 3005",
+            "floor_id": 19
+        },
+        {
+            "room_id": 178,
+            "name": "Kamer 3006",
+            "floor_id": 19
+        },
+        {
+            "room_id": 179,
+            "name": "Kamer 3007",
+            "floor_id": 19
+        },
+        {
+            "room_id": 180,
+            "name": "Kamer 3008",
+            "floor_id": 19
+        },
+        {
+            "room_id": 181,
+            "name": "Kamer 3009",
+            "floor_id": 19
+        },
+        {
+            "room_id": 182,
+            "name": "Kamer 3010",
+            "floor_id": 19
+        },
+        {
+            "room_id": 183,
+            "name": "Kamer 3011",
+            "floor_id": 19
+        },
+        {
+            "room_id": 184,
+            "name": "Kamer 3012",
+            "floor_id": 19
+        },
+        {
+            "room_id": 185,
+            "name": "Kamer 3013",
+            "floor_id": 19
+        },
+        {
+            "room_id": 186,
+            "name": "Kamer 4001",
+            "floor_id": 20
+        },
+        {
+            "room_id": 187,
+            "name": "Kamer 4002",
+            "floor_id": 20
+        },
+        {
+            "room_id": 188,
+            "name": "Kamer 4003",
+            "floor_id": 20
+        },
+        {
+            "room_id": 189,
+            "name": "Kamer 4004",
+            "floor_id": 20
+        },
+        {
+            "room_id": 190,
+            "name": "Kamer 4005",
+            "floor_id": 20
+        },
+        {
+            "room_id": 191,
+            "name": "Kamer 4006",
+            "floor_id": 20
+        },
+        {
+            "room_id": 192,
+            "name": "Kamer 4007",
+            "floor_id": 20
+        },
+        {
+            "room_id": 193,
+            "name": "Kamer 4008",
+            "floor_id": 20
+        }
+    ],
+    "sensor": [
+        {
+            "sensor_id": 1,
+            "name": "CO2 Sensor 0001",
+            "room_id": 1,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 2,
+            "name": "Energie Sensor 0001",
+            "room_id": 1,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 3,
+            "name": "Temperatuur Sensor 0001",
+            "room_id": 1,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 4,
+            "name": "Luchtvochtigheid Sensor 0001",
+            "room_id": 1,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 5,
+            "name": "Energie Sensor 0002",
+            "room_id": 2,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 6,
+            "name": "Energie Sensor 0003",
+            "room_id": 3,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 7,
+            "name": "Temperatuur Sensor 0002",
+            "room_id": 3,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 8,
+            "name": "Luchtvochtigheid Sensor 0002",
+            "room_id": 3,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 9,
+            "name": "Energie Sensor 0004",
+            "room_id": 4,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 10,
+            "name": "Energie Sensor 0005",
+            "room_id": 5,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 11,
+            "name": "Energie Sensor 0006",
+            "room_id": 7,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 12,
+            "name": "Temperatuur Sensor 0003",
+            "room_id": 7,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 13,
+            "name": "Luchtvochtigheid Sensor 0003",
+            "room_id": 7,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 14,
+            "name": "Energie Sensor 0007",
+            "room_id": 8,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 15,
+            "name": "Temperatuur Sensor 0004",
+            "room_id": 8,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 16,
+            "name": "Luchtvochtigheid Sensor 0004",
+            "room_id": 8,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 17,
+            "name": "Energie Sensor 0008",
+            "room_id": 9,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 18,
+            "name": "Temperatuur Sensor 0005",
+            "room_id": 9,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 19,
+            "name": "Luchtvochtigheid Sensor 0005",
+            "room_id": 9,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 20,
+            "name": "Energie Sensor 0009",
+            "room_id": 10,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 21,
+            "name": "CO2 Sensor 0003",
+            "room_id": 11,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 22,
+            "name": "Energie Sensor 0010",
+            "room_id": 11,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 23,
+            "name": "Energie Sensor 0011",
+            "room_id": 12,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 24,
+            "name": "Energie Sensor 0012",
+            "room_id": 13,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 25,
+            "name": "Temperatuur Sensor 0006",
+            "room_id": 13,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 26,
+            "name": "Luchtvochtigheid Sensor 0006",
+            "room_id": 13,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 27,
+            "name": "Energie Sensor 0013",
+            "room_id": 14,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 28,
+            "name": "Temperatuur Sensor 0007",
+            "room_id": 14,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 29,
+            "name": "Luchtvochtigheid Sensor 0007",
+            "room_id": 14,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 30,
+            "name": "Energie Sensor 0014",
+            "room_id": 15,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 31,
+            "name": "CO2 Sensor 0004",
+            "room_id": 16,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 32,
+            "name": "Energie Sensor 0015",
+            "room_id": 16,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 33,
+            "name": "Temperatuur Sensor 0008",
+            "room_id": 16,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 34,
+            "name": "Luchtvochtigheid Sensor 0008",
+            "room_id": 16,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 35,
+            "name": "Energie Sensor 0016",
+            "room_id": 17,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 36,
+            "name": "Energie Sensor 0017",
+            "room_id": 18,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 37,
+            "name": "Energie Sensor 0018",
+            "room_id": 19,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 38,
+            "name": "Energie Sensor 0019",
+            "room_id": 20,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 39,
+            "name": "Temperatuur Sensor 0009",
+            "room_id": 20,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 40,
+            "name": "Luchtvochtigheid Sensor 0009",
+            "room_id": 20,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 41,
+            "name": "CO2 Sensor 0005",
+            "room_id": 21,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 42,
+            "name": "Energie Sensor 0020",
+            "room_id": 21,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 43,
+            "name": "Energie Sensor 0021",
+            "room_id": 22,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 44,
+            "name": "Temperatuur Sensor 0010",
+            "room_id": 22,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 45,
+            "name": "Luchtvochtigheid Sensor 0010",
+            "room_id": 22,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 46,
+            "name": "Energie Sensor 0022",
+            "room_id": 23,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 47,
+            "name": "Energie Sensor 0023",
+            "room_id": 24,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 48,
+            "name": "Temperatuur Sensor 0011",
+            "room_id": 24,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 49,
+            "name": "Luchtvochtigheid Sensor 0011",
+            "room_id": 24,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 50,
+            "name": "Energie Sensor 0024",
+            "room_id": 25,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 51,
+            "name": "CO2 Sensor 0006",
+            "room_id": 26,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 52,
+            "name": "Energie Sensor 0025",
+            "room_id": 26,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 53,
+            "name": "Temperatuur Sensor 0012",
+            "room_id": 26,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 54,
+            "name": "Luchtvochtigheid Sensor 0012",
+            "room_id": 26,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 55,
+            "name": "Energie Sensor 0026",
+            "room_id": 27,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 56,
+            "name": "Temperatuur Sensor 0013",
+            "room_id": 27,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 57,
+            "name": "Luchtvochtigheid Sensor 0013",
+            "room_id": 27,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 58,
+            "name": "Energie Sensor 0027",
+            "room_id": 28,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 59,
+            "name": "Energie Sensor 0028",
+            "room_id": 29,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 60,
+            "name": "Energie Sensor 0029",
+            "room_id": 30,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 61,
+            "name": "CO2 Sensor 0007",
+            "room_id": 31,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 62,
+            "name": "Energie Sensor 0030",
+            "room_id": 31,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 63,
+            "name": "Energie Sensor 0031",
+            "room_id": 32,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 64,
+            "name": "Energie Sensor 0032",
+            "room_id": 33,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 65,
+            "name": "Energie Sensor 0033",
+            "room_id": 34,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 66,
+            "name": "Temperatuur Sensor 0014",
+            "room_id": 34,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 67,
+            "name": "Luchtvochtigheid Sensor 0014",
+            "room_id": 34,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 68,
+            "name": "Energie Sensor 0034",
+            "room_id": 35,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 69,
+            "name": "Temperatuur Sensor 0015",
+            "room_id": 35,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 70,
+            "name": "Luchtvochtigheid Sensor 0015",
+            "room_id": 35,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 71,
+            "name": "CO2 Sensor 0001",
+            "room_id": 36,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 72,
+            "name": "Energie Sensor 0001",
+            "room_id": 36,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 73,
+            "name": "Temperatuur Sensor 0001",
+            "room_id": 36,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 74,
+            "name": "Luchtvochtigheid Sensor 0001",
+            "room_id": 36,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 75,
+            "name": "Temperatuur Sensor 0002",
+            "room_id": 37,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 76,
+            "name": "Temperatuur Sensor 0003",
+            "room_id": 38,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 77,
+            "name": "Luchtvochtigheid Sensor 0002",
+            "room_id": 38,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 78,
+            "name": "Temperatuur Sensor 0004",
+            "room_id": 39,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 79,
+            "name": "Temperatuur Sensor 0005",
+            "room_id": 40,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 80,
+            "name": "Luchtvochtigheid Sensor 0003",
+            "room_id": 40,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 82,
+            "name": "Temperatuur Sensor 0006",
+            "room_id": 41,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 81,
+            "name": "CO2 Sensor 0002",
+            "room_id": 41,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 83,
+            "name": "Temperatuur Sensor 0007",
+            "room_id": 42,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 84,
+            "name": "Luchtvochtigheid Sensor 0004",
+            "room_id": 42,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 85,
+            "name": "Temperatuur Sensor 0008",
+            "room_id": 43,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 86,
+            "name": "Temperatuur Sensor 0009",
+            "room_id": 44,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 87,
+            "name": "Luchtvochtigheid Sensor 0005",
+            "room_id": 44,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 88,
+            "name": "Temperatuur Sensor 0010",
+            "room_id": 45,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 89,
+            "name": "CO2 Sensor 0003",
+            "room_id": 46,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 90,
+            "name": "Temperatuur Sensor 0011",
+            "room_id": 46,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 91,
+            "name": "Luchtvochtigheid Sensor 0006",
+            "room_id": 46,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 92,
+            "name": "Temperatuur Sensor 0012",
+            "room_id": 47,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 93,
+            "name": "Temperatuur Sensor 0013",
+            "room_id": 48,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 94,
+            "name": "Luchtvochtigheid Sensor 0007",
+            "room_id": 48,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 95,
+            "name": "Temperatuur Sensor 0014",
+            "room_id": 49,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 96,
+            "name": "Temperatuur Sensor 0015",
+            "room_id": 50,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 97,
+            "name": "Luchtvochtigheid Sensor 0008",
+            "room_id": 50,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 98,
+            "name": "CO2 Sensor 0004",
+            "room_id": 51,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 99,
+            "name": "Energie Sensor 0002",
+            "room_id": 51,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 100,
+            "name": "Temperatuur Sensor 0016",
+            "room_id": 51,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 101,
+            "name": "Temperatuur Sensor 0017",
+            "room_id": 52,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 102,
+            "name": "Luchtvochtigheid Sensor 0009",
+            "room_id": 52,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 103,
+            "name": "Temperatuur Sensor 0018",
+            "room_id": 53,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 104,
+            "name": "Temperatuur Sensor 0019",
+            "room_id": 54,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 105,
+            "name": "Luchtvochtigheid Sensor 0010",
+            "room_id": 54,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 106,
+            "name": "Temperatuur Sensor 0020",
+            "room_id": 55,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 107,
+            "name": "CO2 Sensor 0005",
+            "room_id": 56,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 108,
+            "name": "Temperatuur Sensor 0021",
+            "room_id": 56,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 109,
+            "name": "Luchtvochtigheid Sensor 0011",
+            "room_id": 56,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 110,
+            "name": "Temperatuur Sensor 0022",
+            "room_id": 57,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 111,
+            "name": "Temperatuur Sensor 0023",
+            "room_id": 58,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 112,
+            "name": "Luchtvochtigheid Sensor 0012",
+            "room_id": 58,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 113,
+            "name": "Temperatuur Sensor 0024",
+            "room_id": 59,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 114,
+            "name": "Temperatuur Sensor 0025",
+            "room_id": 60,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 115,
+            "name": "Luchtvochtigheid Sensor 0013",
+            "room_id": 60,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 116,
+            "name": "CO2 Sensor 0006",
+            "room_id": 61,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 117,
+            "name": "Temperatuur Sensor 0026",
+            "room_id": 61,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 118,
+            "name": "Temperatuur Sensor 0027",
+            "room_id": 62,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 119,
+            "name": "Luchtvochtigheid Sensor 0014",
+            "room_id": 62,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 120,
+            "name": "Temperatuur Sensor 0028",
+            "room_id": 63,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 121,
+            "name": "Temperatuur Sensor 0029",
+            "room_id": 64,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 122,
+            "name": "Luchtvochtigheid Sensor 0015",
+            "room_id": 64,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 123,
+            "name": "Temperatuur Sensor 0030",
+            "room_id": 65,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 124,
+            "name": "CO2 Sensor 0007",
+            "room_id": 66,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 125,
+            "name": "Energie Sensor 0003",
+            "room_id": 66,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 126,
+            "name": "Temperatuur Sensor 0031",
+            "room_id": 66,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 127,
+            "name": "Luchtvochtigheid Sensor 0016",
+            "room_id": 66,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 128,
+            "name": "Temperatuur Sensor 0032",
+            "room_id": 67,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 129,
+            "name": "Temperatuur Sensor 0033",
+            "room_id": 68,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 130,
+            "name": "Luchtvochtigheid Sensor 0017",
+            "room_id": 68,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 131,
+            "name": "Temperatuur Sensor 0034",
+            "room_id": 69,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 132,
+            "name": "Temperatuur Sensor 0035",
+            "room_id": 70,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 133,
+            "name": "Luchtvochtigheid Sensor 0018",
+            "room_id": 70,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 134,
+            "name": "CO2 Sensor 0008",
+            "room_id": 71,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 135,
+            "name": "Temperatuur Sensor 0036",
+            "room_id": 71,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 136,
+            "name": "Temperatuur Sensor 0037",
+            "room_id": 72,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 137,
+            "name": "Luchtvochtigheid Sensor 0019",
+            "room_id": 72,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 138,
+            "name": "Temperatuur Sensor 0038",
+            "room_id": 73,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 139,
+            "name": "Temperatuur Sensor 0039",
+            "room_id": 74,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 140,
+            "name": "Luchtvochtigheid Sensor 0020",
+            "room_id": 74,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 141,
+            "name": "Temperatuur Sensor 0040",
+            "room_id": 75,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 142,
+            "name": "CO2 Sensor 0009",
+            "room_id": 76,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 143,
+            "name": "Temperatuur Sensor 0041",
+            "room_id": 76,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 144,
+            "name": "Luchtvochtigheid Sensor 0021",
+            "room_id": 76,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 145,
+            "name": "Temperatuur Sensor 0042",
+            "room_id": 77,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 146,
+            "name": "Temperatuur Sensor 0043",
+            "room_id": 78,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 147,
+            "name": "Luchtvochtigheid Sensor 0022",
+            "room_id": 78,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 148,
+            "name": "Temperatuur Sensor 0044",
+            "room_id": 79,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 149,
+            "name": "Temperatuur Sensor 0045",
+            "room_id": 80,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 150,
+            "name": "Luchtvochtigheid Sensor 0023",
+            "room_id": 80,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 151,
+            "name": "CO2 Sensor 0010",
+            "room_id": 81,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 152,
+            "name": "Energie Sensor 0004",
+            "room_id": 81,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 153,
+            "name": "Temperatuur Sensor 0046",
+            "room_id": 81,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 154,
+            "name": "Temperatuur Sensor 0047",
+            "room_id": 82,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 155,
+            "name": "Luchtvochtigheid Sensor 0024",
+            "room_id": 82,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 156,
+            "name": "Temperatuur Sensor 0048",
+            "room_id": 83,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 157,
+            "name": "Temperatuur Sensor 0049",
+            "room_id": 84,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 158,
+            "name": "Luchtvochtigheid Sensor 0025",
+            "room_id": 84,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 159,
+            "name": "Temperatuur Sensor 0050",
+            "room_id": 85,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 160,
+            "name": "CO2 Sensor 0011",
+            "room_id": 86,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 161,
+            "name": "Temperatuur Sensor 0051",
+            "room_id": 86,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 162,
+            "name": "Luchtvochtigheid Sensor 0026",
+            "room_id": 86,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 163,
+            "name": "Temperatuur Sensor 0052",
+            "room_id": 87,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 164,
+            "name": "Temperatuur Sensor 0053",
+            "room_id": 88,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 165,
+            "name": "Luchtvochtigheid Sensor 0027",
+            "room_id": 88,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 166,
+            "name": "Temperatuur Sensor 0054",
+            "room_id": 89,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 167,
+            "name": "Temperatuur Sensor 0055",
+            "room_id": 90,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 168,
+            "name": "Luchtvochtigheid Sensor 0028",
+            "room_id": 90,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 169,
+            "name": "CO2 Sensor 0012",
+            "room_id": 91,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 170,
+            "name": "Temperatuur Sensor 0056",
+            "room_id": 91,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 171,
+            "name": "Temperatuur Sensor 0057",
+            "room_id": 92,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 172,
+            "name": "Luchtvochtigheid Sensor 0029",
+            "room_id": 92,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 173,
+            "name": "Temperatuur Sensor 0058",
+            "room_id": 93,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 174,
+            "name": "Temperatuur Sensor 0059",
+            "room_id": 94,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 175,
+            "name": "Luchtvochtigheid Sensor 0030",
+            "room_id": 94,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 176,
+            "name": "Temperatuur Sensor 0060",
+            "room_id": 95,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 177,
+            "name": "CO2 Sensor 0013",
+            "room_id": 96,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 178,
+            "name": "Energie Sensor 0004",
+            "room_id": 96,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 179,
+            "name": "Temperatuur Sensor 0061",
+            "room_id": 96,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 180,
+            "name": "Luchtvochtigheid Sensor 0031",
+            "room_id": 96,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 184,
+            "name": "Temperatuur Sensor 0064",
+            "room_id": 99,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 183,
+            "name": "Luchtvochtigheid Sensor 0032",
+            "room_id": 98,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 182,
+            "name": "Temperatuur Sensor 0063",
+            "room_id": 98,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 181,
+            "name": "Temperatuur Sensor 0062",
+            "room_id": 97,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 185,
+            "name": "Temperatuur Sensor 0065",
+            "room_id": 100,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 186,
+            "name": "Luchtvochtigheid Sensor 0033",
+            "room_id": 100,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 187,
+            "name": "CO2 Sensor 0014",
+            "room_id": 101,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 188,
+            "name": "Temperatuur Sensor 0066",
+            "room_id": 101,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 189,
+            "name": "Temperatuur Sensor 0067",
+            "room_id": 102,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 190,
+            "name": "Luchtvochtigheid Sensor 0034",
+            "room_id": 102,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 191,
+            "name": "Temperatuur Sensor 0068",
+            "room_id": 103,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 192,
+            "name": "Temperatuur Sensor 0069",
+            "room_id": 104,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 193,
+            "name": "Luchtvochtigheid Sensor 0035",
+            "room_id": 104,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 194,
+            "name": "Temperatuur Sensor 0070",
+            "room_id": 105,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 195,
+            "name": "CO2 Sensor 0015",
+            "room_id": 106,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 196,
+            "name": "Temperatuur Sensor 0071",
+            "room_id": 106,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 197,
+            "name": "Luchtvochtigheid Sensor 0036",
+            "room_id": 106,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 198,
+            "name": "Temperatuur Sensor 0072",
+            "room_id": 107,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 199,
+            "name": "Temperatuur Sensor 0073",
+            "room_id": 108,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 200,
+            "name": "Luchtvochtigheid Sensor 0037",
+            "room_id": 108,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 201,
+            "name": "Temperatuur Sensor 0074",
+            "room_id": 109,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 202,
+            "name": "Temperatuur Sensor 0075",
+            "room_id": 110,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 203,
+            "name": "Luchtvochtigheid Sensor 0038",
+            "room_id": 110,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 204,
+            "name": "CO2 Sensor 0016",
+            "room_id": 111,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 205,
+            "name": "Energie Sensor 0005",
+            "room_id": 111,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 206,
+            "name": "Temperatuur Sensor 0076",
+            "room_id": 111,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 207,
+            "name": "Temperatuur Sensor 0077",
+            "room_id": 112,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 208,
+            "name": "Luchtvochtigheid Sensor 0039",
+            "room_id": 112,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 209,
+            "name": "Temperatuur Sensor 0078",
+            "room_id": 113,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 210,
+            "name": "Temperatuur Sensor 0079",
+            "room_id": 114,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 211,
+            "name": "Luchtvochtigheid Sensor 0040",
+            "room_id": 114,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 212,
+            "name": "Temperatuur Sensor 0080",
+            "room_id": 115,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 213,
+            "name": "CO2 Sensor 0017",
+            "room_id": 116,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 214,
+            "name": "Temperatuur Sensor 0081",
+            "room_id": 116,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 215,
+            "name": "Luchtvochtigheid Sensor 0041",
+            "room_id": 116,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 216,
+            "name": "Temperatuur Sensor 0082",
+            "room_id": 117,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 217,
+            "name": "Temperatuur Sensor 0083",
+            "room_id": 118,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 218,
+            "name": "Luchtvochtigheid Sensor 0042",
+            "room_id": 118,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 219,
+            "name": "Temperatuur Sensor 0084",
+            "room_id": 119,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 220,
+            "name": "Temperatuur Sensor 0085",
+            "room_id": 120,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 221,
+            "name": "Luchtvochtigheid Sensor 0043",
+            "room_id": 120,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 222,
+            "name": "CO2 Sensor 0018",
+            "room_id": 121,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 223,
+            "name": "Temperatuur Sensor 0086",
+            "room_id": 121,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 224,
+            "name": "Temperatuur Sensor 0087",
+            "room_id": 122,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 225,
+            "name": "Luchtvochtigheid Sensor 0044",
+            "room_id": 122,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 226,
+            "name": "CO2 Sensor 0019",
+            "room_id": 123,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 227,
+            "name": "Energie Sensor 0006",
+            "room_id": 123,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 228,
+            "name": "Temperatuur Sensor 0088",
+            "room_id": 123,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 229,
+            "name": "Temperatuur Sensor 0089",
+            "room_id": 124,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 230,
+            "name": "Luchtvochtigheid Sensor 0045",
+            "room_id": 124,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 231,
+            "name": "Temperatuur Sensor 0090",
+            "room_id": 125,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 232,
+            "name": "Temperatuur Sensor 0091",
+            "room_id": 126,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 233,
+            "name": "Luchtvochtigheid Sensor 0046",
+            "room_id": 126,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 234,
+            "name": "Temperatuur Sensor 0092",
+            "room_id": 127,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 235,
+            "name": "CO2 Sensor 0020",
+            "room_id": 128,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 236,
+            "name": "Temperatuur Sensor 0093",
+            "room_id": 128,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 237,
+            "name": "Luchtvochtigheid Sensor 0047",
+            "room_id": 128,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 238,
+            "name": "CO2 Sensor 0001",
+            "room_id": 129,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 239,
+            "name": "Energie Sensor 0001",
+            "room_id": 129,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 240,
+            "name": "Temperatuur Sensor 0001",
+            "room_id": 129,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 241,
+            "name": "Luchtvochtigheid Sensor 0001",
+            "room_id": 129,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 242,
+            "name": "CO2 Sensor 0002",
+            "room_id": 130,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 243,
+            "name": "Energie Sensor 0002",
+            "room_id": 130,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 244,
+            "name": "Temperatuur Sensor 0002",
+            "room_id": 130,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 245,
+            "name": "Luchtvochtigheid Sensor 0002",
+            "room_id": 130,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 246,
+            "name": "CO2 Sensor 0003",
+            "room_id": 131,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 247,
+            "name": "Energie Sensor 0003",
+            "room_id": 131,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 248,
+            "name": "Temperatuur Sensor 0003",
+            "room_id": 131,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 249,
+            "name": "Luchtvochtigheid Sensor 0003",
+            "room_id": 131,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 250,
+            "name": "CO2 Sensor 0004",
+            "room_id": 132,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 251,
+            "name": "Energie Sensor 0004",
+            "room_id": 132,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 252,
+            "name": "Temperatuur Sensor 0004",
+            "room_id": 132,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 253,
+            "name": "Luchtvochtigheid Sensor 0004",
+            "room_id": 132,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 254,
+            "name": "CO2 Sensor 0005",
+            "room_id": 133,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 255,
+            "name": "Energie Sensor 0005",
+            "room_id": 133,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 256,
+            "name": "Energie Sensor 0005",
+            "room_id": 133,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 257,
+            "name": "Temperatuur Sensor 0005",
+            "room_id": 133,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 258,
+            "name": "Luchtvochtigheid Sensor 0005",
+            "room_id": 133,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 259,
+            "name": "CO2 Sensor 0006",
+            "room_id": 135,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 260,
+            "name": "Energie Sensor 0006",
+            "room_id": 135,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 261,
+            "name": "Temperatuur Sensor 0006",
+            "room_id": 135,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 262,
+            "name": "Luchtvochtigheid Sensor 0006",
+            "room_id": 135,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 263,
+            "name": "CO2 Sensor 0007",
+            "room_id": 136,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 264,
+            "name": "Energie Sensor 0007",
+            "room_id": 136,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 265,
+            "name": "Temperatuur Sensor 0007",
+            "room_id": 136,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 266,
+            "name": "Luchtvochtigheid Sensor 0007",
+            "room_id": 136,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 267,
+            "name": "CO2 Sensor 0008",
+            "room_id": 137,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 268,
+            "name": "Energie Sensor 0008",
+            "room_id": 137,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 269,
+            "name": "Temperatuur Sensor 0008",
+            "room_id": 137,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 270,
+            "name": "Luchtvochtigheid Sensor 0008",
+            "room_id": 137,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 271,
+            "name": "CO2 Sensor 0009",
+            "room_id": 138,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 272,
+            "name": "Energie Sensor 0009",
+            "room_id": 138,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 273,
+            "name": "Temperatuur Sensor 0009",
+            "room_id": 138,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 274,
+            "name": "Luchtvochtigheid Sensor 0009",
+            "room_id": 138,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 275,
+            "name": "CO2 Sensor 0010",
+            "room_id": 139,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 276,
+            "name": "Energie Sensor 0010",
+            "room_id": 139,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 277,
+            "name": "Temperatuur Sensor 0010",
+            "room_id": 139,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 278,
+            "name": "Luchtvochtigheid Sensor 0010",
+            "room_id": 139,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 279,
+            "name": "CO2 Sensor 0011",
+            "room_id": 140,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 280,
+            "name": "Energie Sensor 0011",
+            "room_id": 140,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 281,
+            "name": "Temperatuur Sensor 0011",
+            "room_id": 140,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 282,
+            "name": "Luchtvochtigheid Sensor 0011",
+            "room_id": 140,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 283,
+            "name": "CO2 Sensor 0012",
+            "room_id": 141,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 284,
+            "name": "Energie Sensor 0012",
+            "room_id": 141,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 285,
+            "name": "Temperatuur Sensor 0012",
+            "room_id": 141,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 286,
+            "name": "Luchtvochtigheid Sensor 0012",
+            "room_id": 141,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 287,
+            "name": "CO2 Sensor 0013",
+            "room_id": 142,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 288,
+            "name": "Energie Sensor 0013",
+            "room_id": 142,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 289,
+            "name": "Temperatuur Sensor 0013",
+            "room_id": 142,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 290,
+            "name": "Luchtvochtigheid Sensor 0013",
+            "room_id": 142,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 291,
+            "name": "CO2 Sensor 0014",
+            "room_id": 143,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 292,
+            "name": "Energie Sensor 0014",
+            "room_id": 143,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 293,
+            "name": "Temperatuur Sensor 0014",
+            "room_id": 143,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 294,
+            "name": "Luchtvochtigheid Sensor 0014",
+            "room_id": 143,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 295,
+            "name": "CO2 Sensor 0015",
+            "room_id": 144,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 296,
+            "name": "Energie Sensor 0015",
+            "room_id": 144,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 297,
+            "name": "Temperatuur Sensor 0015",
+            "room_id": 144,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 298,
+            "name": "Luchtvochtigheid Sensor 0015",
+            "room_id": 144,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 299,
+            "name": "CO2 Sensor 0016",
+            "room_id": 145,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 300,
+            "name": "Energie Sensor 0016",
+            "room_id": 145,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 301,
+            "name": "Temperatuur Sensor 0016",
+            "room_id": 145,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 302,
+            "name": "Luchtvochtigheid Sensor 0016",
+            "room_id": 145,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 303,
+            "name": "CO2 Sensor 0017",
+            "room_id": 146,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 304,
+            "name": "Energie Sensor 0017",
+            "room_id": 146,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 305,
+            "name": "Temperatuur Sensor 0017",
+            "room_id": 146,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 306,
+            "name": "Luchtvochtigheid Sensor 0017",
+            "room_id": 146,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 307,
+            "name": "CO2 Sensor 0018",
+            "room_id": 147,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 308,
+            "name": "Energie Sensor 0018",
+            "room_id": 147,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 309,
+            "name": "Temperatuur Sensor 0018",
+            "room_id": 147,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 310,
+            "name": "Luchtvochtigheid Sensor 0018",
+            "room_id": 147,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 311,
+            "name": "CO2 Sensor 0019",
+            "room_id": 148,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 312,
+            "name": "Energie Sensor 0019",
+            "room_id": 148,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 313,
+            "name": "Temperatuur Sensor 0019",
+            "room_id": 148,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 314,
+            "name": "Luchtvochtigheid Sensor 0019",
+            "room_id": 148,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 315,
+            "name": "CO2 Sensor 0020",
+            "room_id": 149,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 316,
+            "name": "Energie Sensor 0020",
+            "room_id": 149,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 317,
+            "name": "Temperatuur Sensor 0020",
+            "room_id": 149,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 318,
+            "name": "Luchtvochtigheid Sensor 0020",
+            "room_id": 149,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 319,
+            "name": "CO2 Sensor 0021",
+            "room_id": 150,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 320,
+            "name": "Energie Sensor 0021",
+            "room_id": 150,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 321,
+            "name": "Temperatuur Sensor 0021",
+            "room_id": 150,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 322,
+            "name": "Luchtvochtigheid Sensor 0021",
+            "room_id": 150,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 323,
+            "name": "CO2 Sensor 0022",
+            "room_id": 151,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 324,
+            "name": "Energie Sensor 0022",
+            "room_id": 151,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 325,
+            "name": "Temperatuur Sensor 0022",
+            "room_id": 151,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 326,
+            "name": "Luchtvochtigheid Sensor 0022",
+            "room_id": 151,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 327,
+            "name": "CO2 Sensor 0023",
+            "room_id": 152,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 328,
+            "name": "Energie Sensor 0023",
+            "room_id": 152,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 329,
+            "name": "Temperatuur Sensor 0023",
+            "room_id": 152,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 330,
+            "name": "Luchtvochtigheid Sensor 0023",
+            "room_id": 152,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 331,
+            "name": "CO2 Sensor 0024",
+            "room_id": 153,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 332,
+            "name": "Energie Sensor 0024",
+            "room_id": 153,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 333,
+            "name": "Temperatuur Sensor 0024",
+            "room_id": 153,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 334,
+            "name": "Luchtvochtigheid Sensor 0023",
+            "room_id": 153,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 335,
+            "name": "CO2 Sensor 0025",
+            "room_id": 154,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 336,
+            "name": "Energie Sensor 0025",
+            "room_id": 154,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 337,
+            "name": "Temperatuur Sensor 0025",
+            "room_id": 154,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 338,
+            "name": "Luchtvochtigheid Sensor 0025",
+            "room_id": 154,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 340,
+            "name": "Energie Sensor 0026",
+            "room_id": 155,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 339,
+            "name": "CO2 Sensor 0026",
+            "room_id": 155,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 341,
+            "name": "Temperatuur Sensor 0026",
+            "room_id": 155,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 342,
+            "name": "Luchtvochtigheid Sensor 0026",
+            "room_id": 155,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 343,
+            "name": "CO2 Sensor 0027",
+            "room_id": 156,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 344,
+            "name": "Energie Sensor 0027",
+            "room_id": 156,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 345,
+            "name": "Temperatuur Sensor 0027",
+            "room_id": 156,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 346,
+            "name": "Luchtvochtigheid Sensor 0027",
+            "room_id": 156,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 347,
+            "name": "CO2 Sensor 0028",
+            "room_id": 157,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 348,
+            "name": "Energie Sensor 0028",
+            "room_id": 157,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 349,
+            "name": "Temperatuur Sensor 0028",
+            "room_id": 157,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 350,
+            "name": "Luchtvochtigheid Sensor 0028",
+            "room_id": 157,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 351,
+            "name": "CO2 Sensor 0029",
+            "room_id": 158,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 352,
+            "name": "Energie Sensor 0029",
+            "room_id": 158,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 353,
+            "name": "Temperatuur Sensor 0029",
+            "room_id": 158,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 354,
+            "name": "Luchtvochtigheid Sensor 0029",
+            "room_id": 158,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 355,
+            "name": "CO2 Sensor 0030",
+            "room_id": 159,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 356,
+            "name": "Energie Sensor 0030",
+            "room_id": 159,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 357,
+            "name": "Temperatuur Sensor 0030",
+            "room_id": 159,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 358,
+            "name": "Luchtvochtigheid Sensor 0030",
+            "room_id": 159,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 359,
+            "name": "CO2 Sensor 0031",
+            "room_id": 160,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 360,
+            "name": "Energie Sensor 0031",
+            "room_id": 160,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 361,
+            "name": "Temperatuur Sensor 0031",
+            "room_id": 160,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 362,
+            "name": "Luchtvochtigheid Sensor 0031",
+            "room_id": 160,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 363,
+            "name": "CO2 Sensor 0032",
+            "room_id": 161,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 364,
+            "name": "Energie Sensor 0032",
+            "room_id": 161,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 365,
+            "name": "Temperatuur Sensor 0032",
+            "room_id": 161,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 366,
+            "name": "Luchtvochtigheid Sensor 0032",
+            "room_id": 161,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 367,
+            "name": "CO2 Sensor 0033",
+            "room_id": 162,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 368,
+            "name": "Energie Sensor 0033",
+            "room_id": 162,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 369,
+            "name": "Temperatuur Sensor 0033",
+            "room_id": 162,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 370,
+            "name": "Luchtvochtigheid Sensor 0033",
+            "room_id": 162,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 375,
+            "name": "CO2 Sensor 0035",
+            "room_id": 164,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 376,
+            "name": "Energie Sensor 0035",
+            "room_id": 164,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 377,
+            "name": "Temperatuur Sensor 0035",
+            "room_id": 164,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 378,
+            "name": "Luchtvochtigheid Sensor 0035",
+            "room_id": 164,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 374,
+            "name": "Luchtvochtigheid Sensor 0034",
+            "room_id": 163,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 373,
+            "name": "Temperatuur Sensor 0034",
+            "room_id": 163,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 372,
+            "name": "Energie Sensor 0034",
+            "room_id": 163,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 371,
+            "name": "CO2 Sensor 0034",
+            "room_id": 163,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 379,
+            "name": "CO2 Sensor 0036",
+            "room_id": 165,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 380,
+            "name": "Energie Sensor 0036",
+            "room_id": 165,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 381,
+            "name": "Temperatuur Sensor 0036",
+            "room_id": 165,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 382,
+            "name": "Luchtvochtigheid Sensor 0036",
+            "room_id": 165,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 383,
+            "name": "CO2 Sensor 0037",
+            "room_id": 166,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 384,
+            "name": "Energie Sensor 0037",
+            "room_id": 166,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 385,
+            "name": "Temperatuur Sensor 0037",
+            "room_id": 166,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 386,
+            "name": "Luchtvochtigheid Sensor 0037",
+            "room_id": 166,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 387,
+            "name": "CO2 Sensor 0038",
+            "room_id": 167,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 388,
+            "name": "Energie Sensor 0038",
+            "room_id": 167,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 389,
+            "name": "Temperatuur Sensor 0038",
+            "room_id": 167,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 390,
+            "name": "Luchtvochtigheid Sensor 0038",
+            "room_id": 167,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 391,
+            "name": "CO2 Sensor 0039",
+            "room_id": 168,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 392,
+            "name": "Energie Sensor 0039",
+            "room_id": 168,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 393,
+            "name": "Temperatuur Sensor 0039",
+            "room_id": 168,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 394,
+            "name": "Luchtvochtigheid Sensor 0039",
+            "room_id": 168,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 395,
+            "name": "CO2 Sensor 0040",
+            "room_id": 169,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 396,
+            "name": "Energie Sensor 0040",
+            "room_id": 169,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 397,
+            "name": "Temperatuur Sensor 0040",
+            "room_id": 169,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 398,
+            "name": "Luchtvochtigheid Sensor 0040",
+            "room_id": 169,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 399,
+            "name": "CO2 Sensor 0041",
+            "room_id": 170,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 400,
+            "name": "Energie Sensor 0041",
+            "room_id": 170,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 401,
+            "name": "Temperatuur Sensor 0041",
+            "room_id": 170,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 402,
+            "name": "Luchtvochtigheid Sensor 0041",
+            "room_id": 170,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 403,
+            "name": "CO2 Sensor 0042",
+            "room_id": 171,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 404,
+            "name": "Energie Sensor 0042",
+            "room_id": 171,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 405,
+            "name": "Temperatuur Sensor 0042",
+            "room_id": 171,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 406,
+            "name": "Luchtvochtigheid Sensor 0042",
+            "room_id": 171,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 407,
+            "name": "CO2 Sensor 0043",
+            "room_id": 172,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 408,
+            "name": "Energie Sensor 0043",
+            "room_id": 172,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 409,
+            "name": "Temperatuur Sensor 0043",
+            "room_id": 172,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 410,
+            "name": "Luchtvochtigheid Sensor 0043",
+            "room_id": 172,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 411,
+            "name": "CO2 Sensor 0044",
+            "room_id": 173,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 412,
+            "name": "Energie Sensor 0044",
+            "room_id": 173,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 413,
+            "name": "Temperatuur Sensor 0044",
+            "room_id": 173,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 414,
+            "name": "Luchtvochtigheid Sensor 0044",
+            "room_id": 173,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 415,
+            "name": "CO2 Sensor 0045",
+            "room_id": 174,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 416,
+            "name": "Energie Sensor 0045",
+            "room_id": 174,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 417,
+            "name": "Temperatuur Sensor 0045",
+            "room_id": 174,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 418,
+            "name": "Luchtvochtigheid Sensor 0045",
+            "room_id": 174,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 419,
+            "name": "CO2 Sensor 0046",
+            "room_id": 175,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 420,
+            "name": "Energie Sensor 0046",
+            "room_id": 175,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 421,
+            "name": "Temperatuur Sensor 0046",
+            "room_id": 175,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 422,
+            "name": "Luchtvochtigheid Sensor 0046",
+            "room_id": 175,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 423,
+            "name": "CO2 Sensor 0047",
+            "room_id": 176,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 424,
+            "name": "Energie Sensor 0047",
+            "room_id": 176,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 425,
+            "name": "Temperatuur Sensor 0047",
+            "room_id": 176,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 426,
+            "name": "Luchtvochtigheid Sensor 0047",
+            "room_id": 176,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 427,
+            "name": "CO2 Sensor 0048",
+            "room_id": 177,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 428,
+            "name": "Energie Sensor 0048",
+            "room_id": 177,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 429,
+            "name": "Temperatuur Sensor 0048",
+            "room_id": 177,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 430,
+            "name": "Luchtvochtigheid Sensor 0048",
+            "room_id": 177,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 431,
+            "name": "CO2 Sensor 0049",
+            "room_id": 178,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 432,
+            "name": "Energie Sensor 0049",
+            "room_id": 178,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 433,
+            "name": "Temperatuur Sensor 0049",
+            "room_id": 178,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 434,
+            "name": "Luchtvochtigheid Sensor 0049",
+            "room_id": 178,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 435,
+            "name": "CO2 Sensor 0050",
+            "room_id": 179,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 436,
+            "name": "Energie Sensor 0050",
+            "room_id": 179,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 437,
+            "name": "Temperatuur Sensor 0050",
+            "room_id": 179,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 438,
+            "name": "Luchtvochtigheid Sensor 0050",
+            "room_id": 179,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 439,
+            "name": "CO2 Sensor 0051",
+            "room_id": 181,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 440,
+            "name": "Energie Sensor 0051",
+            "room_id": 181,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 441,
+            "name": "Temperatuur Sensor 0051",
+            "room_id": 181,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 442,
+            "name": "Luchtvochtigheid Sensor 0051",
+            "room_id": 181,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 443,
+            "name": "CO2 Sensor 0052",
+            "room_id": 182,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 444,
+            "name": "Energie Sensor 0052",
+            "room_id": 182,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 445,
+            "name": "Temperatuur Sensor 0052",
+            "room_id": 182,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 446,
+            "name": "Luchtvochtigheid Sensor 0052",
+            "room_id": 182,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 447,
+            "name": "CO2 Sensor 0053",
+            "room_id": 183,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 448,
+            "name": "Energie Sensor 0053",
+            "room_id": 183,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 449,
+            "name": "Temperatuur Sensor 0053",
+            "room_id": 183,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 450,
+            "name": "Luchtvochtigheid Sensor 0053",
+            "room_id": 183,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 451,
+            "name": "CO2 Sensor 0054",
+            "room_id": 184,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 452,
+            "name": "Energie Sensor 0054",
+            "room_id": 184,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 453,
+            "name": "Temperatuur Sensor 0054",
+            "room_id": 184,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 454,
+            "name": "Luchtvochtigheid Sensor 0054",
+            "room_id": 184,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 455,
+            "name": "CO2 Sensor 0055",
+            "room_id": 185,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 456,
+            "name": "Energie Sensor 0055",
+            "room_id": 185,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 457,
+            "name": "Temperatuur Sensor 0055",
+            "room_id": 185,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 458,
+            "name": "Luchtvochtigheid Sensor 0055",
+            "room_id": 185,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 459,
+            "name": "CO2 Sensor 0056",
+            "room_id": 186,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 460,
+            "name": "Energie Sensor 0056",
+            "room_id": 186,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 461,
+            "name": "Temperatuur Sensor 0056",
+            "room_id": 186,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 462,
+            "name": "Luchtvochtigheid Sensor 0056",
+            "room_id": 186,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 463,
+            "name": "CO2 Sensor 0057",
+            "room_id": 187,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 464,
+            "name": "Energie Sensor 0057",
+            "room_id": 187,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 465,
+            "name": "Luchtvochtigheid Sensor 0057",
+            "room_id": 187,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 466,
+            "name": "CO2 Sensor 0058",
+            "room_id": 188,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 467,
+            "name": "Energie Sensor 0058",
+            "room_id": 188,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 468,
+            "name": "Temperatuur Sensor 0058",
+            "room_id": 188,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 469,
+            "name": "Luchtvochtigheid Sensor 0058",
+            "room_id": 188,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 470,
+            "name": "CO2 Sensor 0059",
+            "room_id": 189,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 471,
+            "name": "Energie Sensor 0059",
+            "room_id": 189,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 472,
+            "name": "Temperatuur Sensor 0059",
+            "room_id": 189,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 473,
+            "name": "Luchtvochtigheid Sensor 0059",
+            "room_id": 189,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 474,
+            "name": "CO2 Sensor 0060",
+            "room_id": 191,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 475,
+            "name": "Energie Sensor 0060",
+            "room_id": 191,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 476,
+            "name": "Temperatuur Sensor 0060",
+            "room_id": 191,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 477,
+            "name": "Luchtvochtigheid Sensor 0060",
+            "room_id": 191,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 478,
+            "name": "CO2 Sensor 0061",
+            "room_id": 192,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 479,
+            "name": "Energie Sensor 0061",
+            "room_id": 192,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 480,
+            "name": "Temperatuur Sensor 0061",
+            "room_id": 192,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 481,
+            "name": "Luchtvochtigheid Sensor 0061",
+            "room_id": 192,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 482,
+            "name": "CO2 Sensor 0062",
+            "room_id": 192,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 483,
+            "name": "Energie Sensor 0062",
+            "room_id": 192,
+            "resource_type": "kilowattuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 484,
+            "name": "Temperatuur Sensor 0062",
+            "room_id": 192,
+            "resource_type": "temperatuur",
+            "status": "online",
+            "group_address": null
+        },
+        {
+            "sensor_id": 485,
+            "name": "Luchtvochtigheid Sensor 0062",
+            "room_id": 192,
+            "resource_type": "luchtvochtigheid",
+            "status": "online",
+            "group_address": null
+        }
+    ]
+}

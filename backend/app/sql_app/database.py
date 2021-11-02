@@ -1,19 +1,21 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
-from variables.init_vars import DUMMY_DB_URL, DB_URL # when trying to use multiple databases, that's where the DUMMY_DB_URL becomes used.
+from sqlalchemy.orm import sessionmaker, DeclarativeMeta
 
-SQLALCHEMY_USER_DATABASE_URL = DB_URL
+# when trying to use multiple databases, that's where the DUMMY_DB_URL becomes used.
+from variables.init_vars import DB_URL 
 
-if SQLALCHEMY_USER_DATABASE_URL.startswith('sqlite'):
-    user_engine = create_engine(
-        SQLALCHEMY_USER_DATABASE_URL, connect_args={"check_same_thread": False}
-    )
-else:
-    user_engine = create_engine(
-        SQLALCHEMY_USER_DATABASE_URL
-    )
+SQLALCHEMY_DATABASE_URL = "postgresql://postgres:postgres@161.35.153.83:5432/dummy"
 
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=user_engine)
+# if SQLALCHEMY_DATABASE_URL.startswith('sqlite'):
+#     user_engine = create_engine(
+#         SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
+#     )
+# else:
+engine = create_engine(
+    SQLALCHEMY_DATABASE_URL
+)
 
-Base = declarative_base()
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+Base: DeclarativeMeta = declarative_base(bind=engine)

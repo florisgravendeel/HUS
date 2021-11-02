@@ -3,9 +3,12 @@ from dotenv import load_dotenv, find_dotenv
 
 
 ENV_FILE = find_dotenv()
-
+print("Finding env....")
 if ENV_FILE:
+    print("Env found!")
     load_dotenv(ENV_FILE)
+else:
+    print("NO!! :( ENV NOT FOUND")
 
 
 def check_env(var_name: str, standard_value):
@@ -17,8 +20,6 @@ def check_env(var_name: str, standard_value):
 
 
 DB_URL = check_env('DB_URL', 'sqlite:///./sql_app.db')
-
-DUMMY_DB_URL = check_env('DUMMY_DB_URL', 'sqlite:///./dummy.db')
 
 
 MAIL_USERNAME = check_env('MAIL_USERNAME', 'trojo.mailtesting')
