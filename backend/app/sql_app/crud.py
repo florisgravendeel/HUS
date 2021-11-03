@@ -175,7 +175,32 @@ def get_all_dummy(db: Session):
         "room": json_room,
         "sensor": json_sensor
         }
+
+
+def clear_db(db: Session):
+    try:
+        # do in reverse to not get issues with ForeignKey's
+        db.query(models.Sensor).delete()
+        db.query(models.Room).delete()
+        db.query(models.Floor).delete()
+        db.query(models.Building).delete()
+        db.query(models.Company).delete()
+        db.commit()
+    except:
+        return False
+    return True
     
+
+
+def add_company(db: Session, i):
+    item = models.Company(
+        name=i['name']
+        )
+    db.add(item)
+    db.flush()
+    db.refresh(item)
+    return {"company_id":item.company_id,"item":item.__dict__}
+
 
 def populate_w_dummy(db: Session, dummy_data):
     company_ids = {}
@@ -183,16 +208,13 @@ def populate_w_dummy(db: Session, dummy_data):
     floor_ids = {}
     room_ids = {}
     sensor_ids = {}
+    added_items = []
     for d in dummy_data:
         for i in dummy_data[d]:
             if d == "company":
-                item = models.Company(
-                    name=i['name']
-                    )
-                db.add(item)
-                db.flush()
-                db.refresh(item)
-                company_ids[i['company_id']] = item.company_id
+                stuff = add_company(db,i)
+                company_ids[i['company_id']] = stuff['company_id']
+                added_items.append(stuff['item'])
             
             if d == "building":
                 item = models.Building(
@@ -203,6 +225,7 @@ def populate_w_dummy(db: Session, dummy_data):
                 db.flush()
                 db.refresh(item)
                 building_ids[i['building_id']] = item.building_id
+                added_items.append(item.__dict__)
             
             if d == "floor":
                 item = models.Floor(
@@ -213,6 +236,7 @@ def populate_w_dummy(db: Session, dummy_data):
                 db.flush()
                 db.refresh(item)
                 floor_ids[i['floor_id']] = item.floor_id
+                added_items.append(item.__dict__)
 
             if d == "room":
                 item = models.Room(
@@ -223,8 +247,10 @@ def populate_w_dummy(db: Session, dummy_data):
                 db.flush()
                 db.refresh(item)
                 room_ids[i['room_id']] = item.room_id
+                added_items.append(item.__dict__)
 
             if d == "sensor":
+                print('hello')
                 item = models.Sensor(
                     name=i['name'],
                     room_id=room_ids[i['room_id']],
@@ -236,15 +262,16 @@ def populate_w_dummy(db: Session, dummy_data):
                 db.flush()
                 db.refresh(item)
                 sensor_ids[i['sensor_id']] = item.sensor_id
+                print(getattr(item, 'name'))
+                added_items.append(item.__dict__)
 
-    # db_building = models.Building(**building.dict(), company_id=company_id)
-    # basicDBstuff(db, db_building)
-    # return db_building
-    return {
-        "db":settings.db_url,
-        "company_ids":company_ids,
-        "building_ids":building_ids,
-        "floor_ids":floor_ids,
-        "room_ids":room_ids,
-        "sensor_ids":sensor_ids,
-        }
+    
+    db.commit()
+    return added_items
+    # return {
+    #     "company_ids":company_ids,
+    #     "building_ids":building_ids,
+    #     "floor_ids":floor_ids,
+    #     "room_ids":room_ids,
+    #     "sensor_ids":sensor_ids,
+    #     }

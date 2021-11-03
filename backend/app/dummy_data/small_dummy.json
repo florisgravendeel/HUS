@@ -1,0 +1,39 @@
+{
+    "company": [
+        {
+            "company_id": 1,
+            "name": "Smoll Man"
+        }
+    ],
+    "building": [
+        {
+            "building_id": 1,
+            "name": "Small Building",
+            "company_id": 1
+        }
+    ],
+    "floor": [
+        {
+            "floor_id": 1,
+            "name": "Verdieping 1",
+            "building_id": 1
+        }
+    ],
+    "room": [
+        {
+            "room_id": 1,
+            "name": "Kamer 1",
+            "floor_id": 1
+        }
+    ],
+    "sensor": [
+        {
+            "sensor_id": 1,
+            "name": "CO2 Sensor 0001",
+            "room_id": 1,
+            "resource_type": "co2",
+            "status": "online",
+            "group_address": null
+        }
+    ]
+}

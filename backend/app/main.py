@@ -8,6 +8,7 @@ from sql_app.database import SessionLocal, engine
 
 import json
 import uvicorn
+import os
 
 from mailing.send_mail import simple_send, send_in_background, send_with_template, EmailSchema
 from starlette.responses import JSONResponse
@@ -30,7 +31,7 @@ app = FastAPI(openapi_tags=tags_metadata)
 
 @app.get("/info")
 async def info():
-    return settings.db_url
+    return {settings.db_url,settings.mail_username}
 
 # Dependency
 def get_db():
@@ -123,30 +124,69 @@ def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
 
 
 
-@app.post("/reset_and_repopulate_db/", tags=["rar_db"])
-def reset_and_repopulate_db(
+@app.post("/clear_database/", tags=["rar_db"])
+def clear_database(
         confirm_1: schemas.Confirm, confirm_2: schemas.Confirm,
         db: Session = Depends(get_db),
-        confirm_3: str = Query(..., regex="^Confirm$", description="Type 'Confirm' to confirm."),
-        json_name: str = Query("JSON_DB", description="The database data will be saved in a JSON file, please name it.")
+        confirm_3: str = Query(
+            "No, please stop here!", 
+            regex="^Yes, I want to continue$", 
+            description="Type 'Yes, I want to continue' to confirm."
+            ),
+        json_name: str = Query(
+            ..., 
+            description="The database data will be saved in a JSON file, \
+                please name it."
+            )
         ):
+    
     # Check if everything was confirmed
-    if not confirm_1 == confirm_2 == 'yes' or not confirm_3 == 'Confirm':           
-        return JSONResponse(status_code=401, content={"message":"Not confirmed"})
+    if not confirm_1 == confirm_2 == 'yes'\
+    or not confirm_3 == 'Yes, I want to continue':           
+        return JSONResponse(
+            status_code=400, 
+            content={"message":"Not confirmed"}
+            )
+    
+    json_path = 'dummy_data/db_saves/' + json_name + '.json'
 
+    # check if the file name was already used
+    if os.path.isfile(json_path):
+        return JSONResponse(
+            status_code=400, 
+            content={"message":"File name already in use"}
+            )
+
+    # save the data to a file 
     data = crud.get_all_dummy(db)
 
-    with open('dummy_data/old_JSONs/'+json_name+'.json', 'w', encoding='utf-8') as f:
+    with open(json_path, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
 
-    return data
+    # clear the database 
+    if not crud.clear_db(db):
+        return {"message":"deleting rows failed"}
+
+    return {"message":"data has been erased and saved","data":data}
 
 
 @app.post("/populate_w_dummy/", tags=["rar_db"])
-def populate_w_dummy(db: Session = Depends(get_db)):
+def populate_w_dummy(
+    json_file_input: str = 'small_dummy',
+    db: Session = Depends(get_db)
+    ):
+    
+    json_path = "dummy_data/" + json_file_input + ".json"
 
-    # relative path does not work, full path needed
-    json_file = open("C:/Schneider/HUS/backend/app/dummy_data/Dummy_data.json")
+    # check if the file exists
+    if not os.path.isfile(json_path):
+        return JSONResponse(
+            status_code=400, 
+            content={"message":"File does not exist"}
+            )
+
+    # load the json file
+    json_file = open(json_path)
     dummy_data = json.load(json_file)
     json_file.close()
     
