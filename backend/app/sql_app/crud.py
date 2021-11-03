@@ -1,3 +1,4 @@
+from typing import List
 from sqlalchemy.orm import Session
 # from sqlalchemy.sql import func
 
@@ -192,80 +193,80 @@ def clear_db(db: Session):
     
 
 
-def add_company(db: Session, i):
-    item = models.Company(
-        name=i['name']
-        )
+def add_to_db_queue(db: Session, item, table, i):
     db.add(item)
     db.flush()
     db.refresh(item)
-    return {"company_id":item.company_id,"item":item.__dict__}
+    ids[table+'_ids'][i[table+'_id']] = item.__dict__[table+'_id']
+    added_items.append(item.__dict__)
 
 
 def populate_w_dummy(db: Session, dummy_data):
-    company_ids = {}
-    building_ids = {}
-    floor_ids = {}
-    room_ids = {}
-    sensor_ids = {}
+    # made global for add_to_db_queue
+    global ids
+    global added_items
+
+    ids = {
+        "company_ids": {},
+        "building_ids": {},
+        "floor_ids": {},
+        "room_ids": {},
+        "sensor_ids": {},
+    }
     added_items = []
+    
     for d in dummy_data:
         for i in dummy_data[d]:
+            found = False
             if d == "company":
-                stuff = add_company(db,i)
-                company_ids[i['company_id']] = stuff['company_id']
-                added_items.append(stuff['item'])
+                found = True
+                item = models.Company(
+                    name=i['name']
+                    )
             
             if d == "building":
+                found = True
                 item = models.Building(
                     name=i['name'],
-                    company_id=company_ids[i['company_id']]
+                    company_id=ids['company_ids'][i['company_id']]
                     )
-                db.add(item)
-                db.flush()
-                db.refresh(item)
-                building_ids[i['building_id']] = item.building_id
-                added_items.append(item.__dict__)
             
             if d == "floor":
+                found = True
                 item = models.Floor(
                     name=i['name'],
-                    building_id=building_ids[i['building_id']]
+                    building_id=ids['building_ids'][i['building_id']]
                     )
-                db.add(item)
-                db.flush()
-                db.refresh(item)
-                floor_ids[i['floor_id']] = item.floor_id
-                added_items.append(item.__dict__)
 
             if d == "room":
+                found = True
                 item = models.Room(
                     name=i['name'],
-                    floor_id=floor_ids[i['floor_id']]
+                    floor_id=ids['floor_ids'][i['floor_id']]
                     )
-                db.add(item)
-                db.flush()
-                db.refresh(item)
-                room_ids[i['room_id']] = item.room_id
-                added_items.append(item.__dict__)
 
             if d == "sensor":
-                print('hello')
+                found = True
                 item = models.Sensor(
                     name=i['name'],
-                    room_id=room_ids[i['room_id']],
+                    room_id=ids['room_ids'][i['room_id']],
                     resource_type=i['resource_type'],
                     status=i['status'],
                     group_address=i['group_address']
                     )
-                db.add(item)
-                db.flush()
-                db.refresh(item)
-                sensor_ids[i['sensor_id']] = item.sensor_id
-                print(getattr(item, 'name'))
-                added_items.append(item.__dict__)
+            if found:
+                add_to_db_queue(db, item, d, i)
+            else:
+                print('\n\
+    ##############################################\n\
+            WARNING!\n\
+        THE TABLE\n\
+            " ' + d + ' "\n\
+        WAS NOT FOUND IN THE DATABASE\n\
+        PLEASE MAKE SURE THE INPUT IS CORRECT\n\
+        OR UPDATE THE DATABASE\n\
+    ##############################################\n')
 
-    
     db.commit()
     return added_items
     # return {

@@ -35,5 +35,10 @@
             "status": "online",
             "group_address": null
         }
+    ],
+    "wa": [
+        {
+            "wa_id": 1
+        }
     ]
 }

@@ -1,23 +1,14 @@
-from dotenv import find_dotenv, load_dotenv
-import os
+def change_email():
+    global email
+    email = email + '.com'
 
+def main_func():
+    global name
+    name = 'harr'
+    global email
+    email = 'harr@email'
+    change_email()
+    print('1'+name)
+    print('2'+email)
 
-ENV_FILE = find_dotenv()
-print("Finding env...." + ENV_FILE)
-print(os.getcwd())
-if ENV_FILE:
-    print("Env found!")
-    load_dotenv(ENV_FILE)
-else:
-    print("NO!! :( ENV NOT FOUND")
-
-
-ENV_FILE = find_dotenv()
-print("Finding env...." + ENV_FILE)
-print(os.getcwd())
-if ENV_FILE:
-    print("Env found!")
-    load_dotenv(ENV_FILE)
-else:
-    print("NO!! :( ENV NOT FOUND")
-
+main_func()
