@@ -16,8 +16,7 @@ from fastapi_mail.email_utils import DefaultChecker
 from pathlib import Path
 from jinja2 import Environment, PackageLoader, select_autoescape
 
-from variables.init_vars import MAIL_USERNAME, MAIL_PASSWORD, MAIL_FROM, MAIL_PORT, MAIL_SERVER
-
+from variables.config import settings
 
 
 class EmailSchema(BaseModel):
@@ -26,11 +25,11 @@ class EmailSchema(BaseModel):
 
 
 conf = ConnectionConfig(
-    MAIL_USERNAME = MAIL_USERNAME,
-    MAIL_PASSWORD = MAIL_PASSWORD,
-    MAIL_FROM = MAIL_FROM,
-    MAIL_PORT = MAIL_PORT,
-    MAIL_SERVER = MAIL_SERVER,
+    MAIL_USERNAME = settings.mail_username,
+    MAIL_PASSWORD = settings.mail_password,
+    MAIL_FROM = settings.mail_from,
+    MAIL_PORT = settings.mail_port,
+    MAIL_SERVER = settings.mail_server,
     MAIL_TLS = True,
     MAIL_SSL = False,
     USE_CREDENTIALS = True,

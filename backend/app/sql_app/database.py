@@ -1,9 +1,13 @@
+from typing import Set
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker, DeclarativeMeta
+from sqlalchemy.orm import sessionmaker
+# from variables.init_vars import DB_URL
 
-# when trying to use multiple databases, that's where the DUMMY_DB_URL becomes used.
-from variables.init_vars import DB_URL 
+from variables.config import settings
+
+
+print(settings.db_url)
 
 SQLALCHEMY_DATABASE_URL = "postgresql://postgres:postgres@161.35.153.83:5432/dummy"
 
@@ -18,4 +22,4 @@ engine = create_engine(
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-Base: DeclarativeMeta = declarative_base(bind=engine)
+Base = declarative_base(bind=engine)

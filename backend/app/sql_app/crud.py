@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 # from sqlalchemy.sql import func
 
-from variables.init_vars import DB_URL 
+from variables.config import settings 
 
 import pprint
 from starlette.responses import JSONResponse
@@ -13,13 +13,14 @@ def get_user(db: Session, user_id: int):
     return db.query(models.User).filter(models.User.user_id == user_id).first()
 
 
-async def get_user_by_email(db: Session, email: str):
+def get_user_by_email(db: Session, email: str):
     print(type(db))
-    data = await db.query(models.User).filter(email == email).first()
+    data = db.query(models.User).filter(email == email).first()
     return data
 
 
 def get_users(db: Session, skip: int = 0, limit: int = 100):
+    # return db
     return db.query(models.User).offset(skip).limit(limit).all()
 
 def get_user_count(db: Session):
@@ -177,10 +178,6 @@ def get_all_dummy(db: Session):
     
 
 def populate_w_dummy(db: Session, dummy_data):
-    # return DB_URL
-    # db = next(db_)  # prevents: "AttributeError: 'generator' object has no attribute 'add'"
-    # source:
-    # https://stackoverflow.com/questions/65982681/how-to-access-the-database-from-unit-test-in-fast-api
     company_ids = {}
     building_ids = {}
     floor_ids = {}
@@ -244,7 +241,7 @@ def populate_w_dummy(db: Session, dummy_data):
     # basicDBstuff(db, db_building)
     # return db_building
     return {
-        "db":DB_URL,
+        "db":settings.db_url,
         "company_ids":company_ids,
         "building_ids":building_ids,
         "floor_ids":floor_ids,
