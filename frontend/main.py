@@ -4,17 +4,15 @@ from os import environ as env
 from urllib.parse import urlencode
 
 from werkzeug.exceptions import HTTPException
-
 from dotenv import load_dotenv, find_dotenv
-from flask import Flask
 from flask import jsonify
 from flask import redirect
-from flask import render_template
+from flask import Flask, render_template
 from flask import session
 from flask import url_for
 from authlib.integrations.flask_client import OAuth
 
-from frontend.app import constants #from app import constants
+from app import constants  # from app import constants
 
 ENV_FILE = find_dotenv(filename='app/.env')
 if ENV_FILE:
@@ -63,13 +61,13 @@ def requires_auth(f):
         if constants.PROFILE_KEY not in session:
             return redirect('/login')
         return f(*args, **kwargs)
+
     return decorated
 
 
-# Controllers API
-@app.route('/')
+@app.route("/")
 def home():
-    return render_template('home.html')
+     return render_template("home.html")
 
 @app.route('/callback')
 def callback_handling():
@@ -104,6 +102,11 @@ def dashboard():
     return render_template('dashboard.html',
                            userinfo=session[constants.PROFILE_KEY],
                            userinfo_pretty=json.dumps(session[constants.JWT_PAYLOAD], indent=4))
+
+
+@app.route('/sensorpagina')
+def sensor_pagina():
+     return render_template("sensorpagina.html")
 
 
 @app.route('/dashboard2')

@@ -9,10 +9,14 @@
     <meta name="description" content="Sensor Tracker">
 
     {% block title %}<title> Sensor Dashboard</title>{% endblock %}
-    <link rel="icon" href="{{ url_for('static', path='/images/favicon.png') }}" sizes="32x32" />
-
+    <!-- <link rel="icon" href="{{ url_for('static', path='/images/favicon.png') }}" sizes="32x32" /> deze image bestaat niet, maar geen zorgen Gerrit is er -->
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" sizes="128x128" />
     {# CSS links #}
+    <!--<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', path='/css/global.css') }}" rel="stylesheet">-->
+
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/global.css') }}" rel="stylesheet">
 
     {% endblock %}
 </head>
@@ -20,15 +24,32 @@
 <body>
     <div class="wrapper">
         {% include "include/sidemenu.html" %}
-        {% include "include/header.html" %}
-        <div id="content">
-            {%block page_content%}
-            {%endblock page_content%}
-        </div>
+        <div id="header">
+            {% block header %}
+            <div class="bovenBalk">
+                {% for item in bovenBalk %}
+                    {% if "Inloggen" in item.caption %}
+                    <div class="paginaNaam">
+                        <a href="{{ item.href }}">{{ item.caption }}</a>
+                    </div>
+                    {% elif "Logo" in item.caption %}
+                    <div class="logo">
+                        <a href="{{ item.href }}">{{ item.caption }}</a>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% endblock %}
+        </div> 
+        <div id="content">{% block content %}{% endblock %}</div> 
+        <div id="footer"> 
+            {% block footer %} 
+                &copy; Copyright 2021 by <a href="http://localhost:8080">HUS</a>. 
+            {% endblock %} 
+        </div> 
     </div>
     {# The overlay div can be used to close the sidemenu (doesn't work yet.) #}
     <div class="overlay"></div>
-    {% include "include/footer.html" %}
 
 
 </body>
