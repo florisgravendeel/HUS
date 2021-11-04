@@ -1,4 +1,8 @@
-  let token = undefined;
+  let access_token
+  // Are we logged in? If not, go to the login page.
+  if (access_token == null && window.location.pathname !== "/login"){
+      window.location.href="login";
+  }
   const loginSubmit = document.getElementById("loginSubmit");
 
   if (loginSubmit != null) {
@@ -12,9 +16,9 @@
           xhr.onload = (ev) => {
               const status = document.getElementById("loginStatus")
               const responseData = JSON.parse(xhr.responseText)
-              if (xhr.status == 200) {
+              if (xhr.status === 200) {
                   status.innerText = "Successfully logged in, token: " + responseData.access_token;
-                  token = `${responseData.token_type} ${responseData.access_token}`;
+                  access_token = `${responseData.token_type} ${responseData.access_token}`;
               } else {
                   status.innerText = "Error logging in: " + responseData.detail
               }
@@ -23,7 +27,7 @@
       }
   }
 
-  // Send private request
+  // request dashboard info
   const privateRequest = document.getElementById("privateRequest");
   if (privateRequest != null) { // Does the dashboard exist?
       privateRequest.onclick = (ev) => {
@@ -31,7 +35,7 @@
               method: "GET",
               headers: {
                   "Content-Type": 'application/json',
-                  "Authorization": token
+                  "Authorization": 'Bearer ' + access_token
               }
           })
               .then(response => response.text())
