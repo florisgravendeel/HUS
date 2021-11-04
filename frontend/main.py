@@ -35,8 +35,13 @@ app.debug = True
 
 
 @app.route('/home')
-def dashboard2():
+def home():
     return render_template("fhome.html")
+
+
+@app.route('/login')
+def login():
+    return render_template("flogin.html")
 
 
 if __name__ == "__main__":
