@@ -7,41 +7,7 @@
   <meta content='width=device-width, initial-scale=1' name='viewport'>
 </head>
 <body>
-    <h2>Hoe werkt het?</h2>
-    <p>1. Installeer de software: <code> pip install -r requirements.txt </code> </p>
-    <p>2. Start de server! Met: <code>uvicorn main:app --reload</code></p>
-    <p>3. Inloggen!</p>
-    <p>4. Verzoek sturen om persoonlijke informatie op te halen.</p>
-    <h2>Inloggegevens:</h2>
-    <table>
-      <tr>
-        <th>Gebruikersnaam</th>
-        <th>Wachtwoord</th>
-      </tr>
-      <tr>
-        <td>johndoe</td>
-        <td>secret</td>
-      </tr>
-      <tr>
-        <td>johndoe2</td>
-        <td>secret</td>
-      </tr>
-    </table>
-    <br>
-    <form id="loginForm">
-      <h2>Login:</h2>
-      <p id="loginStatus"></p>
-      <label for="loginUsernameInput">
-        Username:
-        <input id="loginUsernameInput" name="username" placeholder="Username" type="text">
-      </label>
-        <br>
-      <label for="loginPasswordInput">
-        Password:
-        <input id="loginPasswordInput" name="password" placeholder="Password" type="password">
-      </label>
-      <input id="loginSubmit" type="submit" value="Verstuur">
-    </form>
+    <p><a href="/login">Klik hier om te inloggen!</a></p>
     <br>
 <div>
   <h2>Dashboard:</h2>
@@ -50,56 +16,6 @@
   <p id="privateStatus"></p>
 </div>
 </body>
-<script>
-  let token = undefined;
-  const loginSubmit = document.getElementById("loginSubmit");
-  loginSubmit.onclick = (ev) => {
-    ev.preventDefault();
-    const loginForm = document.getElementById("loginForm")
-    const data = new FormData(loginForm)
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://127.0.0.1:8000/token", true);
-
-    xhr.onload = (ev) => {
-      const status = document.getElementById("loginStatus")
-      const responseData = JSON.parse(xhr.responseText)
-      if (xhr.status == 200) {
-        status.innerText = "Successfully logged in, token: " + responseData.access_token;
-        token = `${responseData.token_type} ${responseData.access_token}`;
-      } else {
-        status.innerText = "Error logging in: " + responseData.detail
-      }
-    }
-    xhr.send(data)
-  }
-  const privateRequest = document.getElementById("privateRequest");
-  privateRequest.onclick = (ev) => {
-    fetch("http://127.0.0.1:8000/users/me/", {
-      method: "GET",
-      headers: {
-        "Content-Type": 'application/json',
-        "Authorization": token
-      }
-    })
-      .then(response => response.text())
-      .then(result => {
-        const status = document.getElementById("privateStatus");
-        status.innerText = result
-      })
-      .catch(error => console.log('error', error))
-  }
-</script>
-<style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 10%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-</style>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/fdefault.css') }}">
+<script type="text/javascript" src="{{ url_for('static', filename='js/auth.js') }}"></script>
 </html>
