@@ -41,15 +41,19 @@
                   "Content-Type": 'application/json',
                   "Authorization": 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huZG9lMiIsImV4cCI6MTYzNjA0Mjc3M30.T6EWncfS-3YiLghesUyQudA4Lqq4ZmhnpXSra1hwB4o'
               }
-          })
-              .then(response => response.text())
-              .then(result => {
-
-                  const status = document.getElementById("privateStatus");
-                  status.innerText = result
-
-              })
-              .catch(error => console.log('error', error))
+          }).then(function (response) {
+              console.log(response.status);
+            }).then(
+                result => {}
+          )
+              // .then(response => response.text())
+              // .then(result => {
+              //
+              //     const status = document.getElementById("privateStatus");
+              //     status.innerText = result
+              //
+              // })
+              // .catch(error => console.log('error', error))
       }
   }
 
