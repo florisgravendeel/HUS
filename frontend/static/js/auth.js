@@ -1,4 +1,8 @@
-  let access_token
+  window.addEventListener('error', function(e) {
+    console.log("We got an error m8" + e);
+  }, true);
+
+  let access_token = 1
   // Are we logged in? If not, go to the login page.
   if (access_token == null && window.location.pathname !== "/login"){
       window.location.href="login";
@@ -35,14 +39,20 @@
               method: "GET",
               headers: {
                   "Content-Type": 'application/json',
-                  "Authorization": 'Bearer ' + access_token
+                  "Authorization": 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huZG9lMiIsImV4cCI6MTYzNjA0Mjc3M30.T6EWncfS-3YiLghesUyQudA4Lqq4ZmhnpXSra1hwB4o'
               }
           })
               .then(response => response.text())
               .then(result => {
+
                   const status = document.getElementById("privateStatus");
                   status.innerText = result
+
               })
               .catch(error => console.log('error', error))
       }
+  }
+
+  function logout() {
+      window.location.href="login";
   }
