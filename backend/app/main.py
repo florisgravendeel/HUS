@@ -2,8 +2,8 @@ from datetime import datetime, timedelta
 from typing import Optional
 
 import uvicorn
-from fastapi import Depends, FastAPI, HTTPException, status
-from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from fastapi import Depends, FastAPI, HTTPException, status, Security
+from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm, HTTPAuthorizationCredentials, HTTPBearer
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 from pydantic import BaseModel
@@ -19,6 +19,7 @@ ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 15
 
 auth_handler = Auth()
+security = HTTPBearer()
 
 fake_users_db = {
     "johndoe": {
@@ -142,10 +143,10 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
             detail="Incorrect username or password",
             headers={"WWW-Authenticate": "Bearer"},
         )
-    #access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
-    #access_token = create_access_token(
+    # access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+    # access_token = create_access_token(
     #    data={"sub": user.username}, expires_delta=access_token_expires
-    #)
+    # )
     access_token = auth_handler.encode_token(user.username)
 
     return {"access_token": access_token, "token_type": "bearer"}
@@ -170,6 +171,13 @@ async def refresh_token(form_data: OAuth2PasswordRequestForm = Depends()):
 @app.get("/users/me/", response_model=User)
 async def read_users_me(current_user: User = Depends(get_current_active_user)):
     return current_user
+
+
+@app.post('/secret')
+def secret_data(credentials: HTTPAuthorizationCredentials = Security(security)):
+    token = credentials.credentials
+    if auth_handler.decode_token(token):
+        return 'Top Secret data only authorized users can access this info'
 
 
 if __name__ == '__main__':
