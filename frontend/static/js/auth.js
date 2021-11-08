@@ -55,8 +55,17 @@
   }
 
   function logout() {
-      window.location.href="login";
+      access_token = 0
+      // to support logging out from all windows
+      //window.localStorage.setItem('logout', Date.now()) // Do something with logging out across all tabs.
+      redirect_to_login()
   }
   function redirect_to_login() {
       window.location.href="login";
+  }
+  function is_token_expired(response: Response) {
+      console.log(response.status);
+      if (response.status === 401){ // Is the access token expired?
+          redirect_to_login()
+      }
   }
