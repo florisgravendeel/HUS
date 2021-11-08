@@ -197,7 +197,9 @@ def add_to_db_queue(db: Session, item, table, i):
     db.add(item)
     db.flush()
     db.refresh(item)
+    # add the original id as a dict key to a list and give it the value of the new id
     ids[table+'_ids'][i[table+'_id']] = item.__dict__[table+'_id']
+    # add to output
     added_items.append(item.__dict__)
 
 
