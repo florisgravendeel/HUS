@@ -5,7 +5,7 @@
   let access_token = 1
   // Are we logged in? If not, go to the login page.
   if (access_token == null && window.location.pathname !== "/login"){
-      window.location.href="login";
+      redirect_to_login()
   }
   const loginSubmit = document.getElementById("loginSubmit");
 
@@ -39,24 +39,24 @@
               method: "GET",
               headers: {
                   "Content-Type": 'application/json',
-                  "Authorization": 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huZG9lMiIsImV4cCI6MTYzNjA0Mjc3M30.T6EWncfS-3YiLghesUyQudA4Lqq4ZmhnpXSra1hwB4o'
+                  "Authorization": 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huZG9lMiIsImV4cCI6MTYzNjM3NjkwM30.ActOwBFz0_bkT5oZXF6TNXEP7MVofvYMXywv_5-j3c8'
               }
           }).then(function (response) {
               console.log(response.status);
-            }).then(
-                result => {}
-          )
-              // .then(response => response.text())
-              // .then(result => {
-              //
-              //     const status = document.getElementById("privateStatus");
-              //     status.innerText = result
-              //
-              // })
-              // .catch(error => console.log('error', error))
+              if (response.status === 401){ // Is the access token expired?
+                  redirect_to_login()
+              }
+              response.text().then(result => {
+                  const status = document.getElementById("privateStatus");
+                  status.innerText = result
+              }).catch(error => console.log('error', error))
+            })
       }
   }
 
   function logout() {
+      window.location.href="login";
+  }
+  function redirect_to_login() {
       window.location.href="login";
   }
