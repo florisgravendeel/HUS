@@ -6,10 +6,23 @@
 # To install the recommed packages run:
 # pip3 install -r requirements.txt
 #
-fastapi==0.68.1
-uvicorn==0.15.0
-xknx==0.18.9
-sqlalchemy==1.4.25
-psycopg2==2.9.1
-fastapi-mail==1.0.1
-python-dotenv
+bcrypt==3.2.0
+cffi==1.14.6
+click==7.1.2
+cryptography==35.0.0
+ecdsa==0.17.0
+fastapi==0.65.2
+h11==0.12.0
+passlib==1.7.4
+pyasn1==0.4.8
+pycparser==2.20
+pydantic==1.8.2
+PyJWT==2.0.1
+python-dotenv==0.15.0
+python-jose==3.3.0
+python-multipart==0.0.5
+rsa==4.7.2
+six==1.15.0
+starlette==0.14.2
+typing-extensions==3.7.4.3
+uvicorn==0.13.4

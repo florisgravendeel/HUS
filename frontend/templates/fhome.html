@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta content='IE=edge' http-equiv='X-UA-Compatible'>
+  <title>Simple Login Example</title>
+  <meta content='width=device-width, initial-scale=1' name='viewport'>
+</head>
+<body>
+    <p><a href="/login">Klik hier om te inloggen!</a></p>
+    <br>
+<div>
+  <h2>Dashboard:</h2>
+  <p> Klik op aanvragen, voor je al persoonlijke informatie.</p>
+  <button id="privateRequest">Aanvragen</button>
+</div>
+   <br>
+  <textarea id="privateStatus" style="height: 50px; width: 400px;"></textarea>
+</body>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/fdefault.css') }}">
+<script type="text/javascript" src="{{ url_for('static', filename='js/auth.js') }}"></script>
+</html>
