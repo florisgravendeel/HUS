@@ -2,7 +2,7 @@
     console.log("We got an error m8" + e);
   }, true);
 
-  let access_token = 1
+  let access_token
   // Are we logged in? If not, go to the login page.
   if (access_token == null && window.location.pathname !== "/login"){
       redirect_to_login()
@@ -62,10 +62,4 @@
   }
   function redirect_to_login() {
       window.location.href="login";
-  }
-  function is_token_expired(response: Response) {
-      console.log(response.status);
-      if (response.status === 401){ // Is the access token expired?
-          redirect_to_login()
-      }
   }

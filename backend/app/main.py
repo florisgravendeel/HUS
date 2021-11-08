@@ -12,9 +12,13 @@ from pydantic import BaseModel
 # openssl rand -hex 32
 from starlette.middleware.cors import CORSMiddleware
 
+from backend.app.auth import Auth
+
 SECRET_KEY = "967e64e52668340468d3075c80461de8b22f484487be1fe83c8bd77c2ca06e79"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 15
+
+auth_handler = Auth()
 
 fake_users_db = {
     "johndoe": {
@@ -138,10 +142,12 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
             detail="Incorrect username or password",
             headers={"WWW-Authenticate": "Bearer"},
         )
-    access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
-    access_token = create_access_token(
-        data={"sub": user.username}, expires_delta=access_token_expires
-    )
+    #access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+    #access_token = create_access_token(
+    #    data={"sub": user.username}, expires_delta=access_token_expires
+    #)
+    access_token = auth_handler.encode_token(user.username)
+
     return {"access_token": access_token, "token_type": "bearer"}
 
 
