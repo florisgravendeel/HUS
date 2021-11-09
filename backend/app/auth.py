@@ -8,7 +8,7 @@ from datetime import datetime, timedelta  # used to handle expiry time for token
 def get_token_expiry(access_token):
     # TODO: add logic with access_token_expire_minutes
     # OR: retrieve minutes from access token
-    date = datetime.utcnow() + timedelta(days=0, minutes=-11)
+    date = datetime.utcnow() + timedelta(days=0, minutes=15)
     print("Token valid until: ", date)
     return {
         'year': date.year,
