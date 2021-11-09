@@ -9,9 +9,9 @@
       redirect_to_login()
   }
   const loginSubmit = document.getElementById("loginSubmit");
-
   if (loginSubmit != null) {
       loginSubmit.onclick = (ev) => {
+          let response = undefined;
           ev.preventDefault();
           const loginForm = document.getElementById("loginForm")
           const data = new FormData(loginForm)
@@ -20,31 +20,48 @@
 
           xhr.onload = (ev) => {
               const status = document.getElementById("loginStatus")
-              const responseData = JSON.parse(xhr.responseText)
+              const response = JSON.parse(xhr.responseText)
               if (xhr.status === 200) {
-                  access_token = `${responseData.token_type} ${responseData.access_token}`;
-                  let time_gmt = new Date(parseFloat(`${responseData.token_expiry}`)); // Numbers are correct, but is in GMT
+                  access_token = `${response.token_type} ${response.access_token}`;
+                  // There was no other way, I'm inevitable
+                  let year = response.token_expiry.year;
+                  let month = response.token_expiry.month-1; // Between 0-11, instead of 1-12
+                  let day = response.token_expiry.day; // Between 1-31
+                  let hours = response.token_expiry.hours; // Between 0-23
+                  let minutes = response.token_expiry.minutes;
+                  let seconds = response.token_expiry.seconds;
+                  console.log("Year: ", year);
+                  console.log("Month: ", month);
+                  console.log("Day: ", day);
+                  console.log("Hours: ", hours);
+                  console.log("Minutes: ", minutes);
+                  console.log("Seconds: ", seconds)
 
-                  token_expiry = Date.UTC(time_gmt.getFullYear(), time_gmt.getMonth(), time_gmt.getDay(), time_gmt.getHours(), time_gmt.getMinutes(), time_gmt.getSeconds());
+                  token_expiry = Date.UTC(year, month, day, hours, minutes, seconds); // This is valid!
 
+                  //token_expiry = new Date(year, month, day, hours, minutes, seconds);
+                  //let utc_date = Date.UTC(2021,10,9,15,28,52);
+                  console.log("Token_exp: ", token_expiry);
+                  let now = Date.now();
+                  console.log("Now: ", now);
+                  let token_expired = token_expiry < now;
+                  console.log("Token expired: ", token_expired);
                   status.innerText = "Successfully logged in, token: " + access_token + " token_expiry: " + token_expiry;
-                  // console.log("token_exp: ", token_expiry.getHours(), ":", token_expiry.getMinutes())
-
 
                   // let utc_date = Date.UTC(2021,11,9,14,28,52);
+
+                  //console.log("token_exp: ", token_expiry.getHours(), ":", token_expiry.getMinutes())
                   // console.log("UTC Valid Token Date: " + utc_date);
                   //
-                  let now = new Date();
                   // // console.log("Current Time: " + now.getHours());
                   // console.log("Current Time: " + now.getTime());
                   // var utc_now = new Date().toUTCString(); //THIS works
                   // console.log("UTC_Now: " + utc_now);
-                  console.log("Token expired: ", (now < token_expiry))
 
                   // console.log("Token_Expiry Hours: (UTC) " + token_expiry.getUTCHours());
                   // console.log("Token_Expiry Hours: ", token_expiry.getHours())
               } else {
-                  status.innerText = "Error logging in: " + responseData.detail
+                  status.innerText = "Error logging in: " + response.detail
               }
           }
           xhr.send(data)
