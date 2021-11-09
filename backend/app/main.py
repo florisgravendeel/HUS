@@ -1,8 +1,8 @@
 from datetime import datetime, timedelta
 from typing import Optional
-
+import json, time
 import uvicorn
-from fastapi import Depends, FastAPI, HTTPException, status
+from fastapi import Depends, FastAPI, HTTPException, status, Response
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jose import JWTError, jwt
 from passlib.context import CryptContext
@@ -133,8 +133,8 @@ async def get_current_active_user(current_user: User = Depends(get_current_user)
     return current_user
 
 
-@app.post("/token", response_model=Token)
-async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends()):
+@app.post("/login")
+async def login_for_access_token(response: Response, form_data: OAuth2PasswordRequestForm = Depends()):
     user = authenticate_user(fake_users_db, form_data.username, form_data.password)
     if not user:
         raise HTTPException(
@@ -146,9 +146,14 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
     #access_token = create_access_token(
     #    data={"sub": user.username}, expires_delta=access_token_expires
     #)
+    #auth_handler.get_token_expiry()
     access_token = auth_handler.encode_token(user.username)
+    token_expiry = datetime.utcnow() + timedelta(days=0, minutes=30)
+    token_expiry = json.dumps(time.mktime(token_expiry.timetuple())*1000)
+    refresh_token = auth_handler.encode_refresh_token(user.username)
+    response.set_cookie("refresh_token", refresh_token)
 
-    return {"access_token": access_token, "token_type": "bearer"}
+    return {"access_token": access_token, "token_type": "bearer", "token_expiry": token_expiry}
 
 
 @app.post("/refresh_token", response_model=Token)

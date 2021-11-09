@@ -3,6 +3,7 @@
   }, true);
 
   let access_token
+  let token_expiry
   // Are we logged in? If not, go to the login page.
   if (access_token == null && window.location.pathname !== "/login"){
       redirect_to_login()
@@ -15,14 +16,18 @@
           const loginForm = document.getElementById("loginForm")
           const data = new FormData(loginForm)
           let xhr = new XMLHttpRequest();
-          xhr.open("POST", "http://127.0.0.1:8000/token", true);
+          xhr.open("POST", "http://127.0.0.1:8000/login", true);
 
           xhr.onload = (ev) => {
               const status = document.getElementById("loginStatus")
               const responseData = JSON.parse(xhr.responseText)
               if (xhr.status === 200) {
-                  status.innerText = "Successfully logged in, token: " + responseData.access_token;
                   access_token = `${responseData.token_type} ${responseData.access_token}`;
+                  token_expiry = new Date(parseFloat(`${responseData.token_expiry}`)); // Time is UTC
+                  status.innerText = "Successfully logged in, token: " + access_token + "\r\n token_expiry: " + token_expiry;
+                  let utc = new Date();
+                  utc = utc.getUTCMilliseconds()
+                  console.log("Token expired: ", (utc > token_expiry))
               } else {
                   status.innerText = "Error logging in: " + responseData.detail
               }
