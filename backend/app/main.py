@@ -12,7 +12,7 @@ from pydantic import BaseModel
 # openssl rand -hex 32
 from starlette.middleware.cors import CORSMiddleware
 
-from backend.app.auth import Auth
+from backend.app.auth import Auth, get_token_expiry
 
 SECRET_KEY = "967e64e52668340468d3075c80461de8b22f484487be1fe83c8bd77c2ca06e79"
 ALGORITHM = "HS256"
@@ -148,10 +148,11 @@ async def login_for_access_token(response: Response, form_data: OAuth2PasswordRe
     #)
     #auth_handler.get_token_expiry()
     access_token = auth_handler.encode_token(user.username)
-    token_expiry = datetime.utcnow() + timedelta(days=0, minutes=10)
-    print("Token valid until: ", token_expiry)
+    token_expiry = get_token_expiry(access_token)
 
-    token_expiry = json.dumps(time.mktime(token_expiry.timetuple())*1000)
+    #print("Token valid until: ", token_expiry)
+
+    #token_expiry = json.dumps(time.mktime(token_expiry.timetuple())*1000)
 
     refresh_token = auth_handler.encode_refresh_token(user.username)
     response.set_cookie("refresh_token", refresh_token)
