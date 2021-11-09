@@ -24,10 +24,21 @@
               if (xhr.status === 200) {
                   access_token = `${responseData.token_type} ${responseData.access_token}`;
                   token_expiry = new Date(parseFloat(`${responseData.token_expiry}`)); // Time is UTC
-                  status.innerText = "Successfully logged in, token: " + access_token + "\r\n token_expiry: " + token_expiry;
-                  let utc = new Date();
-                  utc = utc.getUTCMilliseconds()
-                  console.log("Token expired: ", (utc > token_expiry))
+                  // token_expiry = parseFloat(`${responseData.token_expiry}`)
+                  status.innerText = "Successfully logged in, token: " + access_token + " token_expiry: " + token_expiry;
+
+                  let utc_date = Date.UTC(2021,11,9,14,28,52);
+                  console.log("UTC Valid Token Date: " + utc_date);
+
+                  let now = new Date();
+                  // console.log("Current Time: " + now.getHours());
+                  console.log("Current Time: " + now.getTime());
+                  var utc_now = new Date().toUTCString(); //THIS works
+                  console.log("UTC_Now: " + utc_now);
+                  console.log("Token expired: ", (now < utc_date))
+
+                  console.log("Token_Expiry Hours: (UTC) " + token_expiry.getUTCHours());
+                  console.log("Token_Expiry Hours: ", token_expiry.getHours())
               } else {
                   status.innerText = "Error logging in: " + responseData.detail
               }

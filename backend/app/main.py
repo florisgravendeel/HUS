@@ -148,8 +148,11 @@ async def login_for_access_token(response: Response, form_data: OAuth2PasswordRe
     #)
     #auth_handler.get_token_expiry()
     access_token = auth_handler.encode_token(user.username)
-    token_expiry = datetime.utcnow() + timedelta(days=0, minutes=30)
+    token_expiry = datetime.utcnow() + timedelta(days=0, minutes=10)
+    print("Token valid until: ", token_expiry)
+
     token_expiry = json.dumps(time.mktime(token_expiry.timetuple())*1000)
+
     refresh_token = auth_handler.encode_refresh_token(user.username)
     response.set_cookie("refresh_token", refresh_token)
 
@@ -178,4 +181,7 @@ async def read_users_me(current_user: User = Depends(get_current_active_user)):
 
 
 if __name__ == '__main__':
+    print("UTC Time: ", datetime.utcnow())
+    print("UTC Time: ", datetime.now().timestamp())
+
     uvicorn.run(app, host="127.0.0.1", port=8000)

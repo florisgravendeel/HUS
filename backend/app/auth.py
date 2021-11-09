@@ -8,7 +8,8 @@ from datetime import datetime, timedelta  # used to handle expiry time for token
 class Auth():
     hasher = CryptContext(schemes=['bcrypt'])
     secret = "967e64e52668340468d3075c80461de8b22f484487be1fe83c8bd77c2ca06e79"
-
+    # add access_token_expire_minutes
+    # add refresh_token_expire_minutes
     # add algorithm option
 
     def encode_password(self, password):
