@@ -14,6 +14,10 @@ from starlette.middleware.cors import CORSMiddleware
 from backend.app.auth import Auth
 
 auth_handler = Auth()
+SECRET_KEY = "967e64e52668340468d3075c80461de8b22f484487be1fe83c8bd77c2ca06e79"
+ACCESS_TOKEN_EXPIRE_MINUTES = 10
+REFRESH_TOKEN_EXPIRE_DAYS = 7
+ALGORITHM = 'HS256'
 
 fake_users_db = {
     "johndoe": {
@@ -91,17 +95,6 @@ def authenticate_user(fake_db, username: str, password: str):
     return user
 
 
-def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
-    to_encode = data.copy()
-    if expires_delta:
-        expire = datetime.utcnow() + expires_delta
-    else:
-        expire = datetime.utcnow() + timedelta(minutes=15)
-    to_encode.update({"exp": expire})
-    encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
-    return encoded_jwt
-
-
 async def get_current_user(token: str = Depends(oauth2_scheme)):
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
@@ -144,8 +137,8 @@ async def login_for_access_token(response: Response, form_data: OAuth2PasswordRe
     token_expiry_timestamp = json.dumps(time.mktime(
         token_expiry.timetuple()) * 1000)  # conversion for javascript
 
-    refresh_token = auth_handler.encode_refresh_token(user.username)
-    response.set_cookie("refresh_token", refresh_token, httponly=True)
+    _refresh_token = auth_handler.encode_refresh_token(user.username)
+    response.set_cookie("refresh_token", _refresh_token, httponly=True)
 
     return {"access_token": access_token, "token_type": "bearer", "token_expiry": token_expiry_timestamp}
 
@@ -160,10 +153,8 @@ async def refresh_token(form_data: OAuth2PasswordRequestForm = Depends()):
             headers={"WWW-Authenticate": "Bearer"},
         )
     access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
-    access_token = create_access_token(
-        data={"sub": user.username}, expires_delta=access_token_expires
-    )
-    return {"access_token": access_token, "token_type": "bearer"}
+
+    return {"access_token": 0, "token_type": "bearer"}
 
 
 @app.get("/users/me/", response_model=User)
