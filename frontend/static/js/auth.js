@@ -23,6 +23,9 @@
               const response = JSON.parse(xhr.responseText)
               if (xhr.status === 200) {
                   access_token = `${response.token_type} ${response.access_token}`;
+                  let date2 = new Date(parseFloat(`${response.token_expiry1}`));
+                  console.log("Date2: ", date2);
+
                   // There was no other way, I'm inevitable
                   let year = response.token_expiry.year;
                   let month = response.token_expiry.month-1; // Between 0-11, instead of 1-12
@@ -30,18 +33,19 @@
                   let hours = response.token_expiry.hours; // Between 0-23
                   let minutes = response.token_expiry.minutes;
                   let seconds = response.token_expiry.seconds;
-                  console.log("Year: ", year);
-                  console.log("Month: ", month);
-                  console.log("Day: ", day);
-                  console.log("Hours: ", hours);
-                  console.log("Minutes: ", minutes);
-                  console.log("Seconds: ", seconds)
+                  console.log("Year: " + year + " | " + date2.getFullYear());
+                  console.log("Month: " + month + " | " + date2.getMonth());
+                  console.log("Day: " + day + " | " + date2.getDate());
+                  console.log("Hours: " + hours + " | " + date2.getHours());
+                  console.log("Minutes: " + minutes + " | " + date2.getMinutes());
+                  console.log("Seconds: " + seconds + " | " + date2.getSeconds());
 
                   token_expiry = Date.UTC(year, month, day, hours, minutes, seconds); // This is valid!
-
+                  let token_expiry2 = Date.UTC(date2.getFullYear(), date2.getMonth(), date2.getDate(), date2.getHours(), date2.getMinutes(), date2.getSeconds());
+                  console.log("token_expiry2: ", token_expiry2);
                   //token_expiry = new Date(year, month, day, hours, minutes, seconds);
                   //let utc_date = Date.UTC(2021,10,9,15,28,52);
-                  console.log("Token_exp: ", token_expiry);
+                  console.log("Token_expiry1: ", token_expiry);
                   let now = Date.now();
                   console.log("Now: ", now);
                   let token_expired = token_expiry < now;

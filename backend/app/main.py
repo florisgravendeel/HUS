@@ -147,17 +147,19 @@ async def login_for_access_token(response: Response, form_data: OAuth2PasswordRe
     #    data={"sub": user.username}, expires_delta=access_token_expires
     #)
     #auth_handler.get_token_expiry()
+    token_validity = datetime.utcnow() + timedelta(days=0, minutes=-15)
+
     access_token = auth_handler.encode_token(user.username)
-    token_expiry = get_token_expiry(access_token)
+    token_expiry = get_token_expiry(access_token, token_validity)
 
     #print("Token valid until: ", token_expiry)
-
-    #token_expiry = json.dumps(time.mktime(token_expiry.timetuple())*1000)
+    token_expiry2 = json.dumps(time.mktime(token_validity.timetuple())*1000)
 
     refresh_token = auth_handler.encode_refresh_token(user.username)
     response.set_cookie("refresh_token", refresh_token)
 
-    return {"access_token": access_token, "token_type": "bearer", "token_expiry": token_expiry}
+    return { "access_token": access_token, "token_type": "bearer",
+            "token_expiry": token_expiry, "token_expiry1": token_expiry2}
 
 
 @app.post("/refresh_token", response_model=Token)
