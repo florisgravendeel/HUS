@@ -1,9 +1,9 @@
 from datetime import datetime, timedelta
 from typing import Optional
-
+import json, time
 import uvicorn
-from fastapi import Depends, FastAPI, HTTPException, status, Security
-from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm, HTTPAuthorizationCredentials, HTTPBearer
+from fastapi import Depends, FastAPI, HTTPException, status, Response
+from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 from pydantic import BaseModel
@@ -12,14 +12,13 @@ from pydantic import BaseModel
 # openssl rand -hex 32
 from starlette.middleware.cors import CORSMiddleware
 
-from backend.app.auth import Auth
+from backend.app.auth import Auth, get_token_expiry
 
 SECRET_KEY = "967e64e52668340468d3075c80461de8b22f484487be1fe83c8bd77c2ca06e79"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 15
 
 auth_handler = Auth()
-security = HTTPBearer()
 
 fake_users_db = {
     "johndoe": {
@@ -134,8 +133,8 @@ async def get_current_active_user(current_user: User = Depends(get_current_user)
     return current_user
 
 
-@app.post("/token", response_model=Token)
-async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends()):
+@app.post("/login")
+async def login_for_access_token(response: Response, form_data: OAuth2PasswordRequestForm = Depends()):
     user = authenticate_user(fake_users_db, form_data.username, form_data.password)
     if not user:
         raise HTTPException(
@@ -143,13 +142,22 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
             detail="Incorrect username or password",
             headers={"WWW-Authenticate": "Bearer"},
         )
-    # access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
-    # access_token = create_access_token(
+    #access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+    #access_token = create_access_token(
     #    data={"sub": user.username}, expires_delta=access_token_expires
-    # )
+    #)
+    #auth_handler.get_token_expiry()
     access_token = auth_handler.encode_token(user.username)
+    token_expiry = get_token_expiry(access_token)
 
-    return {"access_token": access_token, "token_type": "bearer"}
+    #print("Token valid until: ", token_expiry)
+
+    #token_expiry = json.dumps(time.mktime(token_expiry.timetuple())*1000)
+
+    refresh_token = auth_handler.encode_refresh_token(user.username)
+    response.set_cookie("refresh_token", refresh_token)
+
+    return {"access_token": access_token, "token_type": "bearer", "token_expiry": token_expiry}
 
 
 @app.post("/refresh_token", response_model=Token)
@@ -173,12 +181,8 @@ async def read_users_me(current_user: User = Depends(get_current_active_user)):
     return current_user
 
 
-@app.post('/secret')
-def secret_data(credentials: HTTPAuthorizationCredentials = Security(security)):
-    token = credentials.credentials
-    if auth_handler.decode_token(token):
-        return 'Top Secret data only authorized users can access this info'
-
-
 if __name__ == '__main__':
+    print("UTC Time: ", datetime.utcnow())
+    print("UTC Time: ", datetime.now().timestamp())
+
     uvicorn.run(app, host="127.0.0.1", port=8000)

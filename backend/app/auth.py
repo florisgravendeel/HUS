@@ -5,9 +5,27 @@ from passlib.context import CryptContext  # used for hashing the password
 from datetime import datetime, timedelta  # used to handle expiry time for tokens
 
 
-class Auth():
+def get_token_expiry(access_token):
+    # TODO: add logic with access_token_expire_minutes
+    # OR: retrieve minutes from access token
+    date = datetime.utcnow() + timedelta(days=0, minutes=15)
+    print("Token valid until: ", date)
+    return {
+        'year': date.year,
+        'month': date.month,
+        'day': date.day,
+        'hours': date.hour,
+        'minutes': date.minute,
+        'seconds': date.second
+    }
+
+
+class Auth:
     hasher = CryptContext(schemes=['bcrypt'])
     secret = "967e64e52668340468d3075c80461de8b22f484487be1fe83c8bd77c2ca06e79"
+
+    # add access_token_expire_minutes
+    # add refresh_token_expire_minutes
     # add algorithm option
 
     def encode_password(self, password):
@@ -56,7 +74,7 @@ class Auth():
     def refresh_token(self, refresh_token):
         try:
             payload = jwt.decode(refresh_token, self.secret, algorithms=['HS256'])
-            if (payload['scope'] == 'refresh_token'):
+            if payload['scope'] == 'refresh_token':
                 username = payload['sub']
                 new_token = self.encode_token(username)
                 return new_token

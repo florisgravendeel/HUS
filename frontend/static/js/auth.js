@@ -2,29 +2,66 @@
     console.log("We got an error m8" + e);
   }, true);
 
-  let access_token = 1
+  let access_token
+  let token_expiry
   // Are we logged in? If not, go to the login page.
   if (access_token == null && window.location.pathname !== "/login"){
       redirect_to_login()
   }
   const loginSubmit = document.getElementById("loginSubmit");
-
   if (loginSubmit != null) {
       loginSubmit.onclick = (ev) => {
+          let response = undefined;
           ev.preventDefault();
           const loginForm = document.getElementById("loginForm")
           const data = new FormData(loginForm)
           let xhr = new XMLHttpRequest();
-          xhr.open("POST", "http://127.0.0.1:8000/token", true);
+          xhr.open("POST", "http://127.0.0.1:8000/login", true);
 
           xhr.onload = (ev) => {
               const status = document.getElementById("loginStatus")
-              const responseData = JSON.parse(xhr.responseText)
+              const response = JSON.parse(xhr.responseText)
               if (xhr.status === 200) {
-                  status.innerText = "Successfully logged in, token: " + responseData.access_token;
-                  access_token = `${responseData.token_type} ${responseData.access_token}`;
+                  access_token = `${response.token_type} ${response.access_token}`;
+                  // There was no other way, I'm inevitable
+                  let year = response.token_expiry.year;
+                  let month = response.token_expiry.month-1; // Between 0-11, instead of 1-12
+                  let day = response.token_expiry.day; // Between 1-31
+                  let hours = response.token_expiry.hours; // Between 0-23
+                  let minutes = response.token_expiry.minutes;
+                  let seconds = response.token_expiry.seconds;
+                  console.log("Year: ", year);
+                  console.log("Month: ", month);
+                  console.log("Day: ", day);
+                  console.log("Hours: ", hours);
+                  console.log("Minutes: ", minutes);
+                  console.log("Seconds: ", seconds)
+
+                  token_expiry = Date.UTC(year, month, day, hours, minutes, seconds); // This is valid!
+
+                  //token_expiry = new Date(year, month, day, hours, minutes, seconds);
+                  //let utc_date = Date.UTC(2021,10,9,15,28,52);
+                  console.log("Token_exp: ", token_expiry);
+                  let now = Date.now();
+                  console.log("Now: ", now);
+                  let token_expired = token_expiry < now;
+                  console.log("Token expired: ", token_expired);
+                  status.innerText = "Successfully logged in, token: " + access_token + " token_expiry: " + token_expiry;
+
+                  // let utc_date = Date.UTC(2021,11,9,14,28,52);
+
+                  //console.log("token_exp: ", token_expiry.getHours(), ":", token_expiry.getMinutes())
+                  // console.log("UTC Valid Token Date: " + utc_date);
+                  //
+                  // // console.log("Current Time: " + now.getHours());
+                  // console.log("Current Time: " + now.getTime());
+                  // var utc_now = new Date().toUTCString(); //THIS works
+                  // console.log("UTC_Now: " + utc_now);
+
+                  // console.log("Token_Expiry Hours: (UTC) " + token_expiry.getUTCHours());
+                  // console.log("Token_Expiry Hours: ", token_expiry.getHours())
               } else {
-                  status.innerText = "Error logging in: " + responseData.detail
+                  status.innerText = "Error logging in: " + response.detail
               }
           }
           xhr.send(data)
@@ -39,7 +76,7 @@
               method: "GET",
               headers: {
                   "Content-Type": 'application/json',
-                  "Authorization": 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MzYzODYzMTEsImlhdCI6MTYzNjM4NDUxMSwic2NvcGUiOiJhY2Nlc3NfdG9rZW4iLCJzdWIiOiJqb2huZG9lMiJ9.GXDHNohcewFKGRxfaREY_tlsd4pe5Ol_1KbdfLGutCg'
+                  "Authorization": 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huZG9lMiIsImV4cCI6MTYzNjM3NjkwM30.ActOwBFz0_bkT5oZXF6TNXEP7MVofvYMXywv_5-j3c8'
               }
           }).then(function (response) {
               console.log(response.status);
