@@ -23,7 +23,7 @@
               const response = JSON.parse(xhr.responseText)
               if (xhr.status === 200) {
                   access_token = `${response.token_type} ${response.access_token}`;
-                  let date2 = new Date(parseFloat(`${response.token_expiry1}`));
+                  let date2 = new Date(parseFloat(`${response.token_expiry1}`)); // UTC date but in GMT format
                   console.log("Date2: ", date2);
 
                   // There was no other way, I'm inevitable
@@ -41,7 +41,8 @@
                   console.log("Seconds: " + seconds + " | " + date2.getSeconds());
 
                   token_expiry = Date.UTC(year, month, day, hours, minutes, seconds); // This is valid!
-                  let token_expiry2 = Date.UTC(date2.getFullYear(), date2.getMonth(), date2.getDate(), date2.getHours(), date2.getMinutes(), date2.getSeconds());
+                  let token_expiry2 = Date.UTC(date2.getFullYear(), date2.getMonth(),
+                      date2.getDate(), date2.getHours(), date2.getMinutes(), date2.getSeconds()); //UTC date in UTC format
                   console.log("token_expiry2: ", token_expiry2);
                   //token_expiry = new Date(year, month, day, hours, minutes, seconds);
                   //let utc_date = Date.UTC(2021,10,9,15,28,52);

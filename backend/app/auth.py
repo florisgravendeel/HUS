@@ -9,6 +9,9 @@ def get_token_expiry(access_token, date):
     # TODO: add logic with access_token_expire_minutes
     # OR: retrieve minutes from access token
     # date = datetime.utcnow() + timedelta(days=0, minutes=15)
+    # unix_time
+    # return json.dumps(time.mktime(token_validity.timetuple())*1000)
+
     print("Token valid until: ", date)
     return {
         'year': date.year,
