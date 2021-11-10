@@ -4,12 +4,13 @@ from datetime import datetime, timedelta
 from typing import Optional
 
 import uvicorn
-from fastapi import Depends, FastAPI, HTTPException, status, Response
+from fastapi import Depends, FastAPI, HTTPException, status, Response, Request
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 from pydantic import BaseModel
 from starlette.middleware.cors import CORSMiddleware
+
 
 from backend.app.auth import Auth
 
@@ -122,7 +123,7 @@ async def get_current_active_user(current_user: User = Depends(get_current_user)
 
 
 @app.post("/login")
-async def login_for_access_token(response: Response, form_data: OAuth2PasswordRequestForm = Depends()):
+async def login(response: Response, form_data: OAuth2PasswordRequestForm = Depends()):
     user = authenticate_user(fake_users_db, form_data.username, form_data.password)
     if not user:
         raise HTTPException(
@@ -131,7 +132,7 @@ async def login_for_access_token(response: Response, form_data: OAuth2PasswordRe
             headers={"WWW-Authenticate": "Bearer"},
         )
 
-    access_token = auth_handler.encode_token(user.username)
+    access_token = auth_handler.encode_access_token(user.username)
     token_expiry = auth_handler.get_token_expiry(access_token)
 
     token_expiry_timestamp = json.dumps(time.mktime(
@@ -144,20 +145,16 @@ async def login_for_access_token(response: Response, form_data: OAuth2PasswordRe
 
 
 @app.post("/logout")
-async def logout(response: Response):
+async def logout(response: Response):# TODO: add access token logic here
     response.delete_cookie("refresh_token")
     return response
 
 
-@app.post("/refresh_token", response_model=Token)
-async def refresh_token(form_data: OAuth2PasswordRequestForm = Depends()):
-    user = authenticate_user(fake_users_db, form_data.username, form_data.password)
-    if not user:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Incorrect username or password",
-            headers={"WWW-Authenticate": "Bearer"},
-        )
+@app.post("/refresh_token")
+async def refresh_token_(request: Request):  # TODO: add access token logic also here
+    refresh_token = request.cookies.get('refresh_token')
+    print(refresh_token)
+    auth_handler.decode_access_token(refresh_token)
     access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
 
     return {"access_token": 0, "token_type": "bearer"}
