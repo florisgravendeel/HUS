@@ -9,15 +9,9 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 from pydantic import BaseModel
-# to get a string like this run:
-# openssl rand -hex 32
 from starlette.middleware.cors import CORSMiddleware
 
-from backend.app.auth import Auth, get_token_expiry
-
-SECRET_KEY = "967e64e52668340468d3075c80461de8b22f484487be1fe83c8bd77c2ca06e79"
-ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 15
+from backend.app.auth import Auth
 
 auth_handler = Auth()
 
@@ -143,27 +137,17 @@ async def login_for_access_token(response: Response, form_data: OAuth2PasswordRe
             detail="Incorrect username or password",
             headers={"WWW-Authenticate": "Bearer"},
         )
-    #access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
-    #access_token = create_access_token(
-    #    data={"sub": user.username}, expires_delta=access_token_expires
-    #)
-    #auth_handler.get_token_expiry()
-    token_validity = datetime.utcnow() + timedelta(days=0, minutes=10)
 
     access_token = auth_handler.encode_token(user.username)
-    token_expiry3 = auth_handler.get_token_expiry2(access_token)
-    print("Token_expiry3: ", token_expiry3)
+    token_expiry = auth_handler.get_token_expiry(access_token)
 
-    token_expiry = get_token_expiry(access_token, token_validity)
-
-    unix_time = auth_handler.get_token_expiry2(access_token)
-    token_expiry2 = json.dumps(time.mktime(unix_time.timetuple())*1000)
+    token_expiry_timestamp = json.dumps(time.mktime(
+        token_expiry.timetuple()) * 1000)  # conversion for javascript
 
     refresh_token = auth_handler.encode_refresh_token(user.username)
-    response.set_cookie("refresh_token", refresh_token)
+    response.set_cookie("refresh_token", refresh_token, httponly=True)
 
-    return { "access_token": access_token, "token_type": "bearer",
-            "token_expiry": token_expiry, "token_expiry1": token_expiry2}
+    return {"access_token": access_token, "token_type": "bearer", "token_expiry": token_expiry_timestamp}
 
 
 @app.post("/refresh_token", response_model=Token)
