@@ -11,12 +11,12 @@ class Auth:
     REFRESH_TOKEN_EXPIRE_DAYS = 7
     ALGORITHM = 'HS256'
 
-    def encode_access_token(self, username):
+    def encode_access_token(self, user_id):
         payload = {
             'exp': datetime.utcnow() + timedelta(days=0, minutes=self.ACCESS_TOKEN_EXPIRE_MINUTES),
             'iat': datetime.utcnow(),
             'scope': 'access_token',
-            'sub': username
+            'sub': user_id
         }
         return jwt.encode(
             payload,
@@ -30,18 +30,18 @@ class Auth:
             payload = payload['scope']
             if payload == 'access_token':
                 return payload['sub']
-            raise HTTPException(status_code=401, detail='Scope for the token is invalid')
+            raise HTTPException(status_code=401, detail='Scope for the access token is invalid')
         except jwt.ExpiredSignatureError:
-            raise HTTPException(status_code=401, detail='Token expired')
+            raise HTTPException(status_code=401, detail='Access token expired')
         except jwt.InvalidTokenError:
-            raise HTTPException(status_code=401, detail='Invalid token')
+            raise HTTPException(status_code=401, detail='Invalid access token')
 
-    def encode_refresh_token(self, username):
+    def encode_refresh_token(self, user_id):
         payload = {
             'exp': datetime.utcnow() + timedelta(days=self.REFRESH_TOKEN_EXPIRE_DAYS, hours=0),
             'iat': datetime.utcnow(),
             'scope': 'refresh_token',
-            'sub': username
+            'sub': user_id
         }
         return jwt.encode(
             payload,
@@ -54,20 +54,7 @@ class Auth:
             payload = jwt.decode(token, self.SECRET_KEY, algorithms=[self.ALGORITHM])
             if payload['scope'] == 'refresh_token':
                 return payload['sub']
-            raise HTTPException(status_code=401, detail='Invalid scope for token')
-        except jwt.ExpiredSignatureError:
-            raise HTTPException(status_code=401, detail='Refresh token expired')
-        except jwt.InvalidTokenError:
-            raise HTTPException(status_code=401, detail='Invalid refresh token')
-
-    def refresh_token(self, refresh_token):
-        try:
-            payload = jwt.decode(refresh_token, self.SECRET_KEY, algorithms=[self.ALGORITHM])
-            if payload['scope'] == 'refresh_token':
-                username = payload['sub']
-                new_token = self.encode_access_token(username)
-                return new_token
-            raise HTTPException(status_code=401, detail='Invalid scope for token')
+            raise HTTPException(status_code=401, detail='Invalid scope for refresh token')
         except jwt.ExpiredSignatureError:
             raise HTTPException(status_code=401, detail='Refresh token expired')
         except jwt.InvalidTokenError:
@@ -77,7 +64,7 @@ class Auth:
         try:
             payload = jwt.decode(token, self.SECRET_KEY, algorithms=[self.ALGORITHM],
                                  options={"verify_exp": False})
-            # verify_exp to False. We do not want an exception, when the expiration is in the past
+            # verify_exp to False. We do not want an exception if the JWT is expired
             scope = payload['scope']
             if scope == 'access_token' or scope == 'refresh_token':
                 return datetime.utcfromtimestamp(payload['exp'])

@@ -153,10 +153,10 @@ async def logout(response: Response):# TODO: add access token logic here
 @app.post("/refresh_token")
 async def refresh_token_(request: Request):  # TODO: add access token logic also here
     refresh_token = request.cookies.get('refresh_token')
-    print(refresh_token)
-    auth_handler.decode_access_token(refresh_token)
-    access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+    user_id = auth_handler.decode_refresh_token(refresh_token)
 
+    print("Refresh token valid")
+    print("Welcome user: ", user_id)
     return {"access_token": 0, "token_type": "bearer"}
 
 
