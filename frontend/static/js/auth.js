@@ -4,11 +4,13 @@
 
   let access_token
   let token_expiry
+  let silent_refresh_enabled = true
   // Are we logged in? If not, go to the login page.
   if (access_token == null && window.location.pathname !== "/login"){
       redirect_to_login()
   }
   const loginSubmit = document.getElementById("loginSubmit");
+
   if (loginSubmit != null) {
       loginSubmit.onclick = (ev) => {
           let response = undefined;
@@ -28,9 +30,14 @@
                   token_expiry = Date.UTC(date_gmt.getFullYear(), date_gmt.getMonth(),
                       date_gmt.getDate(), date_gmt.getHours(),
                       date_gmt.getMinutes(), date_gmt.getSeconds()); //UTC date in UTC format
-
+                  let time_left_ms = token_expiry - Date.now();
+                  let time_left_s = time_left_ms/1000;
+                  console.log("Time left (ms): " , time_left_ms);
                   console.log("Token expired: ", is_token_expired());
                   status.innerText = "Successfully logged in, token: " + access_token + " token_expiry: " + token_expiry;
+                  setTimeout(() => {
+                    silent_refresh();
+                  }, 2000);
               } else {
                   status.innerText = "Error logging in: " + response.detail
               }
@@ -63,16 +70,28 @@
   }
 
   function logout() {
-      access_token = 0
+      access_token = null;
       // to support logging out from all windows
-      //window.localStorage.setItem('logout', Date.now()) // Do something with logging out across all tabs.
-      redirect_to_login()
+      window.localStorage.setItem('logout', Date.now()); // Do something with logging out across all tabs.
+      silent_refresh_enabled = false; // What about the timer? // Timer_enabled loses it value, when redirected to other login page
+      // Do something with cookies? Done
+
+      redirect_to_login() // Does this set silent_refresh_enabled back to true?
   }
   function redirect_to_login() {
       window.location.href="login";
   }
+  // 4000 = 4 sec
+  // 1200000 = 1200 sec
+  // 1199751
 
-  /* If there is no access token, then the token is expired */
+  /* If there is no access token, then the token is automatically expired */
   function is_token_expired(){
       return token_expiry == null ? true : (token_expiry < Date.now())
+  }
+
+  function silent_refresh() {
+      if (silent_refresh_enabled){
+      console.log("silent refreshing");
+      }
   }

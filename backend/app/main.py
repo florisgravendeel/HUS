@@ -143,6 +143,12 @@ async def login_for_access_token(response: Response, form_data: OAuth2PasswordRe
     return {"access_token": access_token, "token_type": "bearer", "token_expiry": token_expiry_timestamp}
 
 
+@app.post("/logout")
+async def logout(response: Response):
+    response.delete_cookie("refresh_token")
+    return response
+
+
 @app.post("/refresh_token", response_model=Token)
 async def refresh_token(form_data: OAuth2PasswordRequestForm = Depends()):
     user = authenticate_user(fake_users_db, form_data.username, form_data.password)
