@@ -8,7 +8,7 @@ from datetime import datetime, timedelta  # used to handle expiry time for token
 def get_token_expiry(access_token, date):
     # TODO: add logic with access_token_expire_minutes
     # OR: retrieve minutes from access token
-    #date = datetime.utcnow() + timedelta(days=0, minutes=15)
+    # date = datetime.utcnow() + timedelta(days=0, minutes=15)
     print("Token valid until: ", date)
     return {
         'year': date.year,
@@ -23,10 +23,9 @@ def get_token_expiry(access_token, date):
 class Auth:
     hasher = CryptContext(schemes=['bcrypt'])
     secret = "967e64e52668340468d3075c80461de8b22f484487be1fe83c8bd77c2ca06e79"
-
-    # add access_token_expire_minutes
-    # add refresh_token_expire_minutes
-    # add algorithm option
+    access_token_expire_minutes = 10  # add access_token_expire_minutes
+    refresh_token_expire_days = 7  # add refresh_token_expire_minutes
+    algorithm = 'HS256'  # add algorithm option
 
     def encode_password(self, password):
         return self.hasher.hash(password)
@@ -36,7 +35,7 @@ class Auth:
 
     def encode_token(self, username):
         payload = {
-            'exp': datetime.utcnow() + timedelta(days=0, minutes=30),
+            'exp': datetime.utcnow() + timedelta(days=0, minutes=self.access_token_expire_minutes),
             'iat': datetime.utcnow(),
             'scope': 'access_token',
             'sub': username
@@ -44,12 +43,12 @@ class Auth:
         return jwt.encode(
             payload,
             self.secret,
-            algorithm='HS256'
+            algorithm=self.algorithm
         )
 
     def decode_token(self, token):
         try:
-            payload = jwt.decode(token, self.secret, algorithms=['HS256'])
+            payload = jwt.decode(token, self.secret, algorithms=[self.algorithm])
             if payload['scope'] == 'access_token':
                 return payload['sub']
             raise HTTPException(status_code=401, detail='Scope for the token is invalid')
@@ -60,7 +59,7 @@ class Auth:
 
     def encode_refresh_token(self, username):
         payload = {
-            'exp': datetime.utcnow() + timedelta(days=0, hours=10),
+            'exp': datetime.utcnow() + timedelta(days=self.refresh_token_expire_days, hours=0),
             'iat': datetime.utcnow(),
             'scope': 'refresh_token',
             'sub': username
@@ -68,12 +67,12 @@ class Auth:
         return jwt.encode(
             payload,
             self.secret,
-            algorithm='HS256'
+            algorithm=self.algorithm
         )
 
     def refresh_token(self, refresh_token):
         try:
-            payload = jwt.decode(refresh_token, self.secret, algorithms=['HS256'])
+            payload = jwt.decode(refresh_token, self.secret, algorithms=[self.algorithm])
             if payload['scope'] == 'refresh_token':
                 username = payload['sub']
                 new_token = self.encode_token(username)
