@@ -1,13 +1,14 @@
+import json
+import time
 from datetime import datetime, timedelta
 from typing import Optional
-import json, time
+
 import uvicorn
 from fastapi import Depends, FastAPI, HTTPException, status, Response
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 from pydantic import BaseModel
-
 # to get a string like this run:
 # openssl rand -hex 32
 from starlette.middleware.cors import CORSMiddleware
@@ -150,6 +151,9 @@ async def login_for_access_token(response: Response, form_data: OAuth2PasswordRe
     token_validity = datetime.utcnow() + timedelta(days=0, minutes=-15)
 
     access_token = auth_handler.encode_token(user.username)
+    token_expiry3 = auth_handler.get_token_expiry2(access_token)
+    print("Token_expiry3: ", token_expiry3)
+
     token_expiry = get_token_expiry(access_token, token_validity)
 
     #print("Token valid until: ", token_expiry)

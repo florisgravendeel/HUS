@@ -1,4 +1,6 @@
 import os
+import json
+import time
 import jwt  # used for encoding and decoding jwt tokens
 from fastapi import HTTPException  # used to handle error handling
 from passlib.context import CryptContext  # used for hashing the password
@@ -37,8 +39,10 @@ class Auth:
         return self.hasher.verify(password, encoded_password)
 
     def encode_token(self, username):
+        date = datetime.utcnow() + timedelta(days=0, minutes=self.access_token_expire_minutes)
+        print("Encode_Token:", date)
         payload = {
-            'exp': datetime.utcnow() + timedelta(days=0, minutes=self.access_token_expire_minutes),
+            'exp': date,
             'iat': datetime.utcnow(),
             'scope': 'access_token',
             'sub': username
@@ -85,3 +89,21 @@ class Auth:
             raise HTTPException(status_code=401, detail='Refresh token expired')
         except jwt.InvalidTokenError:
             raise HTTPException(status_code=401, detail='Invalid refresh token')
+
+    def get_token_expiry2(self, token):
+        try:
+            payload = jwt.decode(token, self.secret, algorithms=[self.algorithm])
+            scope = payload['scope']
+            if scope == 'access_token' or scope == 'refresh_token':
+                return datetime.utcfromtimestamp(payload['exp'])
+            raise HTTPException(status_code=401, detail='Scope for the token is invalid')
+        except jwt.ExpiredSignatureError:
+            raise HTTPException(status_code=401, detail='Token expired')
+        except jwt.InvalidTokenError:
+            raise HTTPException(status_code=401, detail='Invalid token')
+        # TODO: add logic with access_token_expire_minutes
+        # OR: retrieve minutes from access token
+        #date =
+        #datetime.fromtimestamp()
+        #unix_time = datetime.utcnow() + timedelta(days=0, minutes=15)
+        #return json.dumps(time.mktime(unix_time.timetuple())*1000)
