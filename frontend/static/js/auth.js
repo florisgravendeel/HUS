@@ -6,9 +6,10 @@
   let token_expiry
   let silent_refresh_enabled = true
   // Are we logged in? If not, go to the login page.
-  if (access_token == null && window.location.pathname !== "/login"){
-      redirect_to_login()
-  }
+  silent_refresh()
+  // if (access_token == null && window.location.pathname !== "/login"){
+  //     redirect_to_login()
+  // }
   const loginSubmit = document.getElementById("loginSubmit");
 
   if (loginSubmit != null) {
@@ -37,7 +38,7 @@
                   status.innerText = "Successfully logged in, token: " + access_token + " token_expiry: " + token_expiry;
                   setTimeout(() => {
                     silent_refresh();
-                  }, 2000);
+                  }, time_left_ms);
               } else {
                   status.innerText = "Error logging in: " + response.detail
               }
@@ -70,11 +71,22 @@
   }
 
   function logout() {
+      fetch("http://127.0.0.1:8000/logout", { // Send logout request to reset http cookies!
+              method: "POST",
+              headers: {
+                  "Content-Type": 'application/json',
+                  "Authorization": access_token
+              }
+          }).then(function (response) {
+              console.log("Logout status: ", response.status);
+              response.text().then(result => {
+                  console.log(result)
+              }).catch(error => console.log('error', error))
+            })
       access_token = null;
       // to support logging out from all windows
       window.localStorage.setItem('logout', Date.now()); // Do something with logging out across all tabs.
       silent_refresh_enabled = false; // What about the timer? // Timer_enabled loses it value, when redirected to other login page
-      // Do something with cookies? Done
 
       redirect_to_login() // Does this set silent_refresh_enabled back to true?
   }
@@ -91,7 +103,34 @@
   }
 
   function silent_refresh() {
-      if (silent_refresh_enabled){
-      console.log("silent refreshing");
+      if (silent_refresh_enabled) {
+          console.log("silent refreshing");
+          const xhr = new XMLHttpRequest();
+          xhr.open("POST", "http://127.0.0.1:8000/refresh_token", true);
+
+          xhr.onload = (ev) => {
+              const response = JSON.parse(xhr.responseText)
+              if (xhr.status === 200) {
+                  access_token = `${response.token_type} ${response.access_token}`;
+                  let date_gmt = new Date(parseFloat(`${response.token_expiry}`)); // UTC values but in GMT format
+
+                  token_expiry = Date.UTC(date_gmt.getFullYear(), date_gmt.getMonth(),
+                      date_gmt.getDate(), date_gmt.getHours(),
+                      date_gmt.getMinutes(), date_gmt.getSeconds()); //UTC date in UTC format
+                  let time_left_ms = token_expiry - Date.now();
+
+                  console.log("Time left (ms): ", time_left_ms);
+                  console.log("Token expired: ", is_token_expired());
+                  console.log("Successfully refreshed tokens: " + access_token + " token_expiry: " + token_expiry);
+                  setTimeout(() => {
+                      silent_refresh();
+                  }, time_left_ms);
+              } else if (xhr.status === 401) {
+                    logout(); // Reset session, and login
+              } else {
+                  console.log("Error logging in: " + response.detail);
+              }
+          }
+          xhr.send()
       }
   }

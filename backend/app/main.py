@@ -11,7 +11,6 @@ from passlib.context import CryptContext
 from pydantic import BaseModel
 from starlette.middleware.cors import CORSMiddleware
 
-
 from backend.app.auth import Auth
 
 auth_handler = Auth()
@@ -138,26 +137,35 @@ async def login(response: Response, form_data: OAuth2PasswordRequestForm = Depen
     token_expiry_timestamp = json.dumps(time.mktime(
         token_expiry.timetuple()) * 1000)  # conversion for javascript
 
-    _refresh_token = auth_handler.encode_refresh_token(user.username)
-    response.set_cookie("refresh_token", _refresh_token, httponly=True)
-
+    refresh_token = auth_handler.encode_refresh_token(user.username)
+    response.set_cookie("refresh_token", refresh_token, httponly=True)
+    print("Logged in: ", user.username)
     return {"access_token": access_token, "token_type": "bearer", "token_expiry": token_expiry_timestamp}
 
 
 @app.post("/logout")
-async def logout(response: Response):# TODO: add access token logic here
+async def logout(response: Response):  # TODO: add access token logic here
     response.delete_cookie("refresh_token")
     return response
 
 
 @app.post("/refresh_token")
-async def refresh_token_(request: Request):  # TODO: add access token logic also here
-    refresh_token = request.cookies.get('refresh_token')
+async def refresh_token_(request: Request, response: Response):  # TODO: add access token logic also here
+    refresh_token = request.cookies.get('refresh_token')  # What to do with 401?
     user_id = auth_handler.decode_refresh_token(refresh_token)
+
+    new_access_token = auth_handler.encode_access_token(user_id)
+    token_expiry = auth_handler.get_token_expiry(new_access_token)
+
+    token_expiry_timestamp = json.dumps(time.mktime(
+        token_expiry.timetuple()) * 1000)  # conversion for javascript
+
+    new_refresh_token = auth_handler.encode_refresh_token(user_id)
+    response.set_cookie("refresh_token", new_refresh_token, httponly=True)
 
     print("Refresh token valid")
     print("Welcome user: ", user_id)
-    return {"access_token": 0, "token_type": "bearer"}
+    return {"access_token": new_access_token, "token_type": "bearer", "token_expiry": token_expiry_timestamp}
 
 
 @app.get("/users/me/", response_model=User)
