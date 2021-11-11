@@ -6,7 +6,8 @@
   let token_expiry
   let silent_refresh_enabled = true
   // Are we logged in? If not, go to the login page.
-  silent_refresh()
+  //silent_refresh()
+  logout()
   // if (access_token == null && window.location.pathname !== "/login"){
   //     redirect_to_login()
   // }
@@ -39,6 +40,9 @@
                   setTimeout(() => {
                     silent_refresh();
                   }, time_left_ms);
+                  // if (is_at_login_page()){
+                  //     redirect_to_dashboard();
+                  // }
               } else {
                   status.innerText = "Error logging in: " + response.detail
               }
@@ -55,12 +59,13 @@
               method: "GET",
               headers: {
                   "Content-Type": 'application/json',
-                  "Authorization": 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huZG9lMiIsImV4cCI6MTYzNjM3NjkwM30.ActOwBFz0_bkT5oZXF6TNXEP7MVofvYMXywv_5-j3c8'
+                  "Authorization": access_token
               }
           }).then(function (response) {
               console.log(response.status);
               if (response.status === 401){ // Is the access token expired?
-                  redirect_to_login()
+
+                  //redirect_to_login()
               }
               response.text().then(result => {
                   const status = document.getElementById("privateStatus");
@@ -72,11 +77,7 @@
 
   function logout() {
       fetch("http://127.0.0.1:8000/logout", { // Send logout request to reset http cookies!
-              method: "POST",
-              headers: {
-                  "Content-Type": 'application/json',
-                  "Authorization": access_token
-              }
+              method: "POST"
           }).then(function (response) {
               console.log("Logout status: ", response.status);
               response.text().then(result => {
@@ -87,8 +88,7 @@
       // to support logging out from all windows
       window.localStorage.setItem('logout', Date.now()); // Do something with logging out across all tabs.
       silent_refresh_enabled = false; // What about the timer? // Timer_enabled loses it value, when redirected to other login page
-
-      redirect_to_login() // Does this set silent_refresh_enabled back to true?
+      //redirect_to_login() // Does this set silent_refresh_enabled back to true?
   }
   function redirect_to_login() {
       window.location.href="login";
@@ -96,6 +96,12 @@
   // 4000 = 4 sec
   // 1200000 = 1200 sec
   // 1199751
+  function redirect_to_dashboard() {
+      window.location.href="home"
+  }
+  function is_at_login_page(){
+      return window.location.pathname === "/login";
+  }
 
   /* If there is no access token, then the token is automatically expired */
   function is_token_expired(){
@@ -125,6 +131,9 @@
                   setTimeout(() => {
                       silent_refresh();
                   }, time_left_ms);
+                  if (is_at_login_page()){
+                      //redirect_to_dashboard();
+                  }
               } else if (xhr.status === 401) {
                     logout(); // Reset session, and login
               } else {

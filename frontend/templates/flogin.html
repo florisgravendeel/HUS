@@ -28,18 +28,20 @@
     <form id="loginForm">
       <h2>Login:</h2>
         <label for="loginUsernameInput">
-        Username:
+        Gebruikersnaam:
         <input id="loginUsernameInput" name="username" placeholder="Username" type="text" value="johndoe2"> <!--TODO: remove input values-->
       </label>
         <br>
       <label for="loginPasswordInput">
-        Password:
+        Wachtwoord:
         <input id="loginPasswordInput" name="password" placeholder="Password" type="password" value="secret">
       </label>
-      <input id="loginSubmit" type="submit" value="Verstuur">
+      <input id="loginSubmit" type="submit" value="Inloggen">
     </form>
     <br>
     <textarea id="loginStatus" style="height: 100px; width: 400px;"></textarea>
+    <h2>Logout:</h2>
+    <input id="logout" type="submit" value="Uitloggen">
 </body>
 <link rel="stylesheet" href="{{ url_for('static', filename='css/fdefault.css') }}">
 <script type="text/javascript" src="{{ url_for('static', filename='js/auth.js') }}"></script>

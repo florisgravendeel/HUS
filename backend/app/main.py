@@ -145,7 +145,7 @@ async def login(response: Response, form_data: OAuth2PasswordRequestForm = Depen
 
 @app.post("/logout")
 async def logout(response: Response):  # TODO: add access token logic here
-    response.delete_cookie("refresh_token")
+    response.delete_cookie("refresh_token") # it only resets cookies, so no access is required to logout
     return response
 
 
