@@ -6,13 +6,13 @@
   let token_expiry
   let silent_refresh_enabled = true
   // Are we logged in? If not, go to the login page.
-  //silent_refresh()
-  logout()
+  silent_refresh()
   // if (access_token == null && window.location.pathname !== "/login"){
   //     redirect_to_login()
   // }
-  const loginSubmit = document.getElementById("loginSubmit");
+  document.getElementById("logoutButton").addEventListener('click',function () {logout();});
 
+  const loginSubmit = document.getElementById("loginSubmit");
   if (loginSubmit != null) {
       loginSubmit.onclick = (ev) => {
           let response = undefined;
@@ -33,16 +33,16 @@
                       date_gmt.getDate(), date_gmt.getHours(),
                       date_gmt.getMinutes(), date_gmt.getSeconds()); //UTC date in UTC format
                   let time_left_ms = token_expiry - Date.now();
-                  let time_left_s = time_left_ms/1000;
-                  console.log("Time left (ms): " , time_left_ms);
+                  let time_left_s = time_left_ms / 1000;
+                  console.log("Time left (ms): ", time_left_ms);
                   console.log("Token expired: ", is_token_expired());
                   status.innerText = "Successfully logged in, token: " + access_token + " token_expiry: " + token_expiry;
                   setTimeout(() => {
-                    silent_refresh();
+                      silent_refresh();
                   }, time_left_ms);
-                  // if (is_at_login_page()){
-                  //     redirect_to_dashboard();
-                  // }
+                  if (is_at_login_page()) {
+                      //redirect_to_dashboard();
+                  }
               } else {
                   status.innerText = "Error logging in: " + response.detail
               }
@@ -77,7 +77,8 @@
 
   function logout() {
       fetch("http://127.0.0.1:8000/logout", { // Send logout request to reset http cookies!
-              method: "POST"
+              method: "POST",
+              credentials: "include"
           }).then(function (response) {
               console.log("Logout status: ", response.status);
               response.text().then(result => {
@@ -88,10 +89,12 @@
       // to support logging out from all windows
       window.localStorage.setItem('logout', Date.now()); // Do something with logging out across all tabs.
       silent_refresh_enabled = false; // What about the timer? // Timer_enabled loses it value, when redirected to other login page
-      //redirect_to_login() // Does this set silent_refresh_enabled back to true?
+      redirect_to_login() // Does this set silent_refresh_enabled back to true?
   }
   function redirect_to_login() {
-      window.location.href="login";
+      if (!is_at_login_page()) {
+          window.location.href = "login";
+      }
   }
   // 4000 = 4 sec
   // 1200000 = 1200 sec
@@ -113,7 +116,8 @@
           console.log("silent refreshing");
           const xhr = new XMLHttpRequest();
           xhr.open("POST", "http://127.0.0.1:8000/refresh_token", true);
-
+          xhr.withCredentials = true;
+          xhr.setRequestHeader("Cookie", "refresh_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MzcyMzg0MzIsImlhdCI6MTYzNjYzMzYzMiwic2NvcGUiOiJyZWZyZXNoX3Rva2VuIiwic3ViIjoiam9obmRvZTIifQ.1GfaAQ7LVltgg79i6Cll4XACE8WEgoSTorD1sYW9P1o");
           xhr.onload = (ev) => {
               const response = JSON.parse(xhr.responseText)
               if (xhr.status === 200) {
@@ -132,9 +136,10 @@
                       silent_refresh();
                   }, time_left_ms);
                   if (is_at_login_page()){
-                      //redirect_to_dashboard();
+                      redirect_to_dashboard();
                   }
               } else if (xhr.status === 401) {
+                    console.log(response);
                     logout(); // Reset session, and login
               } else {
                   console.log("Error logging in: " + response.detail);

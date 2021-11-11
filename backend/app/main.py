@@ -63,9 +63,13 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 app = FastAPI()
 
+origins = [
+    "http://127.0.0.1:8000",
+    "http://127.0.0.1:8080 "
+]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -145,13 +149,15 @@ async def login(response: Response, form_data: OAuth2PasswordRequestForm = Depen
 
 @app.post("/logout")
 async def logout(response: Response):  # TODO: add access token logic here
-    response.delete_cookie("refresh_token") # it only resets cookies, so no access is required to logout
+    response.delete_cookie("refresh_token")  # it only resets cookies, so no access is required to logout
+    response.status_code = status.HTTP_200_OK  # what if someone else forces another to logout? mmh paranoia
     return response
 
 
 @app.post("/refresh_token")
 async def refresh_token_(request: Request, response: Response):  # TODO: add access token logic also here
     refresh_token = request.cookies.get('refresh_token')  # What to do with 401?
+    print("Refresh token: ", refresh_token)
     user_id = auth_handler.decode_refresh_token(refresh_token)
 
     new_access_token = auth_handler.encode_access_token(user_id)
