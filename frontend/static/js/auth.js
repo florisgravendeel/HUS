@@ -117,7 +117,7 @@
           const xhr = new XMLHttpRequest();
           xhr.open("POST", "http://127.0.0.1:8000/refresh_token", true);
           xhr.withCredentials = true;
-          xhr.setRequestHeader("Cookie", "refresh_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MzcyMzg0MzIsImlhdCI6MTYzNjYzMzYzMiwic2NvcGUiOiJyZWZyZXNoX3Rva2VuIiwic3ViIjoiam9obmRvZTIifQ.1GfaAQ7LVltgg79i6Cll4XACE8WEgoSTorD1sYW9P1o");
+          xhr.setRequestHeader("Cookie", "refresh_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MzczMTMxNjMsImlhdCI6MTYzNjcwODM2Mywic2NvcGUiOiJyZWZyZXNoX3Rva2VuIiwic3ViIjoiam9obmRvZTIifQ.BbQ2LwC0n2lSERpTwfF8Xb6iGEn6VnA5yzGkEKMSDAA");
           xhr.onload = (ev) => {
               const response = JSON.parse(xhr.responseText)
               if (xhr.status === 200) {
