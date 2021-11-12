@@ -2,11 +2,11 @@
     console.log("We got an error m8" + e);
   }, true);
 
-  let access_token
-  let token_expiry
-  let silent_refresh_enabled = true
+  let access_token;
+  let token_expiry;
+  let silent_refresh_enabled = true;
   // Are we logged in? If not, go to the login page.
-  //silent_refresh()
+  silent_refresh()
   // if (access_token == null && window.location.pathname !== "/login"){
   //     redirect_to_login()
   // }
@@ -17,14 +17,13 @@
       loginSubmit.onclick = (ev) => {
           let response = undefined;
           ev.preventDefault();
-          const loginForm = document.getElementById("loginForm")
-          const data = new FormData(loginForm)
+          const loginForm = document.getElementById("loginForm");
+          const data = new FormData(loginForm);
           let xhr = new XMLHttpRequest();
           xhr.open("POST", "http://127.0.0.1:8000/login", true);
-
           xhr.onload = (ev) => {
-              const status = document.getElementById("loginStatus")
-              const response = JSON.parse(xhr.responseText)
+              const status = document.getElementById("loginStatus");
+              const response = JSON.parse(xhr.responseText);
               if (xhr.status === 200) {
                   access_token = `${response.token_type} ${response.access_token}`;
                   let date_gmt = new Date(parseFloat(`${response.token_expiry}`)); // UTC values but in GMT format
@@ -46,7 +45,7 @@
               } else {
                   status.innerText = "Error logging in: " + response.detail
               }
-          }
+          };
           xhr.send(data)
       }
   }
@@ -84,7 +83,7 @@
               response.text().then(result => {
                   console.log(result)
               }).catch(error => console.log('error', error))
-            })
+            });
       access_token = null;
       // to support logging out from all windows
       window.localStorage.setItem('logout', Date.now()); // Do something with logging out across all tabs.
@@ -117,9 +116,8 @@
           const xhr = new XMLHttpRequest();
           xhr.open("POST", "http://127.0.0.1:8000/refresh_token", true);
           xhr.withCredentials = true;
-          xhr.setRequestHeader("Cookie", "refresh_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MzczMTMxNjMsImlhdCI6MTYzNjcwODM2Mywic2NvcGUiOiJyZWZyZXNoX3Rva2VuIiwic3ViIjoiam9obmRvZTIifQ.BbQ2LwC0n2lSERpTwfF8Xb6iGEn6VnA5yzGkEKMSDAA");
           xhr.onload = (ev) => {
-              const response = JSON.parse(xhr.responseText)
+              const response = JSON.parse(xhr.responseText);
               if (xhr.status === 200) {
                   access_token = `${response.token_type} ${response.access_token}`;
                   let date_gmt = new Date(parseFloat(`${response.token_expiry}`)); // UTC values but in GMT format
@@ -144,7 +142,7 @@
               } else {
                   console.log("Error logging in: " + response.detail);
               }
-          }
+          };
           xhr.send()
       }
   }

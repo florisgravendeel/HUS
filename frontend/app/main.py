@@ -6,11 +6,24 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 # --------------------------------------------------------------------------------------------DEPENDENCIES
+from starlette.middleware.cors import CORSMiddleware
+
 app = FastAPI()
 templates = Jinja2Templates(directory="../templates")
 
 app.mount("/static", StaticFiles(directory="../static"), name="static")
 
+origins = [
+    "http://127.0.0.1:8000",
+    "http://127.0.0.1:8080"
+]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # --------------------------------------------------------------------------------------------ROUTES
 
