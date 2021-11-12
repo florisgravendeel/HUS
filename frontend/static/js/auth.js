@@ -6,7 +6,7 @@
   let token_expiry
   let silent_refresh_enabled = true
   // Are we logged in? If not, go to the login page.
-  silent_refresh()
+  //silent_refresh()
   // if (access_token == null && window.location.pathname !== "/login"){
   //     redirect_to_login()
   // }
