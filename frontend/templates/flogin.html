@@ -5,6 +5,7 @@
   <meta content='IE=edge' http-equiv='X-UA-Compatible'>
   <title>Simple Login Example</title>
   <meta content='width=device-width, initial-scale=1' name='viewport'>
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', path='/images/favicon.ico') }}">
 </head>
 <body>
     <p><a href="/home">Ga naar Dashboard</a></p>
@@ -42,6 +43,8 @@
     <label for="loginStatus"></label><textarea id="loginStatus" style="height: 100px; width: 400px;"></textarea>
     <h2>Logout:</h2>
     <input id="logoutButton" type="submit" value="Uitloggen">
+    <h2>Silent refresh (For testing only):</h2>
+    <input id="silentRefreshButton" type="submit" value="Refresh">
 </body>
 <link rel="stylesheet" href="{{ url_for('static', path='/css/default.css') }}">
 <script type="text/javascript" src="{{ url_for('static', path='/js/auth.js') }}"></script>

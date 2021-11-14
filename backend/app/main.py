@@ -143,7 +143,9 @@ async def login(response: Response, form_data: OAuth2PasswordRequestForm = Depen
 
     refresh_token = auth_handler.encode_refresh_token(user.username)
 
-    response.set_cookie("refresh_token", refresh_token, httponly=True, expires=3600) #TODO 1/2: expires = refresh_token.expires?
+    response.set_cookie("refresh_token", refresh_token, httponly=True, max_age=3600, samesite='none',
+                        domain='http://127.0.0.1:8000') #TODO 1/2: expires = refresh_token.expires?
+    response.status_code = status.HTTP_200_OK
     print("Logged in: ", user.username)
     return {"access_token": access_token, "token_type": "bearer", "token_expiry": token_expiry_timestamp}
 
@@ -168,7 +170,9 @@ async def refresh_token_(request: Request, response: Response):  # TODO: add acc
         token_expiry.timetuple()) * 1000)  # conversion for javascript
 
     new_refresh_token = auth_handler.encode_refresh_token(user_id)
-    response.set_cookie("refresh_token", new_refresh_token, httponly=True, expires=600)
+    response.set_cookie("refresh_token", new_refresh_token, httponly=True, max_age=600, samesite='none',
+                        domain='http://127.0.0.1:8000')
+    response.status_code = status.HTTP_200_OK
 
     print("Refresh token valid")
     print("Welcome user: ", user_id)

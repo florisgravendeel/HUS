@@ -6,11 +6,14 @@
   let token_expiry;
   let silent_refresh_enabled = true;
   // Are we logged in? If not, go to the login page.
-  silent_refresh()
+  //silent_refresh()
   // if (access_token == null && window.location.pathname !== "/login"){
   //     redirect_to_login()
   // }
   document.getElementById("logoutButton").addEventListener('click',function () {logout();});
+  document.getElementById("silentRefreshButton").addEventListener('click', function () {
+      silent_refresh();
+  });
 
   const loginSubmit = document.getElementById("loginSubmit");
   if (loginSubmit != null) {
@@ -111,7 +114,7 @@
   }
 
   function silent_refresh() {
-      if (silent_refresh_enabled) {
+      if (true) {
           console.log("silent refreshing");
           const xhr = new XMLHttpRequest();
           xhr.open("POST", "http://127.0.0.1:8000/refresh_token", true);
@@ -137,7 +140,7 @@
                       redirect_to_dashboard();
                   }
               } else if (xhr.status === 401) {
-                    console.log(response);
+                    console.log("Response: ", response);
                     logout(); // Reset session, and login
               } else {
                   console.log("Error logging in: " + response.detail);
