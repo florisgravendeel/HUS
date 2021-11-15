@@ -4,16 +4,19 @@
 
   let access_token;
   let token_expiry;
-  let silent_refresh_enabled = true;
   // Are we logged in? If not, go to the login page.
-  //silent_refresh()
-  // if (access_token == null && window.location.pathname !== "/login"){
-  //     redirect_to_login()
-  // }
-  document.getElementById("logoutButton").addEventListener('click',function () {logout();});
-  document.getElementById("silentRefreshButton").addEventListener('click', function () {
-      silent_refresh();
+  silent_refresh()
+
+  document.getElementById("logoutButton").addEventListener('click',function () {
+      logout();
   });
+
+  const silentRefreshButton = document.getElementById("silentRefreshButton");
+  if (silentRefreshButton != null) {
+      silentRefreshButton.addEventListener('click', function () {
+          silent_refresh();
+      });
+  }
 
   const loginSubmit = document.getElementById("loginSubmit");
   if (loginSubmit != null) {
@@ -44,7 +47,7 @@
                       silent_refresh();
                   }, time_left_ms);
                   if (is_at_login_page()) {
-                      //redirect_to_dashboard();
+                      redirect_to_dashboard();
                   }
               } else {
                   status.innerText = "Error logging in: " + response.detail
@@ -59,17 +62,13 @@
   if (privateRequest != null) { // Does the dashboard exist?
       privateRequest.onclick = (ev) => {
           fetch("http://127.0.0.1:8000/users/me/", {
-              method: "GET",
+              method: "POST",
               headers: {
                   "Content-Type": 'application/json',
                   "Authorization": access_token
               }
           }).then(function (response) {
               console.log(response.status);
-              if (response.status === 401){ // Is the access token expired?
-
-                  //redirect_to_login()
-              }
               response.text().then(result => {
                   const status = document.getElementById("privateStatus");
                   status.innerText = result
@@ -79,31 +78,26 @@
   }
 
   function logout() {
-      fetch("http://127.0.0.1:8000/logout", { // Send logout request to reset http cookies!
-              method: "POST",
-              credentials: "include"
-          }).then(function (response) {
-              console.log("Logout status: ", response.status);
-              response.text().then(result => {
-                  console.log(result)
-              }).catch(error => console.log('error', error))
-            });
       access_token = null;
-      // to support logging out from all windows
-      window.localStorage.setItem('logout', Date.now()); // Do something with logging out across all tabs.
-      silent_refresh_enabled = false; // What about the timer? // Timer_enabled loses it value, when redirected to other login page
-      redirect_to_login() // Does this set silent_refresh_enabled back to true?
+      fetch("http://127.0.0.1:8000/logout", { // Send logout request to reset http cookies!
+          method: "POST"
+      }).then(function (response) {
+          console.log("Logging out: ", response.status);
+          //redirect_to_login();
+      }).catch(()=>{
+          //redirect_to_login();
+      })
   }
+
   function redirect_to_login() {
       if (!is_at_login_page()) {
           window.location.href = "login";
       }
   }
-  // 4000 = 4 sec
-  // 1200000 = 1200 sec
-  // 1199751
   function redirect_to_dashboard() {
-      window.location.href="home"
+      if (!(window.location.pathname === "/home")) {
+          window.location.href = "home"
+      }
   }
   function is_at_login_page(){
       return window.location.pathname === "/login";
@@ -115,39 +109,30 @@
   }
 
   function silent_refresh() {
-      if (true) {
-          console.log("silent refreshing");
-          const xhr = new XMLHttpRequest();
-          xhr.open("POST", "http://127.0.0.1:8000/refresh_token", true);
-          xhr.withCredentials = true;
-          xhr.onload = (ev) => {
-              const response = JSON.parse(xhr.responseText);
-              if (xhr.status === 200) {
-                  access_token = `${response.token_type} ${response.access_token}`;
-                  let date_gmt = new Date(parseFloat(`${response.token_expiry}`)); // UTC values but in GMT format
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "http://127.0.0.1:8000/refresh_token", true);
+      xhr.withCredentials = true;
+      xhr.onload = (ev) => {
+          const response = JSON.parse(xhr.responseText);
+          if (xhr.status === 200) {
+              access_token = `${response.token_type} ${response.access_token}`;
+              let date_gmt = new Date(parseFloat(`${response.token_expiry}`)); // UTC values but in GMT format
 
-                  token_expiry = Date.UTC(date_gmt.getFullYear(), date_gmt.getMonth(),
-                      date_gmt.getDate(), date_gmt.getHours(),
-                      date_gmt.getMinutes(), date_gmt.getSeconds()); //UTC date in UTC format
-                  let time_left_ms = token_expiry - Date.now();
-
-                  console.log("Time left (ms): ", time_left_ms);
-                  console.log("Token expired: ", is_token_expired());
-                  console.log("Successfully refreshed tokens: " + access_token + " token_expiry: " + token_expiry);
-                  setTimeout(() => {
-                      silent_refresh();
-                  }, time_left_ms);
-                  if (is_at_login_page()){
-                      console.log("Redirecting to dashboard!");
-                      //redirect_to_dashboard();
-                  }
-              } else if (xhr.status === 401) {
-                    console.log("Response: ", response);
-                    logout(); // Reset session, and login
-              } else {
-                  console.log("Error logging in: " + response.detail);
+              token_expiry = Date.UTC(date_gmt.getFullYear(), date_gmt.getMonth(),
+                  date_gmt.getDate(), date_gmt.getHours(),
+                  date_gmt.getMinutes(), date_gmt.getSeconds()); //UTC date in UTC format
+              let time_left_ms = token_expiry - Date.now();
+              setTimeout(() => {
+                  silent_refresh();
+              }, time_left_ms);
+              if (is_at_login_page()) {
+                  redirect_to_dashboard();
               }
-          };
-          xhr.send()
-      }
+          } else if (xhr.status === 401) {
+              logout(); // Reset session, and login
+          } else {
+              console.debug("Error refreshing tokens: " + response.detail);
+          }
+      };
+      xhr.send()
   }
