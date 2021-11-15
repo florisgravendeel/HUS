@@ -24,6 +24,7 @@
           const data = new FormData(loginForm);
           let xhr = new XMLHttpRequest();
           xhr.open("POST", "http://127.0.0.1:8000/login", true);
+          xhr.withCredentials = true;
           xhr.onload = (ev) => {
               const status = document.getElementById("loginStatus");
               const response = JSON.parse(xhr.responseText);
@@ -49,7 +50,7 @@
                   status.innerText = "Error logging in: " + response.detail
               }
           };
-          xhr.send(data)
+          xhr.send(data);
       }
   }
 
@@ -137,7 +138,8 @@
                       silent_refresh();
                   }, time_left_ms);
                   if (is_at_login_page()){
-                      redirect_to_dashboard();
+                      console.log("Redirecting to dashboard!");
+                      //redirect_to_dashboard();
                   }
               } else if (xhr.status === 401) {
                     console.log("Response: ", response);
