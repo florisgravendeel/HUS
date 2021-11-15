@@ -4,8 +4,8 @@ from datetime import datetime, timedelta
 from typing import Optional
 
 import uvicorn
-from fastapi import Depends, FastAPI, HTTPException, status, Response, Request
-from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from fastapi import Depends, FastAPI, HTTPException, status, Response, Request, Security
+from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm, HTTPAuthorizationCredentials, HTTPBearer
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 from pydantic import BaseModel
@@ -14,6 +14,7 @@ from starlette.middleware.cors import CORSMiddleware
 from backend.app.auth import Auth
 
 auth_handler = Auth()
+security = HTTPBearer()
 SECRET_KEY = "967e64e52668340468d3075c80461de8b22f484487be1fe83c8bd77c2ca06e79"
 ACCESS_TOKEN_EXPIRE_MINUTES = 10
 REFRESH_TOKEN_EXPIRE_DAYS = 7
@@ -144,7 +145,7 @@ async def login(response: Response, form_data: OAuth2PasswordRequestForm = Depen
     refresh_token = auth_handler.encode_refresh_token(user.username)
 
     response.set_cookie("refresh_token", refresh_token, httponly=True, max_age=3600
-                        ) #TODO 1/2: expires = refresh_token.expires?
+                        )  # TODO 1/2: expires = refresh_token.expires?
     print("Logged in: ", user.username)
     return {"access_token": access_token, "token_type": "bearer", "token_expiry": token_expiry_timestamp}
 
@@ -168,18 +169,21 @@ async def refresh_token_(request: Request, response: Response):  # TODO: add acc
     token_expiry_timestamp = json.dumps(time.mktime(
         token_expiry.timetuple()) * 1000)  # conversion for javascript
 
-    new_refresh_token = auth_handler.encode_refresh_token(user_id)
+    new_refresh_token = auth_handler.encode_refresh_token(
+        user_id)  # mehh TODO: i think it's better to not give a new refresh token
     response.set_cookie("refresh_token", new_refresh_token, httponly=True, max_age=3600)
-    response.status_code = status.HTTP_200_OK
 
     print("Refresh token valid")
     print("Welcome user: ", user_id)
     return {"access_token": new_access_token, "token_type": "bearer", "token_expiry": token_expiry_timestamp}
 
 
-@app.get("/users/me/", response_model=User)
-async def read_users_me(current_user: User = Depends(get_current_active_user)):
-    return current_user
+@app.post("/users/me/")
+def my_profile(credentials: HTTPAuthorizationCredentials = Security(security)):
+    access_token = credentials.credentials
+    username = auth_handler.decode_access_token(access_token)
+    if username:
+        return 'Welcome ' + username
 
 
 if __name__ == '__main__':
