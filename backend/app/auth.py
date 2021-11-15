@@ -27,8 +27,7 @@ class Auth:
     def decode_access_token(self, token):
         try:
             payload = jwt.decode(token, self.SECRET_KEY, algorithms=[self.ALGORITHM])
-            payload = payload['scope']
-            if payload == 'access_token':
+            if payload['scope'] == 'access_token':
                 return payload['sub']
             raise HTTPException(status_code=401, detail='Scope for the access token is invalid')
         except jwt.ExpiredSignatureError:
