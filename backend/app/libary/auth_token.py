@@ -14,6 +14,11 @@ class AuthToken:
         self.COOKIE_MAX_AGE = self.REFRESH_TOKEN_EXPIRE_DAYS*24*60*60
 
     def encode_access_token(self, user_id):
+        """
+
+        :param user_id:
+        :return:
+        """
         payload = {
             'exp': datetime.utcnow() + timedelta(days=0, minutes=self.ACCESS_TOKEN_EXPIRE_MINUTES),
             'iat': datetime.utcnow(),
@@ -27,6 +32,11 @@ class AuthToken:
         )
 
     def decode_access_token(self, token):
+        """
+        Decodes an access token
+        :param token: the access token
+        :return:
+        """
         try:
             payload = jwt.decode(token, self.SECRET_KEY, algorithms=[self.ALGORITHM])
             if payload['scope'] == 'access_token':
