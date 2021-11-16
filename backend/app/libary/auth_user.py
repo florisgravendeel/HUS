@@ -1,7 +1,5 @@
 from typing import Optional
-from fastapi import Depends, HTTPException, status, Response, Request, Security
-from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm, HTTPAuthorizationCredentials, HTTPBearer
-from jose import JWTError, jwt
+from fastapi.security import OAuth2PasswordBearer
 from passlib.context import CryptContext
 from pydantic import BaseModel
 
@@ -31,8 +29,6 @@ class AuthUser:
 
     def __init__(self):
         self.pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
-        self.SECRET_KEY = "967e64e52668340468d3075c80461de8b22f484487be1fe83c8bd77c2ca06e79"
-        self.ALGORITHM = 'HS256'
         self.fake_users_db = {
             "johndoe": {
                 "username": "johndoe",
