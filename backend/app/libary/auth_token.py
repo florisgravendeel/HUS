@@ -3,8 +3,7 @@ from fastapi import HTTPException  # used to handle error handling
 from datetime import datetime, timedelta  # used to handle expiry time for tokens
 
 
-class Auth:
-
+class AuthToken:
     def __init__(self):
         # To get a new secret key this run:
         # openssl rand -hex 32
