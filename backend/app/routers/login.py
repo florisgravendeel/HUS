@@ -30,21 +30,21 @@ async def login(response: Response, form_data: OAuth2PasswordRequestForm = Depen
     After an valid authentication, the server will respond with a refresh token in form
     of a httponly-cookie and an access token. Both are JSON Web Tokens (JWT).
     """
-    user = user_auth.authenticate_user(form_data.username, form_data.password)
-    if not user:
+    if not user_auth.authenticate(form_data.username, form_data.password):
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Incorrect username or password",
             headers={"WWW-Authenticate": "Bearer"},
         )
+    username = form_data.username
 
-    access_token = token_handler.encode_access_token(user.username)
+    access_token = token_handler.encode_access_token(username)
     token_expiry = token_handler.get_token_expiry(access_token)
 
     token_expiry_timestamp = json.dumps(time.mktime(
         token_expiry.timetuple()) * 1000)  # conversion for javascript
 
-    refresh_token = token_handler.encode_refresh_token(user.username)
+    refresh_token = token_handler.encode_refresh_token(username)
 
     response.set_cookie("refresh_token", refresh_token, httponly=True, max_age=token_handler.COOKIE_MAX_AGE)
     return {"access_token": access_token, "token_type": "bearer", "token_expiry": token_expiry_timestamp}
@@ -88,6 +88,6 @@ def my_profile(credentials: HTTPAuthorizationCredentials = Security(security)):
     """
     access_token = credentials.credentials
     username = token_handler.decode_access_token(access_token)
-    print(user_auth.get_current_user2(username))
+    print(user_auth.get_profile(username))
     if username:
         return 'Welcome ' + username
