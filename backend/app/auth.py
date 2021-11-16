@@ -4,12 +4,15 @@ from datetime import datetime, timedelta  # used to handle expiry time for token
 
 
 class Auth:
-    # to get a new secret key this run:
-    # openssl rand -hex 32
-    SECRET_KEY = "967e64e52668340468d3075c80461de8b22f484487be1fe83c8bd77c2ca06e79"
-    ACCESS_TOKEN_EXPIRE_MINUTES = 20
-    REFRESH_TOKEN_EXPIRE_DAYS = 7
-    ALGORITHM = 'HS256'
+
+    def __init__(self):
+        # To get a new secret key this run:
+        # openssl rand -hex 32
+        self.SECRET_KEY = "967e64e52668340468d3075c80461de8b22f484487be1fe83c8bd77c2ca06e79"
+        self.ACCESS_TOKEN_EXPIRE_MINUTES = 15
+        self.REFRESH_TOKEN_EXPIRE_DAYS = 7
+        self.ALGORITHM = 'HS256'
+        self.COOKIE_MAX_AGE = self.REFRESH_TOKEN_EXPIRE_DAYS*24*60*60
 
     def encode_access_token(self, user_id):
         payload = {
