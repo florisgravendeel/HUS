@@ -77,6 +77,10 @@ class AuthUser:
             raise credentials_exception
         return user
 
+    def get_current_user2(self, username):
+        user = self.get_user(username=username)
+        return user
+
     def verify_password(self, plain_password, hashed_password):
         return self.pwd_context.verify(plain_password, hashed_password)
 

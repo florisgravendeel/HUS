@@ -88,5 +88,6 @@ def my_profile(credentials: HTTPAuthorizationCredentials = Security(security)):
     """
     access_token = credentials.credentials
     username = token_handler.decode_access_token(access_token)
+    print(user_auth.get_current_user2(username))
     if username:
         return 'Welcome ' + username
