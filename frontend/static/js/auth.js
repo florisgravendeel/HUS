@@ -1,26 +1,19 @@
-  window.addEventListener('error', function(e) {
-    console.log("We got an error m8" + e);
-  }, true);
+  let access_token; // A JWT token to access our API
+  let token_expiry; // Expiry date of our access token.
 
-  let access_token;
-  let token_expiry;
-  // Are we logged in? If not, go to the login page.
+  // Are we logged in? If so, refresh the tokens or go to the login page.
   silent_refresh()
 
-  document.getElementById("logoutButton").addEventListener('click',function () {
+  const logoutButton = document.getElementById("logoutButton");
+  if (logoutButton != null){
+      logoutButton.addEventListener('click',function () {
       logout();
   });
-
-  const silentRefreshButton = document.getElementById("silentRefreshButton");
-  if (silentRefreshButton != null) {
-      silentRefreshButton.addEventListener('click', function () {
-          silent_refresh();
-      });
   }
 
-  const loginSubmit = document.getElementById("loginSubmit");
-  if (loginSubmit != null) {
-      loginSubmit.onclick = (ev) => {
+  const loginButton = document.getElementById("loginButton");
+  if (loginButton != null) {
+      loginButton.onclick = (ev) => {
           let response = undefined;
           ev.preventDefault();
           const loginForm = document.getElementById("loginForm");
@@ -39,75 +32,88 @@
                       date_gmt.getDate(), date_gmt.getHours(),
                       date_gmt.getMinutes(), date_gmt.getSeconds()); //UTC date in UTC format
                   let time_left_ms = token_expiry - Date.now();
-                  let time_left_s = time_left_ms / 1000;
-                  console.log("Time left (ms): ", time_left_ms);
-                  console.log("Token expired: ", is_token_expired());
-                  status.innerText = "Successfully logged in, token: " + access_token + " token_expiry: " + token_expiry;
-                  setTimeout(() => {
+                  setTimeout(() => { // If the access token is expired, then do a silent refresh
                       silent_refresh();
                   }, time_left_ms);
                   if (is_at_login_page()) {
                       redirect_to_dashboard();
                   }
-              } else {
-                  status.innerText = "Error logging in: " + response.detail
+              } else if (xhr.status === 401) {
+                  alert("Wrong username or password");
               }
           };
           xhr.send(data);
       }
   }
 
-  // request dashboard info
-  const privateRequest = document.getElementById("privateRequest");
-  if (privateRequest != null) { // Does the dashboard exist?
-      privateRequest.onclick = (ev) => {
-          fetch("http://127.0.0.1:8000/users/me/", {
-              method: "POST",
-              headers: {
-                  "Content-Type": 'application/json',
-                  "Authorization": access_token
-              }
-          }).then(function (response) {
-              console.log(response.status);
-              response.text().then(result => {
-                  const status = document.getElementById("privateStatus");
-                  status.innerText = result
-              }).catch(error => console.log('error', error))
-            })
-      }
-  }
-
+  /**
+   * Sends a request to the server to reset the refresh token (httponly cookie).
+   */
   function logout() {
       access_token = null;
-      fetch("http://127.0.0.1:8000/logout", { // Send logout request to reset http cookies!
-          method: "POST"
-      }).then(function (response) {
-          console.log("Logging out: ", response.status);
-          //redirect_to_login();
+      fetch("http://127.0.0.1:8000/logout", {
+          method: "POST",
+          credentials: "include"
+      }).then(function () {
+          redirect_to_login();
       }).catch(()=>{
-          //redirect_to_login();
+          redirect_to_login();
       })
   }
 
+  /** Redirects to login if the user is not at the login page. */
   function redirect_to_login() {
       if (!is_at_login_page()) {
           window.location.href = "login";
       }
   }
+
+  /** Redirects to the dashboard if the user is not at the dashboard. */
   function redirect_to_dashboard() {
       if (!(window.location.pathname === "/home")) {
           window.location.href = "home"
       }
   }
+
+  /** @returns {boolean} True if the user is at the login page, otherwise False. */
   function is_at_login_page(){
       return window.location.pathname === "/login";
   }
 
-  /* If there is no access token, then the token is automatically expired */
+  /**
+   * Function that verifies if the access token is expired or not.
+   * If there is no access token, then the token is automatically expired.
+   * @returns {boolean} True if the token is expired.
+   */
   function is_token_expired(){
       return token_expiry == null ? true : (token_expiry < Date.now())
   }
 
+  /**
+   * This function is directly called if:
+   * (1) the access token is stored in memory;
+   * (2) the user is at dashboard page;
+   * To prevent the access token from being null when fetching.
+   */
+  function loadDashboard() {
+      fetch("http://127.0.0.1:8000/users/me/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": 'application/json',
+                    "Authorization": access_token
+                }
+            }).then(function (response) {
+                response.text().then(result => {
+                    const status = document.getElementById("dashboardText");
+                    status.innerText = result
+                }).catch(error => console.log('error', error))
+            })
+  }
+
+  /**
+   * Makes an API call to fetch a new access token.
+   * If there is no refresh token set, the user will automatically logout (to reset the session).
+   */
   function silent_refresh() {
       const xhr = new XMLHttpRequest();
       xhr.open("POST", "http://127.0.0.1:8000/refresh_token", true);
@@ -127,11 +133,11 @@
               }, time_left_ms);
               if (is_at_login_page()) {
                   redirect_to_dashboard();
+              } else {
+                  loadDashboard()
               }
           } else if (xhr.status === 401) {
               logout(); // Reset session, and login
-          } else {
-              console.debug("Error refreshing tokens: " + response.detail);
           }
       };
       xhr.send()
