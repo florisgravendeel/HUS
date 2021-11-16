@@ -8,8 +8,6 @@
   <link rel="icon" type="image/x-icon" href="{{ url_for('static', path='/images/favicon.ico') }}">
 </head>
 <body>
-    <p><a href="/home">Ga naar Dashboard</a></p>
-    <br>
     <h2>Inloggegevens:</h2>
     <table>
       <tr>
@@ -37,14 +35,10 @@
         Wachtwoord:
         <input id="loginPasswordInput" name="password" placeholder="Password" type="password" value="secret">
       </label>
-      <input id="loginSubmit" type="submit" value="Inloggen">
+      <input id="loginButton" type="submit" value="Inloggen">
     </form>
     <br>
-    <label for="loginStatus"></label><textarea id="loginStatus" style="height: 100px; width: 400px;"></textarea>
-    <h2>Logout:</h2>
-    <input id="logoutButton" type="submit" value="Uitloggen">
-    <h2>Silent refresh (For testing only):</h2>
-    <input id="silentRefreshButton" type="submit" value="Refresh">
+    <label for="loginStatus"></label>
 </body>
 <link rel="stylesheet" href="{{ url_for('static', path='/css/default.css') }}">
 <script type="text/javascript" src="{{ url_for('static', path='/js/auth.js') }}"></script>
