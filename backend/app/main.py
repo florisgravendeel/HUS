@@ -144,9 +144,7 @@ async def login(response: Response, form_data: OAuth2PasswordRequestForm = Depen
 
     refresh_token = auth_handler.encode_refresh_token(user.username)
 
-    response.set_cookie("refresh_token", refresh_token, httponly=True, max_age=3600
-                        )  # TODO 1/2: expires = refresh_token.expires?
-    print("Logged in: ", user.username)
+    response.set_cookie("refresh_token", refresh_token, httponly=True, max_age=auth_handler.COOKIE_MAX_AGE)
     return {"access_token": access_token, "token_type": "bearer", "token_expiry": token_expiry_timestamp}
 
 
@@ -158,9 +156,8 @@ async def logout(response: Response):  # TODO: add access token logic here
 
 
 @app.post("/refresh_token")
-async def refresh_token_(request: Request, response: Response):  # TODO: add access token logic also here
+async def refresh_token_(request: Request, response: Response):
     refresh_token = request.cookies.get('refresh_token')  # What to do with 401?
-    print("Refresh token: ", refresh_token)
     user_id = auth_handler.decode_refresh_token(refresh_token)
 
     new_access_token = auth_handler.encode_access_token(user_id)
@@ -169,12 +166,8 @@ async def refresh_token_(request: Request, response: Response):  # TODO: add acc
     token_expiry_timestamp = json.dumps(time.mktime(
         token_expiry.timetuple()) * 1000)  # conversion for javascript
 
-    new_refresh_token = auth_handler.encode_refresh_token(
-        user_id)  # mehh TODO: i think it's better to not give a new refresh token
-    response.set_cookie("refresh_token", new_refresh_token, httponly=True, max_age=3600)
-
-    print("Refresh token valid")
-    print("Welcome user: ", user_id)
+    new_refresh_token = auth_handler.encode_refresh_token(user_id)
+    response.set_cookie("refresh_token", new_refresh_token, httponly=True, max_age=auth_handler.COOKIE_MAX_AGE)
     return {"access_token": new_access_token, "token_type": "bearer", "token_expiry": token_expiry_timestamp}
 
 
@@ -188,6 +181,4 @@ def my_profile(credentials: HTTPAuthorizationCredentials = Security(security)):
 
 if __name__ == '__main__':
     print("UTC Time: ", datetime.utcnow())
-    print("UTC Time: ", datetime.now().timestamp())
-
     uvicorn.run(app, host="127.0.0.1", port=8000)
