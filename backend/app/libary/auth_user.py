@@ -63,31 +63,23 @@ class AuthUser:
             return False
         return True
 
-    def get_profile(self, username):
-        """
-        Returns the users profile, based of the username.
-        """
-        user = self.get_user(username=username)
-        if user is None:
-            raise HTTPException(
-                status_code=status.HTTP_404_NOT_FOUND,
-                detail="User does not exist",
-                headers={"WWW-Authenticate": "Bearer"},
-            )
-        return user
-
     def get_user(self, username: str):
         """
         Returns the user, based of the username.
-        This function is the same authenticate(), except no password is needed.
+        :return User object
         """
         if username in self.fake_users_db:
             user_dict = self.fake_users_db[username]
-            print("----")
-            print(UserInDB(**user_dict))
-            print("lalala")
-            print(self.get_password_hash("123132321"))
             return UserInDB(**user_dict)
+
+    def get_profile(self, username: str):
+        """
+        Returns the user, based of the username.
+        :return User object in dictionary
+        """
+        if username in self.fake_users_db:
+            user_dict = self.fake_users_db[username]
+            return user_dict
 
     def verify_password(self, plain_password, hashed_password):
         """
@@ -98,8 +90,8 @@ class AuthUser:
 
     def get_password_hash(self, password):
         """
-        Hashes the text password into hash password
-        :param password:
-        :return:
+        Hashes the text password into a hash password
+        :param password: plain text password
+        :return: hashed password
         """
         return self.pwd_context.hash(password)

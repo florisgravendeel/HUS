@@ -1,13 +1,9 @@
-from fastapi import APIRouter
-
 import json
 import time
-from typing import Optional
+
+from fastapi import APIRouter
 from fastapi import Depends, HTTPException, status, Response, Request, Security
-from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm, HTTPAuthorizationCredentials, HTTPBearer
-from jose import JWTError, jwt
-from passlib.context import CryptContext
-from pydantic import BaseModel
+from fastapi.security import OAuth2PasswordRequestForm, HTTPAuthorizationCredentials, HTTPBearer
 
 from backend.app.libary.auth_token import AuthToken
 from backend.app.libary.auth_user import AuthUser
@@ -88,6 +84,5 @@ def my_profile(credentials: HTTPAuthorizationCredentials = Security(security)):
     """
     access_token = credentials.credentials
     username = token_handler.decode_access_token(access_token)
-    print(user_auth.get_profile(username))
-    if username:
-        return 'Welcome ' + username
+    profile = user_auth.get_profile(username)
+    return profile
