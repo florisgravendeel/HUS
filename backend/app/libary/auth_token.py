@@ -15,9 +15,9 @@ class AuthToken:
 
     def encode_access_token(self, user_id):
         """
-
-        :param user_id:
-        :return:
+        Creates an access token with signature.
+        :param user_id: unique id of the user (can be string or integer)
+        :return: JSON Web Token (JWT)
         """
         payload = {
             'exp': datetime.utcnow() + timedelta(days=0, minutes=self.ACCESS_TOKEN_EXPIRE_MINUTES),
@@ -33,9 +33,9 @@ class AuthToken:
 
     def decode_access_token(self, token):
         """
-        Decodes an access token
+        Decodes an access token, and verifies if the token is valid.
         :param token: the access token
-        :return:
+        :return: subject claim (user_id)
         """
         try:
             payload = jwt.decode(token, self.SECRET_KEY, algorithms=[self.ALGORITHM])
@@ -48,6 +48,11 @@ class AuthToken:
             raise HTTPException(status_code=401, detail='Invalid access token')
 
     def encode_refresh_token(self, user_id):
+        """
+        Encodes an refresh token with signature.
+        :param user_id: unique id of the user (can be string or integer)
+        :return JSON Web Token (JWT)
+        """
         payload = {
             'exp': datetime.utcnow() + timedelta(days=self.REFRESH_TOKEN_EXPIRE_DAYS, hours=0),
             'iat': datetime.utcnow(),
@@ -61,6 +66,11 @@ class AuthToken:
         )
 
     def decode_refresh_token(self, token):
+        """
+        Decodes an refresh token, and verifies if the token is valid.
+        :param token: the refresh token
+        :return: subject claim (user_id)
+        """
         try:
             payload = jwt.decode(token, self.SECRET_KEY, algorithms=[self.ALGORITHM])
             if payload['scope'] == 'refresh_token':
@@ -72,6 +82,12 @@ class AuthToken:
             raise HTTPException(status_code=401, detail='Invalid refresh token')
 
     def get_token_expiry(self, token):
+        """
+        Decodes both access/refresh tokens, and verifies if the token is valid.
+        This function does not verify the Expiration Time Claim (exp).
+        :param token: the access token or refresh token
+        :return: a UTC datetime
+        """
         try:
             payload = jwt.decode(token, self.SECRET_KEY, algorithms=[self.ALGORITHM],
                                  options={"verify_exp": False})
