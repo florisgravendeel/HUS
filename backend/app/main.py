@@ -2,6 +2,13 @@ import uvicorn
 from datetime import datetime
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
+import os
+import sys
+os.chdir('../../../HUS')
+
+#sys.path.append('/Users/Floris/PycharmProjects/HUS')
+sys.path.append(os.getcwd())
+print(sys.path)
 from backend.app.routers import login
 
 app = FastAPI()
