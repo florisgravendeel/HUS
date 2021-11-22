@@ -5,3 +5,16 @@
         </button>
     </div>
 </nav>
+<div class="bovenBalk">
+    {% for item in bovenBalk %}
+        {% if "Inloggen" in item.caption %}
+        <div class="paginaNaam">
+            <a href="{{ item.href }}">{{ item.caption }}</a>
+        </div>
+        {% elif "Logo" in item.caption %}
+        <div class="logo">
+            <a href="{{ item.href }}">{{ item.caption }}</a>
+        </div>
+        {% endif %}
+    {% endfor %}
+</div>

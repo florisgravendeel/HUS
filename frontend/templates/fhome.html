@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta content='IE=edge' http-equiv='X-UA-Compatible'>
+  <title>Simple Login Example</title>
+  <meta content='width=device-width, initial-scale=1' name='viewport'>
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', path='/images/favicon.ico') }}">
+</head>
+<body>
+<div>
+  <h2>Dashboard:</h2>
+  <p> U vindt hier al uw persoonlijke informatie.</p>
+</div>
+   <br>
+    <label for="privateStatus"></label><textarea id="dashboardText" style="height: 50px; width: 400px;"></textarea>
+    <h2>Logout:</h2>
+    <input id="logoutButton" type="submit" value="Uitloggen">
+</body>
+<link rel="stylesheet" href="{{ url_for('static', path='/css/default.css') }}">
+<script type="text/javascript" src="{{ url_for('static', path='/js/auth.js') }}"></script>
+</html>

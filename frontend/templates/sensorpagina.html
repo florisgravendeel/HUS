@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+        <link href="{{ url_for('static', filename='css/global.css') }}" rel="stylesheet"><!--- nu laad ie wel:
+         <link href="{{ url_for('static', path='/css/global.css') }}" rel="stylesheet">-->
+        <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"> <!--- nu laad ie wel:
+        <link href="{{ url_for('static', path='/css/style.css') }}" rel="stylesheet">-->
+    {{ super() }}
+    <style scoped>
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="hoverBox">
+        <form class= "inlogGegevens" method="post">
+            <div class="logIn">
+                <label for="uname"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="uname" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+
+                <span class="wwVergeten"><a href="#">Wachtwoord vergeten?</a></span>
+
+                <button class="knop inlogKnop" type="submit">Login</button>
+            </div>
+        </form>
+    </div>    
+{% endblock %}
