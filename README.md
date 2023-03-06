@@ -1,3 +1,8 @@
+> **Warning**
+> This is a old repository that's not being used anymore. 
+
+#
+
 <img src="./frontend/static/images/se-logo.png" alt="Logo of the project" align="right">
 
 # HUS &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/your/your-project/blob/master/LICENSE)
